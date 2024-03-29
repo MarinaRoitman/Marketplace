@@ -1,27 +1,52 @@
-.navbar{
-    display: flex;
-    justify-content: space-around;
-    padding: 13px;
-    box-shadow: 0 1px 3px -2px black;
-}
+/* NAVBAR CSS */
 
-.nav-logo{
+.contenedor {
     display: flex;
     align-items: center;
-    gap: 10px;
+    height: 3vh;
+    overflow: hidden;
+    background-color: black;
 }
 
+.scroll {
+    white-space: nowrap;
+    margin: 0 2em;
+}
+
+.scroll div {
+    display: flex;
+    gap: 4em;
+}
+
+.scroll p {
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin-bottom: 0;
+    line-height: 10px;
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.RightToLeft {
+    animation: RightToLeft 20s infinite linear;
+}
+
+@keyframes  RightToLeft {
+    from {
+    transform: translateX(0%);
+    }
+    to {
+    transform: translateX(-50%);
+    }
+}
+
+
+
 #lg{
-    padding: 1px 1px;
+    padding: 5px 1px;
     border-radius: 50px;
     width: 75px; 
     height: auto; 
-}
-
-.nav-logo p{
-    color: black;
-    font-size: 40px;
-    font-weight: 7600;
 }
 
 .nav-menu{
@@ -42,33 +67,144 @@
     justify-content: center;
     gap: 3px;
     cursor: pointer;
-    margin-right: 10px;
+    padding: 15px;
+    font-size: 17px;
 }
 
-.nav-menu hr{
-    border: none;
-    width: 80%;
-    height: 3px;
-    border-radius: 10px;
-    background: rgb(255, 132, 0);
-}
-
-.nav-login-cart{
+#search-box{
+    background-color: rgb(255, 255, 255);
+    width: 100% ;
+    border-radius: 10px ;
+    height: 2.5rem ;
+    padding: 0 15px ;
+    box-shadow: 0px 0px 8px #ddd !important;
     display: flex;
     align-items: center;
-    gap: 45px;
-    margin-left: 20px;
 }
 
-.nav-login-cart button{
-    width: 120px;
-    height: 58;
-    outline: none;
-    border: 1px solid rgb(55, 54, 54);
-    border-radius: 75px;
-    color: rgb(255, 255, 255);
-    font-size: 19px;
-    font-weight: 20px;
-    background-color: black;
-    cursor: pointer;
+.input{
+    background-color: transparent;
+    border-left: 5px #a2a2a2;
+    height: 100%;
+    font-size: 1.25rem;
+    width: 100%;
+    margin-left: 5px;
 }
+
+.input:focus{
+    outline: none;
+}
+
+.icon{
+    width: 20px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.hvr-underline-from-left {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+.hvr-underline-from-left:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: #7cc0d8;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+    right: 0;
+}
+
+.align-top{
+    align-items: center;
+    vertical-align: none;
+}
+
+.alinearTexto{
+    display: inline-block;
+    vertical-align: left;
+    margin-top: 20px;
+    position: relative;
+}
+
+.alinearTexto::after {
+    content: 'AR';
+    color: #64b6d4;
+    position: absolute;
+    right: 0;
+}
+
+.pp{
+    font-size: 2em;
+}
+
+.button1 {
+    background-color: #FFFFFF;
+    border: 1px solid rgb(209,213,219);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: #111827;
+    font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 1rem;
+    letter-spacing: .30px;
+    padding: .75rem 1rem;
+    text-align: center;
+    text-decoration: none #D1D5DB solid;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-left: 1.2em;
+}
+
+.button1:hover {
+    background-color: rgba(239, 240, 241, 0.693);
+}
+
+.button1:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.buttonCart {
+    background-color: #FFFFFF;
+    border: 1px solid rgb(209,213,219);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    font-size: .5rem;
+    line-height: 1rem;
+    padding: .5rem .5rem;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 1.6em;
+    border: 0;
+    size-adjust: 5px;
+}
+
+.buttonCart:hover {
+    background-color: rgba(239, 240, 241, 0.693);
+}
+
+.imgSize{
+    width: 1.6vw; 
+    height: auto;
+}
+
+
