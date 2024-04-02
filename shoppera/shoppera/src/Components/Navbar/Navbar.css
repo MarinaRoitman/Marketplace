@@ -257,6 +257,12 @@
     }
 }
 
+@media (min-width: 715px) {
+    .padding-top-md {
+        padding-top: 0.9em; 
+    }
+}
+
 @media (min-width: 320px) {
     .button1 {
         margin-left: 0.8em;
@@ -380,6 +386,13 @@
     }
 }
 
+@media (min-width: 877px) {
+    .sizeCarrito {
+        width: 3.3vw; 
+        height: auto;
+    }
+}
+
 @media (min-width: 1400px) {
     .sizeCarrito {
         width: 1.6vw; 
@@ -401,3 +414,4 @@
     border-width: 0.3px;
     opacity: 0;
 }
+
