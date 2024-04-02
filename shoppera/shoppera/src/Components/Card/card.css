@@ -1,0 +1,85 @@
+/* CSS de Card*/
+
+.centrarElem{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    max-width: 100%;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 0;
+}
+
+.sizeImg{
+    max-width: 100%;
+    height: auto;
+}
+
+.styleCard{
+    cursor: pointer;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: 1px solid #282f3338; /* Agrega un borde sólido de 2px */
+    border-radius: 93px; /* Agrega esquinas redondeadas */
+    overflow: hidden;
+}
+
+
+@media (min-width: 320px) {
+    .centrarElem {
+        margin: 2em;
+        max-width: 80%;
+    }
+}
+
+.moreButton {
+    position: absolute;
+    top: 1.3em; 
+    right: 1.3em; 
+    width: 2.5em;
+    height: 2.5em;
+    background-color: black;
+    color: black;
+    border: 1px solid black;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.moreButton p{
+    margin: -0.2em 0; 
+    line-height: 0.3;
+    vertical-align: middle; 
+    font-size: 1.5em;
+    color: white;
+}
+
+.titulo-centrado{
+    margin-top: 3em;
+}
+
+.titulo-centrado h2 {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.hr-container {
+    display: flex;
+    justify-content: center;
+}
+
+.hr-container hr {
+    width: 18em;
+    height: 6px;
+    background-color: #006eff;
+    border-radius: 1em;
+    margin: 0;
+}

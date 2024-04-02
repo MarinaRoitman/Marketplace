@@ -1,5 +1,6 @@
 /* NAVBAR CSS */
 
+/* Slider Infinito */
 .contenedor {
     display: flex;
     align-items: center;
@@ -19,7 +20,7 @@
 }
 
 .scroll p {
-    font-size: 1em;
+    font-size: 0.8em;
     color: rgb(255, 255, 255);
     font-weight: bold;
     margin-bottom: 0;
@@ -28,7 +29,7 @@
 }
 
 .RightToLeft {
-    animation: RightToLeft 20s infinite linear;
+    animation: RightToLeft infinite 50s linear;
 }
 
 @keyframes  RightToLeft {
@@ -40,24 +41,37 @@
     }
 }
 
-
-
-#lg{
-    padding: 5px 1px;
-    border-radius: 50px;
-    width: 75px; 
-    height: auto; 
-}
+/* Categorias */
 
 .nav-menu{
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
-    gap: 50px;
+    gap: 3.5em;
     color: rgb(0, 0, 0);
-    font: 20px;
+    font: 1em;
     font-weight: 500;
+    
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 4px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+.centrarItems {
+    display: flex;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+    padding-top: -1em;
+}
+
+@media screen and (max-width: 702px) {
+    .nav-menu {
+      font-size: .1em; /* Reducir el tamaño del texto para pantallas más pequeñas */
+    }
 }
 
 .nav-menu li{
@@ -65,11 +79,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 7em;
     cursor: pointer;
-    padding: 15px;
-    font-size: 17px;
+    padding: 0px;
+    font-size: 1em;
+    padding-bottom: .5em;
+    padding-left: .6em;
+    padding-right: .6em;
 }
+
+@media screen and (max-width: 702px) {
+    .nav-menu li {
+      font-size: 12px; /* Reducir el tamaño de fuente para pantallas más pequeñas */
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .nav-menu li {
+      font-size: 11px; /* Reducir el tamaño de fuente para pantallas más pequeñas */
+    }
+}
+
+/* Busqueda */
 
 #search-box{
     background-color: rgb(255, 255, 255);
@@ -101,6 +132,26 @@
     margin-left: auto;
 }
 
+@media (min-width: 768px) {
+    .icon {
+        margin-left: -100px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .icon {
+        margin-left: 100px;
+    }
+}
+
+@media (min-width: 2560px) {
+    .icon {
+        margin-left: 10px;
+    }
+}
+
+/* Decoracion de Categorias */
+
 .hvr-underline-from-left {
     display: inline-block;
     vertical-align: middle;
@@ -120,13 +171,22 @@
     height: 4px;
     -webkit-transition-property: right;
     transition-property: right;
-    -webkit-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.3s;
     transition-duration: 0.2s;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
 }
 .hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
     right: 0;
+}
+
+/* Ordenamiento del logo */
+
+#lg{
+    padding: 5px 1px;
+    border-radius: 50px;
+    width: 75px; 
+    height: auto; 
 }
 
 .align-top{
@@ -151,6 +211,8 @@
 .pp{
     font-size: 2em;
 }
+
+/* Boton */
 
 .button1 {
     background-color: #FFFFFF;
@@ -183,6 +245,58 @@
     outline-offset: 2px;
 }
 
+@media (min-width: 320px) {
+    .padding-top-md {
+        padding-top: 0.9em; 
+    }
+}
+
+@media (min-width: 700px) {
+    .padding-top-md {
+        padding-top: 0; 
+    }
+}
+
+@media (min-width: 320px) {
+    .button1 {
+        margin-left: 0.8em;
+    }
+}
+
+@media (min-width: 320px) {
+    .button1 {
+        margin-right: 0.3em; 
+        font-size: .7rem;
+        line-height: 1.3rem;
+        padding: .4rem 0.4rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .button1 {
+    font-size: .7rem;
+    font-weight: 600;
+    line-height: 1.4rem;
+    padding: .4rem 0.4rem;
+    cursor: pointer;
+    margin-left: 0.4em;
+    }
+}
+
+@media (min-width: 1440px) {
+    .button1 {
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 1rem;
+    padding: .75rem 1rem;
+    cursor: pointer;
+    margin-left: 0.3em;
+    }
+}
+
+
+/* Boton de Carrito */
+
 .buttonCart {
     background-color: #FFFFFF;
     border: 1px solid rgb(209,213,219);
@@ -202,9 +316,88 @@
     background-color: rgba(239, 240, 241, 0.693);
 }
 
-.imgSize{
+@media (min-width: 320px) {
+    .buttonCart {
+    margin-left: 0.5em;
+    }
+}
+
+@media (min-width: 768px) {
+    .buttonCart {
+    margin-left: 0.5em;
+    }
+}
+
+@media (min-width: 1440px) {
+    .buttonCart {
+    margin-left: 1.2em;
+    }
+}
+
+@media (min-width: 2560px) {
+    .buttonCart {
+    margin-left: 0.5em;
+    }
+}
+
+.sizeCarrito{
     width: 1.6vw; 
     height: auto;
 }
 
+@media (min-width: 300px) {
+    .sizeCarrito {
+        width: 4vw; 
+        height: auto;
+    }
+}
 
+@media (min-width: 320px) {
+    .sizeCarrito {
+        width: 8.9vw; 
+        height: auto;
+    }
+}
+
+@media (min-width: 375px) {
+    .sizeCarrito {
+        width: 8vw; 
+        height: auto;
+    }
+}
+
+@media (min-width: 425px) {
+    .sizeCarrito {
+        width: 6vw; 
+        height: auto;
+    }
+}
+
+@media (min-width: 700px) {
+    .sizeCarrito {
+        width: 3.7vw; 
+        height: auto;
+    }
+}
+
+@media (min-width: 1400px) {
+    .sizeCarrito {
+        width: 1.6vw; 
+        height: auto;
+    }
+}
+
+/* Modifico el hr */
+
+.hrEdit{
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 0.3px;
+    opacity: 0;
+}

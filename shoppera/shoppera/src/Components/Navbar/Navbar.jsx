@@ -25,6 +25,12 @@ function NavbarPrincipal() {
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
+
+        <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
+        <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
+        <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
+        <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
+        <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
       </div>
     </div>
   </div>
@@ -51,22 +57,22 @@ function NavbarPrincipal() {
                     <img src={search} className='icon' alt="Search"></img> 
                 </div>
               </Col>
-              <Col xs={12} md={4} className="d-flex align-items-center justify-content-center" > 
+              <Col xs={12} md={4} className="d-flex align-items-center justify-content-center padding-top-md" > 
                 <div>
                   <div>
                   <button class="button1" role="button">Mi cuenta</button>
                   <button class="button1" role="button">Mis pedidos</button>
-                  <button class="buttonCart" role="button"><img src={carritoVacio} className='imgSize' alt="carrito vacio" /></button>
+                  <button class="buttonCart" role="button"><img src={carritoVacio} className='sizeCarrito' alt="carrito vacio" /></button>
                   </div>
                 </div>
               </Col>
           </Row>
-        <Row>
+        <Row className='centrarItems'>
           <Col xs={12}>
-              <div style={{height: '64px' }}>
+              <div>
                 <ul className ="nav-menu">
-                  <li className ="hvr-underline-from-left hvr-underline-from-left:before" >Menú</li>
-                  <li className="hvr-underline-from-left hvr-underline-from-left:before" >Mujer</li>
+                  <li className ="hvr-underline-from-left hvr-underline-from-left:before">Menú</li>
+                  <li className="hvr-underline-from-left hvr-underline-from-left:before">Mujer</li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">Hombre</li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">Niños</li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">Mascota</li>
@@ -76,7 +82,7 @@ function NavbarPrincipal() {
           </Col>
         </Row>
       </Container>
-      <hr />
+      <hr className='hrEdit'/>
     </>
   );
 }

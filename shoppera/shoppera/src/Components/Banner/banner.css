@@ -1,0 +1,65 @@
+/* CSS del Banner */
+
+@media (min-width: 1400px) {
+    .bannerSize {
+        width: 100%; 
+        height: auto; 
+        display: block; 
+    }
+}
+
+@media (min-width: 1024px) {
+    .bannerSize {
+        width: 100%; 
+        height: auto; 
+        display: block; 
+    }
+}
+
+@media (min-width: 768px) {
+    .bannerSize {
+        width: 100%; 
+        height: auto; 
+        display: block; 
+    }
+}
+
+@media (min-width: 425px) {
+    .bannerSize {
+        width: 100%; 
+        height: auto; 
+        display: block; 
+    }
+}
+
+@media (min-width: 375px) {
+    .bannerSize {
+        width: 100%; 
+        height: auto; 
+        display: block; 
+    }
+}
+
+@media (min-width: 320px) {
+    .bannerSize {
+        width: 100%; 
+        height: auto; 
+        display: block; 
+    }
+}
+
+
+.cambiarBotones{
+.carousel-control-next-icon {
+    background-image: url("../Images/derecha.svg");
+}
+.carousel-control-prev-icon {
+    background-image: url("../Images/izquierda.svg"); 
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+  width: 4em; /* Ancho de la flecha */
+  height: 4em; /* Alto de la flecha */
+}
+}
