@@ -4,17 +4,17 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import logo from '../Images/logo.png';
-import search from '../Images/search.png';
-import carritoVacio from '../Images/carrito vacio.png';
+import logo from '../../assets/logo.png';
+import search from '../../assets/search.png';
+import carritoVacio from '../../assets/carrito vacio.png';
 
 
 function NavbarPrincipal() {
   return (
     <>
-  <div class="contenedor">
-    <div class="scroll">
-      <div class="RightToLeft">
+  <div className="contenedor">
+    <div className="scroll">
+      <div className="RightToLeft">
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
@@ -60,9 +60,9 @@ function NavbarPrincipal() {
               <Col xs={12} md={4} className="d-flex align-items-center justify-content-center padding-top-md" > 
                 <div>
                   <div>
-                  <button class="button1" role="button">Mi cuenta</button>
-                  <button class="button1" role="button">Mis pedidos</button>
-                  <button class="buttonCart" role="button"><img src={carritoVacio} className='sizeCarrito' alt="carrito vacio" /></button>
+                  <button className="button1" role="button">Mi cuenta</button>
+                  <button className="button1" role="button">Mis pedidos</button>
+                  <button className="buttonCart" role="button"><img src={carritoVacio} className='sizeCarrito' alt="carrito vacio" /></button>
                   </div>
                 </div>
               </Col>

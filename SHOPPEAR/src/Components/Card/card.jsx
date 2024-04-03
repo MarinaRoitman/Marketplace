@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import test from '../Images/ropaTest.jpg';
+import test from '../../assets/ropaTest.jpg';
 
 export const CardComponent = () => {
 return (
