@@ -415,3 +415,17 @@
     opacity: 0;
 }
 
+.styleLinkNone{
+    text-decoration: none; 
+    color: #000000;
+}
+
+.styleLinkNone:visited {
+    color: #000000; 
+}
+
+.styleLinkNone:hover,
+.styleLinkNone:focus {
+    color: #000000; 
+}
+

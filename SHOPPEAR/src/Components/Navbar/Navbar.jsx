@@ -7,9 +7,9 @@ import Col from 'react-bootstrap/Col';
 import logo from '../../assets/logo.png';
 import search from '../../assets/search.png';
 import carritoVacio from '../../assets/carrito vacio.png';
+import {Link} from 'react-router-dom';
 
-
-function NavbarPrincipal() {
+const NavbarPrincipal = () => {
   return (
     <>
   <div className="contenedor">
@@ -38,7 +38,7 @@ function NavbarPrincipal() {
         <Row>
           <Col xs={12} md={4} className="align-items-center justify-content-center d-flex">
             <div>
-              <Navbar.Brand href="#home">
+              <Navbar.Brand href="/">
                 <img 
                     src={logo} 
                     id='lg' 
@@ -60,8 +60,12 @@ function NavbarPrincipal() {
               <Col xs={12} md={4} className="d-flex align-items-center justify-content-center padding-top-md" > 
                 <div>
                   <div>
-                  <button className="button1" role="button">Mi cuenta</button>
-                  <button className="button1" role="button">Mis pedidos</button>
+                  <button className="button1" role="button">
+                    <Link to="/Cuenta" className='styleLinkNone'>Mi cuenta</Link>
+                  </button>
+                  <button className="button1" role="button">
+                    <Link to="/Pedidos" className='styleLinkNone'>Mis Pedidos</Link>
+                  </button>
                   <button className="buttonCart" role="button"><img src={carritoVacio} className='sizeCarrito' alt="carrito vacio" /></button>
                   </div>
                 </div>
@@ -71,12 +75,24 @@ function NavbarPrincipal() {
           <Col xs={12}>
               <div>
                 <ul className ="nav-menu">
-                  <li className ="hvr-underline-from-left hvr-underline-from-left:before">Menú</li>
-                  <li className="hvr-underline-from-left hvr-underline-from-left:before">Mujer</li>
-                  <li className="hvr-underline-from-left hvr-underline-from-left:before">Hombre</li>
-                  <li className="hvr-underline-from-left hvr-underline-from-left:before">Niños</li>
-                  <li className="hvr-underline-from-left hvr-underline-from-left:before">Mascota</li>
-                  <li className="hvr-underline-from-left hvr-underline-from-left:before">Electrónica</li>
+                  <li className ="hvr-underline-from-left hvr-underline-from-left:before">
+                    <Link to="/" className='styleLinkNone'>Menú</Link>
+                  </li>
+                  <li className="hvr-underline-from-left hvr-underline-from-left:before">
+                    <Link to="/Mujer" className='styleLinkNone'>Mujer</Link>
+                  </li>
+                  <li className="hvr-underline-from-left hvr-underline-from-left:before">
+                    <Link to="/Hombre" className='styleLinkNone'>Hombre</Link>
+                  </li>
+                  <li className="hvr-underline-from-left hvr-underline-from-left:before">
+                    <Link to="/Niños" className='styleLinkNone'>Niños</Link>
+                  </li>
+                  <li className="hvr-underline-from-left hvr-underline-from-left:before">
+                    <Link to="/Mascotas" className='styleLinkNone'>Mascota</Link>
+                  </li>
+                  <li className="hvr-underline-from-left hvr-underline-from-left:before">
+                    <Link to="/Electronica" className='styleLinkNone'>Electrónica</Link>
+                  </li>
                 </ul>
               </div>
           </Col>
