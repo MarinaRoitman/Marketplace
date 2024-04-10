@@ -3,9 +3,13 @@ import Banner from '../../Components/Banner/banner';
 import Card from '../../Components/Card/card';
 import data from '../../../JSONs/productos.json';
 
-const [carrito, setCarrito] = useState([]);
 
 function menuPrincipal() {
+
+    const [carrito, setCarrito] = useState([]);
+    useEffect(() => {
+        setCarrito(data);
+    }, []);
 
     return (
         <div>
