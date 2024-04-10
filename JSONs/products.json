@@ -8,6 +8,7 @@
         "precio": 12000,
         "rating": "★★★★☆",
         "img": "../../assets/HOGAR/hg1.jpg",
+        "stock": 20,
         "categoria": "hogar"
         },
         {
@@ -17,6 +18,7 @@
             "precio": 200000,
             "rating": "★★★☆☆",
             "img": "../../assets/HOGAR/hg2.jpg",
+            "stock": 20,
             "categoria": "hogar"
         },
         {
@@ -26,6 +28,7 @@
             "precio": 72000,
             "rating": "★★★★☆",
             "img": "../../assets/HOGAR/hg3.jpg",
+            "stock": 20,
             "categoria": "hogar"
         },
         {
@@ -35,6 +38,7 @@
             "precio": 350000,
             "rating": "★★☆☆☆",
             "img": "../../assets/HOGAR/hg4.jpg",
+            "stock": 20,
             "categoria": "hogar"
         },
         {
@@ -44,6 +48,7 @@
             "precio": 288000,
             "rating": "★★★★★",
             "img": "../../assets/HOGAR/hg5.jpg",
+            "stock": 20,
             "categoria": "hogar"
         },
         {
@@ -53,6 +58,7 @@
             "precio": 110000,
             "rating": "★★★★★",
             "img": "../../assets/HOMBRE/hb1.jpg",
+            "stock": 20,
             "categoria": "hombre"
         },
         {
@@ -62,6 +68,7 @@
             "precio": 28700,
             "rating": "★★★☆☆",
             "img": "../../assets/HOMBRE/hb2.jpg",
+            "stock": 20,
             "categoria": "hombre"
         },
         {
@@ -71,6 +78,7 @@
             "precio": 32000,
             "rating": "★★★★★",
             "img": "../../assets/HOMBRE/hb3.jpg",
+            "stock": 20,
             "categoria": "hombre"
         },
         {
@@ -80,6 +88,7 @@
             "precio": 21000,
             "rating": "★★★★☆",
             "img": "../../assets/HOMBRE/hb4.jpg",
+            "stock": 20,
             "categoria": "hombre"
         },
         {
@@ -89,6 +98,7 @@
             "precio": 24650,
             "rating": "★★★★★",
             "img": "../../assets/HOMBRE/hb5.jpg",
+            "stock": 20,
             "categoria": "hombre"
         },
         {
@@ -98,6 +108,7 @@
             "precio": 225100,
             "rating": "★★★★☆",
             "img": "../../assets/MASCOTAS/mc1.jpg",
+            "stock": 20,
             "categoria": "mascotas"
         },
         {
@@ -107,6 +118,7 @@
             "precio": 800,
             "rating": "★☆☆☆☆",
             "img": "../../assets/MASCOTAS/mc2.jpg",
+            "stock": 20,
             "categoria": "mascotas"
         },
         {
@@ -116,6 +128,7 @@
             "precio": 7177,
             "rating": "★★★★☆",
             "img": "../../assets/MASCOTAS/mc3.jpg",
+            "stock": 20,
             "categoria": "mascotas"
         },
         {
@@ -125,6 +138,7 @@
             "precio": 9600,
             "rating": "★★★★★",
             "img": "../../assets/MASCOTAS/mc4.jpg",
+            "stock": 20,
             "categoria": "mascotas"
         },
         {
@@ -134,6 +148,7 @@
             "precio": 2000,
             "rating": "★★★★☆",
             "img": "../../assets/MASCOTAS/mc5.jpg",
+            "stock": 20,
             "categoria": "mascotas"
         },
         {
@@ -143,6 +158,7 @@
             "precio": 22950,
             "rating": "★★★★☆",
             "img": "../../assets/MUJER/mj1.jpg",
+            "stock": 20,
             "categoria": "mujeres"
         },
         {
@@ -152,6 +168,7 @@
             "precio": "181",
             "rating": "★☆☆☆☆",
             "img": "../../assets/MUJER/mj2.jpg",
+            "stock": 20,
             "categoria": "mujeres"
         },
         {
@@ -161,6 +178,7 @@
             "precio": 18500,
             "rating": "★★★★★",
             "img": "../../assets/MUJER/mj3.jpg",
+            "stock": 20,
             "categoria": "mujeres"
         },
         {
@@ -170,6 +188,7 @@
             "precio": 99990,
             "rating": "★★★★☆",
             "img": "../../assets/MUJER/mj4.jpg",
+            "stock": 20,
             "categoria": "mujeres"
         },
         {
@@ -179,6 +198,7 @@
             "precio": 17000,
             "rating": "★★★★☆",
             "img": "../../assets/MUJER/mj5.jpg",
+            "stock": 20,
             "categoria": "mujeres"
         },
         {
@@ -188,6 +208,7 @@
             "precio": 7500,
             "rating": "★★★★☆",
             "img": "../../assets/NIÑOS/nn1.jpg",
+            "stock": 20,
             "categoria": "ninos"
         },
         {
@@ -197,6 +218,7 @@
             "precio": 30354,
             "rating": "★★☆☆☆",
             "img": "../../assets/NIÑOS/nn2.jpg",
+            "stock": 20,
             "categoria": "ninos"
         },
         {
@@ -206,6 +228,7 @@
             "precio": 18827,
             "rating": "★★★★☆",
             "img": "../../assets/NIÑOS/nn3.jpg",
+            "stock": 20,
             "categoria": "ninos"
         },
         {
@@ -215,6 +238,7 @@
             "precio": 24990,
             "rating": "★★★★☆",
             "img": "../../assets/NIÑOS/nn4.jpg",
+            "stock": 20,
             "categoria": "ninos"
         },
         {
@@ -224,6 +248,7 @@
             "precio": 10000,
             "rating": "★★★★★",
             "img": "../../assets/NIÑOS/nn5.jpg",
+            "stock": 20,
             "categoria": "ninos"
         },
         {
@@ -233,6 +258,7 @@
             "precio": 8658,
             "rating": "☆☆☆☆☆",
             "img": "../../assets/TECNOLOGIA/tec1.jpg",
+            "stock": 20,
             "categoria": "tecnologia"
         },
         {
@@ -242,6 +268,7 @@
             "precio": 7000,
             "rating": "★★★★★",
             "img": "../../assets/TECNOLOGIA/tec2.jpg",
+            "stock": 20,
             "categoria": "tecnologia"
         },
         {
@@ -251,6 +278,7 @@
             "precio": 197990,
             "rating": "★★★★☆",
             "img": "../../assets/TECNOLOGIA/tec3.jpg",
+            "stock": 20,
             "categoria": "tecnologia"
         },
         {
@@ -260,6 +288,7 @@
             "precio": 178243,
             "rating": "★★★★★",
             "img": "../../assets/TECNOLOGIA/tec4.jpg",
+            "stock": 20,
             "categoria": "tecnologia"
         },
         {
@@ -269,6 +298,7 @@
             "precio": 3652,
             "rating": "★★★☆☆",
             "img": "../../assets/TECNOLOGIA/tec5.jpg",
+            "stock": 20,
             "categoria": "tecnologia"
         }
     ]
