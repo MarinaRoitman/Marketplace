@@ -19,8 +19,8 @@ export const CardComponent = (nombre, precio, rating, img) => {
                                     <CardContent>
                                         <img src={test} alt={nombre} className='sizeImg'/>
                                         <div style={{ marginLeft: '10px' }}>
-                                            <p>{nombre}</p>
-                                            <p>{precio}</p>
+                                            <p>nombre</p>
+                                            <p>precio</p>
                                         </div>
                                     </CardContent>
                                     <div>

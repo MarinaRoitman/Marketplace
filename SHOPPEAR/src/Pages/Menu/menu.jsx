@@ -1,25 +1,13 @@
 import React from 'react';
 import Banner from '../../Components/Banner/banner';
 import Card from '../../Components/Card/card';
-import data from '../../../JSONs/productos.json';
-
+import Cards from '../../Components/Cards/cards';
 
 function menuPrincipal() {
-
-    const [carrito, setCarrito] = useState([]);
-    useEffect(() => {
-        setCarrito(data);
-    }, []);
-
     return (
         <div>
             <Banner />
-            <Card
-                nombre={nombre}
-                precio={precio}
-                rating={rating}
-                img={img}
-            />
+            <Cards/>
         </div>
     );
 }
