@@ -7,7 +7,7 @@
         "descripcion": "Almohada comprimida de recuperación rápida 50x70cm",
         "precio": 12000,
         "rating": "★★★★☆",
-        "img": "../../assets/HOGAR/hg1.jpg",
+        "img": "/assets/HOGAR/hg1.jpg",
         "stock": 20,
         "categoria": "hogar"
         },
@@ -17,7 +17,7 @@
             "descripcion": "Microondas ATMA 700W de potencia con display digital. Medidas 44x25.9x35.2cm3",
             "precio": 200000,
             "rating": "★★★☆☆",
-            "img": "../../assets/HOGAR/hg2.jpg",
+            "img": "/assets/HOGAR/hg2.jpg",
             "stock": 20,
             "categoria": "hogar"
         },
@@ -27,7 +27,7 @@
             "descripcion": "Camara Dual Lens con doble rango de vision y vision nocturna full color.",
             "precio": 72000,
             "rating": "★★★★☆",
-            "img": "../../assets/HOGAR/hg3.jpg",
+            "img": "/assets/HOGAR/hg3.jpg",
             "stock": 20,
             "categoria": "hogar"
         },
@@ -37,7 +37,7 @@
             "descripcion": "Silla gamer con asiento y respaldo de ecocuero y pana de calidad. Respaldo regulable de 90 a 180 grados.",
             "precio": 350000,
             "rating": "★★☆☆☆",
-            "img": "../../assets/HOGAR/hg4.jpg",
+            "img": "/assets/HOGAR/hg4.jpg",
             "stock": 20,
             "categoria": "hogar"
         },
@@ -47,7 +47,7 @@
             "descripcion": "Sillon tapizado en tela, espuma de alta densidad. Altura regulable 82cm a 90cm.",
             "precio": 288000,
             "rating": "★★★★★",
-            "img": "../../assets/HOGAR/hg5.jpg",
+            "img": "/assets/HOGAR/hg5.jpg",
             "stock": 20,
             "categoria": "hogar"
         },
@@ -57,7 +57,7 @@
             "descripcion": "Pantalon de Jean etiqueta negra modelo N7 Lavado. Color negro",
             "precio": 110000,
             "rating": "★★★★★",
-            "img": "../../assets/HOMBRE/hb1.jpg",
+            "img": "/assets/HOMBRE/hb1.jpg",
             "stock": 20,
             "categoria": "hombre"
         },
@@ -67,7 +67,7 @@
             "descripcion": "Bermuda de gabardina. Cintura con elastico y calce recto. Tiene dos bolsillos laterales y dos bolsillos traseros.",
             "precio": 28700,
             "rating": "★★★☆☆",
-            "img": "../../assets/HOMBRE/hb2.jpg",
+            "img": "/assets/HOMBRE/hb2.jpg",
             "stock": 20,
             "categoria": "hombre"
         },
@@ -77,7 +77,7 @@
             "descripcion": "Bolso con forma de medialuna. Dos formas de usar: en el hombro como cartera, o cruzado como riñonera. Tela liviana y suave color negro. Tira regulable. Bolsillos internos.",
             "precio": 32000,
             "rating": "★★★★★",
-            "img": "../../assets/HOMBRE/hb3.jpg",
+            "img": "/assets/HOMBRE/hb3.jpg",
             "stock": 20,
             "categoria": "hombre"
         },
@@ -87,7 +87,7 @@
             "descripcion": "Remera 100% Algodón. Molde clásico de hombre. Mangas grandes, larga.",
             "precio": 21000,
             "rating": "★★★★☆",
-            "img": "../../assets/HOMBRE/hb4.jpg",
+            "img": "/assets/HOMBRE/hb4.jpg",
             "stock": 20,
             "categoria": "hombre"
         },
@@ -97,7 +97,7 @@
             "descripcion": "Bucito de panal manga larga. Modelo clásico de hombre, oversized de mujer.",
             "precio": 24650,
             "rating": "★★★★★",
-            "img": "../../assets/HOMBRE/hb5.jpg",
+            "img": "/assets/HOMBRE/hb5.jpg",
             "stock": 20,
             "categoria": "hombre"
         },
@@ -107,7 +107,7 @@
             "descripcion": "Múltiples gatitos curiosos pueden acostarse en el suave lugar alto al mismo tiempo para observar el paisaje fuera de la ventana",
             "precio": 225100,
             "rating": "★★★★☆",
-            "img": "../../assets/MASCOTAS/mc1.jpg",
+            "img": "/assets/MASCOTAS/mc1.jpg",
             "stock": 20,
             "categoria": "mascotas"
         },
@@ -117,7 +117,7 @@
             "descripcion": "Poste rascador, ideal para que el gato se ejercite y pase horas de juego. Hecho de materiales no tóxico. Ideal para gatos pequeños y grandes. Ensamble las piezas y colóquelo cerca de un lugar amplio donde el gato tenga acceso fácil al poste.",
             "precio": 800,
             "rating": "★☆☆☆☆",
-            "img": "../../assets/MASCOTAS/mc2.jpg",
+            "img": "/assets/MASCOTAS/mc2.jpg",
             "stock": 20,
             "categoria": "mascotas"
         },
@@ -127,7 +127,7 @@
             "descripcion": "Recomendamos esta correa para perros grandes y fuertes, adiestradores y paseadores. Es una correa altamente apreciada por quienes tienen perros grandes.",
             "precio": 7177,
             "rating": "★★★★☆",
-            "img": "../../assets/MASCOTAS/mc3.jpg",
+            "img": "/assets/MASCOTAS/mc3.jpg",
             "stock": 20,
             "categoria": "mascotas"
         },
@@ -137,7 +137,7 @@
             "descripcion": "Kit de juguetes para perros. Incluye hueso, pelota y aro. Ideal para masticar o lanzar. No toxico. Colores Surtidos.",
             "precio": 9600,
             "rating": "★★★★★",
-            "img": "../../assets/MASCOTAS/mc4.jpg",
+            "img": "/assets/MASCOTAS/mc4.jpg",
             "stock": 20,
             "categoria": "mascotas"
         },
@@ -147,7 +147,7 @@
             "descripcion": "Seguras y no tóxicas: hechas de hilos de algodón y poliéster de alta calidad de América del Norte, estas bolas de cuerda para perros Mammoth son juguetes seguros, fuertes y buenos para perros que mastican.",
             "precio": 2000,
             "rating": "★★★★☆",
-            "img": "../../assets/MASCOTAS/mc5.jpg",
+            "img": "/assets/MASCOTAS/mc5.jpg",
             "stock": 20,
             "categoria": "mascotas"
         },
@@ -157,7 +157,7 @@
             "descripcion": "Pollera de jean negro, estilo rota 47 Street. Talle XS.",
             "precio": 22950,
             "rating": "★★★★☆",
-            "img": "../../assets/MUJER/mj1.jpg",
+            "img": "/assets/MUJER/mj1.jpg",
             "stock": 20,
             "categoria": "mujeres"
         },
@@ -167,7 +167,7 @@
             "descripcion": "Crop Top Blusa Sexy Sin Manga Entallado Antro Fiesta",
             "precio": "181",
             "rating": "★☆☆☆☆",
-            "img": "../../assets/MUJER/mj2.jpg",
+            "img": "/assets/MUJER/mj2.jpg",
             "stock": 20,
             "categoria": "mujeres"
         },
@@ -177,7 +177,7 @@
             "descripcion": "Remera 100% Algodón. Mangas grandes, largo al botón del pantalón. Viene en talles S y M.",
             "precio": 18500,
             "rating": "★★★★★",
-            "img": "../../assets/MUJER/mj3.jpg",
+            "img": "/assets/MUJER/mj3.jpg",
             "stock": 20,
             "categoria": "mujeres"
         },
@@ -187,7 +187,7 @@
             "descripcion": "No dejar en remojo. Lavar en agua fría separadamente. No usar blanqueador. No retorcer. Secar a la sombra. Plancha tibia.",
             "precio": 99990,
             "rating": "★★★★☆",
-            "img": "../../assets/MUJER/mj4.jpg",
+            "img": "/assets/MUJER/mj4.jpg",
             "stock": 20,
             "categoria": "mujeres"
         },
@@ -197,7 +197,7 @@
             "descripcion": "Crop de morley color blanco. Elastizado, lavar solo con ropa blanca.",
             "precio": 17000,
             "rating": "★★★★☆",
-            "img": "../../assets/MUJER/mj5.jpg",
+            "img": "/assets/MUJER/mj5.jpg",
             "stock": 20,
             "categoria": "mujeres"
         },
@@ -207,7 +207,7 @@
             "descripcion": "Colores lisos: 100% algodón; Gris brezo: 90% algodón, 10% poliéster; Todos los demás: 50% algodón, 50% poliéster",
             "precio": 7500,
             "rating": "★★★★☆",
-            "img": "../../assets/NIÑOS/nn1.jpg",
+            "img": "/assets/NIÑOS/nn1.jpg",
             "stock": 20,
             "categoria": "ninos"
         },
@@ -217,7 +217,7 @@
             "descripcion": "Campera para niña bebe de piel rosa marca Gepetto.",
             "precio": 30354,
             "rating": "★★☆☆☆",
-            "img": "../../assets/NIÑOS/nn2.jpg",
+            "img": "/assets/NIÑOS/nn2.jpg",
             "stock": 20,
             "categoria": "ninos"
         },
@@ -227,7 +227,7 @@
             "descripcion": "Pantalón largo lila. Corte ancho. Marca Gepetto para niñas.",
             "precio": 18827,
             "rating": "★★★★☆",
-            "img": "../../assets/NIÑOS/nn3.jpg",
+            "img": "/assets/NIÑOS/nn3.jpg",
             "stock": 20,
             "categoria": "ninos"
         },
@@ -237,7 +237,7 @@
             "descripcion": "Buzo cerrado manga larga color gris AIM FOR YOUR GOALS PLAY GREAT. 58% algodon, 42% polyester.",
             "precio": 24990,
             "rating": "★★★★☆",
-            "img": "../../assets/NIÑOS/nn4.jpg",
+            "img": "/assets/NIÑOS/nn4.jpg",
             "stock": 20,
             "categoria": "ninos"
         },
@@ -247,7 +247,7 @@
             "descripcion": "Remera Bebe Manga Larga Algodón. Colores disponibles: Verde - Gris",
             "precio": 10000,
             "rating": "★★★★★",
-            "img": "../../assets/NIÑOS/nn5.jpg",
+            "img": "/assets/NIÑOS/nn5.jpg",
             "stock": 20,
             "categoria": "ninos"
         },
@@ -257,7 +257,7 @@
             "descripcion": "KINGSTAR-auriculares TWS inalámbricos por Bluetooth, cascos deportivos estéreo 8D con micrófono para Xiaomi, Huawei y iphone",
             "precio": 8658,
             "rating": "☆☆☆☆☆",
-            "img": "../../assets/TECNOLOGIA/tec1.jpg",
+            "img": "/assets/TECNOLOGIA/tec1.jpg",
             "stock": 20,
             "categoria": "tecnologia"
         },
@@ -267,7 +267,7 @@
             "descripcion": "Carga rapida, producto 100% original en caja sellada. Compatible con IOS.",
             "precio": 7000,
             "rating": "★★★★★",
-            "img": "../../assets/TECNOLOGIA/tec2.jpg",
+            "img": "/assets/TECNOLOGIA/tec2.jpg",
             "stock": 20,
             "categoria": "tecnologia"
         },
@@ -277,7 +277,7 @@
             "descripcion": "El diseño over-ear genera una comodidad insuperable gracias a sus suaves almohadillas. Al mismo tiempo, su sonido envolvente del más alto nivel se convierte en el protagonista de la escena.",
             "precio": 197990,
             "rating": "★★★★☆",
-            "img": "../../assets/TECNOLOGIA/tec3.jpg",
+            "img": "/assets/TECNOLOGIA/tec3.jpg",
             "stock": 20,
             "categoria": "tecnologia"
         },
@@ -287,7 +287,7 @@
             "descripcion": "Auricular Deportivo Inalambrico Xiaomi Negro 12 horas de bateria. Compatible con cualquier dispositivo Bluetooth excepto cualquier producto de Apple.",
             "precio": 178243,
             "rating": "★★★★★",
-            "img": "../../assets/TECNOLOGIA/tec4.jpg",
+            "img": "/assets/TECNOLOGIA/tec4.jpg",
             "stock": 20,
             "categoria": "tecnologia"
         },
@@ -297,7 +297,7 @@
             "descripcion": "Cargador para Netbook Gobierno 2017 2018 2019 G6 G7 de 11,6 12v 2a 24w pin 3,5 x 1,35mm Adaptado Características: - Voltaje de entrada: 100-240v",
             "precio": 3652,
             "rating": "★★★☆☆",
-            "img": "../../assets/TECNOLOGIA/tec5.jpg",
+            "img": "/assets/TECNOLOGIA/tec5.jpg",
             "stock": 20,
             "categoria": "tecnologia"
         }

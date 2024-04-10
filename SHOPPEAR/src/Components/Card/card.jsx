@@ -5,9 +5,9 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import test from '../../assets/ropaTest.jpg';
 
-export const CardComponent = (nombre, precio, rating, img) => {
+export const CardComponent = (producto) => {
+    const {nombre, precio, rating, img} = producto
     return (
         <div>
             <div className="centrar">
@@ -17,10 +17,11 @@ export const CardComponent = (nombre, precio, rating, img) => {
                             <Grid item xs={12} sm={4} md={4}>
                                 <Card className='styleCard' sx={{ borderRadius: '2em', maxWidth: '90%'}}>
                                     <CardContent>
-                                        <img src={test} alt={nombre} className='sizeImg'/>
+                                        <img src={producto.img} alt={producto.nombre} className='sizeImg'/>
                                         <div style={{ marginLeft: '10px' }}>
-                                            <p>nombre</p>
-                                            <p>precio</p>
+                                            <p>{producto.nombre}</p>
+                                            <p>${producto.precio}</p>
+                                            <p>{producto.rating}</p>
                                         </div>
                                     </CardContent>
                                     <div>
