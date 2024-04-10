@@ -21,18 +21,16 @@ function App() {
           <Router>
             <Navbar></Navbar>
             <Routes>
-              <Route path="/" exact element={<Home></Home>}></Route>
-              <Route path="/Electronica" element={<Electronica></Electronica>}></Route>
-              <Route path="/Hombre" element={<Hombre></Hombre>}></Route>
-              <Route path="/Mujer" element={<Mujer></Mujer>}></Route>
-              <Route path="/Niños" element={<Niños></Niños>}></Route>
-              <Route path="/Mascotas" element={<Mascotas></Mascotas>}></Route>
-              <Route path="/Cuenta" element={<Account></Account>}></Route>
-              <Route path="/Pedidos" element={<Pedidos></Pedidos>}></Route>
+              <Route path="/" exact element={<Home />}></Route>
+              <Route path="/Electronica" element={<Electronica />}></Route>
+              <Route path="/Hombre" element={<Hombre />}></Route>
+              <Route path="/Mujer" element={<Mujer />}></Route>
+              <Route path="/Niños" element={<Niños />}></Route>
+              <Route path="/Mascotas" element={<Mascotas />}></Route>
+              <Route path="/Cuenta" element={<Account />}></Route>
+              <Route path="/Pedidos" element={<Pedidos />}></Route>
           </Routes>
         </Router>
-
-
     </div>
   );
 }

@@ -8,6 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import test from '../../assets/ropaTest.jpg';
 
 export const CardComponent = () => {
+
 return (
 <div>
     <div className="titulo-centrado">
