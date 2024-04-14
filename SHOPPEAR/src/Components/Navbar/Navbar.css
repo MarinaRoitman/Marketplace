@@ -230,9 +230,6 @@
     text-decoration: none #D1D5DB solid;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
     margin-left: 1.2em;
 }
 
@@ -301,105 +298,6 @@
 }
 
 
-/* Boton de Carrito */
-
-.buttonCart {
-    background-color: #FFFFFF;
-    border: 1px solid rgb(209,213,219);
-    border-radius: .5rem;
-    box-sizing: border-box;
-    font-size: .5rem;
-    line-height: 1rem;
-    padding: .5rem .5rem;
-    text-align: center;
-    cursor: pointer;
-    margin-left: 1.6em;
-    border: 0;
-    size-adjust: 5px;
-}
-
-.buttonCart:hover {
-    background-color: rgba(239, 240, 241, 0.693);
-}
-
-@media (min-width: 320px) {
-    .buttonCart {
-    margin-left: 0.5em;
-    }
-}
-
-@media (min-width: 768px) {
-    .buttonCart {
-    margin-left: 0.5em;
-    }
-}
-
-@media (min-width: 1440px) {
-    .buttonCart {
-    margin-left: 1.2em;
-    }
-}
-
-@media (min-width: 2560px) {
-    .buttonCart {
-    margin-left: 0.5em;
-    }
-}
-
-.sizeCarrito{
-    width: 1.6vw; 
-    height: auto;
-}
-
-@media (min-width: 300px) {
-    .sizeCarrito {
-        width: 4vw; 
-        height: auto;
-    }
-}
-
-@media (min-width: 320px) {
-    .sizeCarrito {
-        width: 8.9vw; 
-        height: auto;
-    }
-}
-
-@media (min-width: 375px) {
-    .sizeCarrito {
-        width: 8vw; 
-        height: auto;
-    }
-}
-
-@media (min-width: 425px) {
-    .sizeCarrito {
-        width: 6vw; 
-        height: auto;
-    }
-}
-
-@media (min-width: 700px) {
-    .sizeCarrito {
-        width: 3.7vw; 
-        height: auto;
-    }
-}
-
-@media (min-width: 877px) {
-    .sizeCarrito {
-        width: 3.3vw; 
-        height: auto;
-    }
-}
-
-@media (min-width: 1400px) {
-    .sizeCarrito {
-        width: 1.6vw; 
-        height: auto;
-    }
-}
-
 /* Modifico el hr */
 
 .hrEdit{
@@ -428,4 +326,3 @@
 .styleLinkNone:focus {
     color: #000000; 
 }
-

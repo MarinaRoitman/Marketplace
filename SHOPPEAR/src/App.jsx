@@ -14,12 +14,13 @@ import Niños from './Pages/Chicos/Niños.jsx';
 import Mascotas from './Pages/Mascotas/mascotas.jsx';
 import Account from './Pages/Cuenta/cuenta.jsx';
 import Pedidos from './Pages/Pedidos/pedidos.jsx';
-
 function App() {
   return (
     <div>
           <Router>
+            
             <Navbar></Navbar>
+            
             <Routes>
               <Route path="/" exact element={<Home />}></Route>
               <Route path="/Electronica" element={<Electronica />}></Route>

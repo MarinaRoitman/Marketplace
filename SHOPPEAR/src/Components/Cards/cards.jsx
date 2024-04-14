@@ -9,6 +9,7 @@ const Cards = ({}) => {
             {
                 productos.map(producto =>
                 <Card
+                key={producto.id}
                 nombre = {producto.nombre}
                 precio = {producto.precio}
                 rating = {producto.rating}

@@ -8,6 +8,7 @@ import logo from '../../assets/logo.png';
 import search from '../../assets/search.png';
 import carritoVacio from '../../assets/carrito vacio.png';
 import {Link} from 'react-router-dom';
+import SideMenuCarrito from '../SideMenuCarrito/sidemenucarrito.jsx';
 
 const NavbarPrincipal = () => {
   return (
@@ -25,7 +26,6 @@ const NavbarPrincipal = () => {
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
-
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
         <p>3 y 6 cuotas sin interes en compras superiores a $30.000 🎉</p>
@@ -60,13 +60,13 @@ const NavbarPrincipal = () => {
               <Col xs={12} md={4} className="d-flex align-items-center justify-content-center padding-top-md" > 
                 <div>
                   <div>
-                  <button className="button1" role="button">
-                    <Link to="/Cuenta" className='styleLinkNone'>Mi cuenta</Link>
-                  </button>
-                  <button className="button1" role="button">
-                    <Link to="/Pedidos" className='styleLinkNone'>Mis Pedidos</Link>
-                  </button>
-                  <button className="buttonCart" role="button"><img src={carritoVacio} className='sizeCarrito' alt="carrito vacio" /></button>
+                    <button className="button1" role="button">
+                      <Link to="/Cuenta" className='styleLinkNone'>Mi cuenta</Link>
+                    </button>
+                    <button className="button1" role="button">
+                      <Link to="/Pedidos" className='styleLinkNone'>Mis Pedidos</Link>
+                    </button>
+                    <SideMenuCarrito role="button"/>
                   </div>
                 </div>
               </Col>
@@ -104,3 +104,8 @@ const NavbarPrincipal = () => {
 }
 
 export default NavbarPrincipal;
+
+/*
+<button className="buttonCart" role="button"><img src={carritoVacio} className='sizeCarrito' alt="carrito vacio" /></button>
+                  
+*/
