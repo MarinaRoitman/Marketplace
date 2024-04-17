@@ -3,6 +3,7 @@ import './cardCarrito.css';
 import Card from 'react-bootstrap/Card';
 import imgTest from '../../Assets/MUJER/mj1.jpg';
 import Button from 'react-bootstrap/Button';
+import { BasuraIcon } from '../Iconos/iconos.jsx';
 
 const cardCarrito = () => {
   return (
@@ -12,13 +13,13 @@ const cardCarrito = () => {
           <Card.Img src={imgTest} alt="Product" />
         </div>
         <Card.Body>
-          <h4>Short Negro</h4>
+          <div className="product-info">
+            <h5>Short Negro</h5>
+            <BasuraIcon className="trash-icon" />
+          </div>
           <div>
             <p>Precio: 1000</p>
           </div>
-          <Card.Text>
-          Short de denim, tiro alto.
-          </Card.Text>
           <footer>
             <small>Cantidad: 1</small>
             <Button className="botonStyle" variant="dark">+</Button>

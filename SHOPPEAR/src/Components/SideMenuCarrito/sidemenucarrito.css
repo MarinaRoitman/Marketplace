@@ -46,5 +46,15 @@
 }
 
 #miOffcanvas .offcanvas-backdrop.show {
-    opacity: 1 !important; /* Aumentar la especificidad */
+    opacity: 1 !important; 
+}
+
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.offcanvas-footer {
+    margin-bottom: auto; 
+    padding: 7rem;
 }
