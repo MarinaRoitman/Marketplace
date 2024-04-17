@@ -14,28 +14,36 @@
     margin-top: 0;
 }
 
-.sizeImg{
-    max-width: 100%;
-    height: auto;
+.card-image{
+    width: 90%; 
+    height: auto; 
+    object-fit: contain; 
+    border-radius: 1em; 
 }
 
-.styleCard{
-    cursor: pointer;
-    margin: auto;
+.styleCard {
+    width: 20em; 
+    height: 22em; 
+    margin: 0.5em; 
+    padding: 0.5em; 
     display: flex;
+    flex-direction: column;
     align-items: center;
     position: relative;
-    border: 1px solid #282f3338; /* Agrega un borde sólido de 2px */
-    border-radius: 93px; /* Agrega esquinas redondeadas */
+    border: 1px solid #282f3338;
+    border-radius: 2em;
     overflow: hidden;
 }
 
 
-@media (min-width: 320px) {
-    .centrarElem {
-        margin: 2em;
-        max-width: 80%;
-    }
+.CardContentWithoutPadding .MuiCardContent-root {
+    padding: 0;
+    text-align: center;
+}
+
+.card-text p {
+    margin: 1em;
+    
 }
 
 .moreButton {
@@ -65,9 +73,9 @@
 }
 
 .titulo-centrado h2 {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
 }
 

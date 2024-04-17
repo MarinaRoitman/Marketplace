@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-
+import CardMedia from '@mui/material/CardMedia';
 
 export const CardComponent = (producto) => {
     const {id, nombre, precio, rating, img} = producto
@@ -45,10 +45,41 @@ export const CardComponent = (producto) => {
     const agregarItemEnCarrito = () => {
         
         agregarAlCarrito(producto.id);
-      }
+    }
     
 
     return (
+        
+        <div>
+            <div className="centrar">
+                <div className="centrarElem CardContentWithoutPadding">
+                    <Card className='styleCard' sx={{ borderRadius: '2em', maxWidth: '100%', height: 'fit-content'}}>
+                        <CardMedia
+                            component="img"
+                            height="400"
+                            src={producto.img}
+                            className="card-image"
+                        />
+                        <CardContent>
+                            <div className="card-text">
+                                <p>{producto.nombre}</p>
+                                <p>${producto.precio}</p>
+                                <p>{producto.rating}</p>
+                            </div>
+                        </CardContent>
+                        <div>
+                            <Button className="moreButton" size="small" onClick={agregarItemEnCarrito} variant="dark"><p>+</p></Button>
+                        </div>
+                    </Card>
+                </div>
+            </div> 
+        </div>  
+    );
+};
+
+export default CardComponent;
+
+/*
         <div>
             <div className="centrar">
                 <div className="centrarElem">
@@ -73,10 +104,5 @@ export const CardComponent = (producto) => {
                     </Box>
                 </div>
             </div> 
-        </div>  
-    );
-};
-
-export default CardComponent;
-
-
+        </div>
+*/
