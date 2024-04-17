@@ -15,7 +15,7 @@ const cardCarrito = () => {
         <Card.Body>
           <div className="product-info">
             <h5>Short Negro</h5>
-            <BasuraIcon className="trash-icon" />
+            <BasuraIcon className="trashStyle" />
           </div>
           <div>
             <p>Precio: 1000</p>

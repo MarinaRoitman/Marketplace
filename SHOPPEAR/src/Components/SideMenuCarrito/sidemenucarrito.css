@@ -40,6 +40,10 @@
 
 }
 
+svg:hover{
+    stroke: black;
+}
+
 .cart.open {
     display: block;
     

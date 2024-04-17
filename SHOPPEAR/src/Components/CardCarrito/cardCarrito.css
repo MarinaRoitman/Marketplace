@@ -35,10 +35,6 @@
     height: auto;
 }
 
-svg:hover {
-  stroke: red; 
-}
-
 .product-info {
   display: flex;
   align-items: center; 
@@ -46,4 +42,12 @@ svg:hover {
 
 .trash-icon {
   margin-left: 10em; 
+}
+
+.trash-icon:hover {
+  stroke: red;
+}
+
+.trashStyle{
+  margin-left: 10em;
 }
