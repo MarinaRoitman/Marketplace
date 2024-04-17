@@ -50,39 +50,36 @@ export const CardComponent = (producto) => {
     
 
     return (
-        
-        <div>
-            <div className="centrar">
-                <Box sx={{ flexGrow: 1 }}>
-                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                        {Array.from(Array(6)).map((_, index) => (
-                            <Grid xs={2} sm={4} md={4} key={index}>
-                                <div className="centrarElem CardContentWithoutPadding">
-                                    <Card className='styleCard' sx={{ borderRadius: '2em', maxWidth: '100%', height: 'fit-content'}}>
-                                        <CardMedia
-                                            component="img"
-                                            height="400"
-                                            src={producto.img}
-                                            className="card-image"
-                                        />
-                                        <CardContent>
-                                            <div className="card-text">
-                                                <p>{producto.nombre}</p>
-                                                <p>${producto.precio}</p>
-                                                <p>{producto.rating}</p>
-                                            </div>
-                                        </CardContent>
-                                        <div>
-                                            <Button className="moreButton" size="small" onClick={agregarItemEnCarrito} variant="dark"><p>+</p></Button>
+        <div className="centrar">
+            <Box sx={{ flexGrow: 1 }}>
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    {Array.from(Array(1)).map((_, index) => (
+                        <Grid xs={2} sm={4} md={4} key={index}>
+                            <div className="centrarElem CardContentWithoutPadding">
+                                <Card className='styleCard' sx={{ borderRadius: '2em', maxWidth: '100%', height: 'fit-content'}}>
+                                    <CardMedia
+                                        component="img"
+                                        height="400"
+                                        src={producto.img}
+                                        className="card-image"
+                                    />
+                                    <CardContent>
+                                        <div className="card-text">
+                                            <p>{producto.nombre}</p>
+                                            <p>${producto.precio}</p>
+                                            <p>{producto.rating}</p>
                                         </div>
-                                    </Card>
-                                </div>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Box>
-            </div> 
-        </div>  
+                                    </CardContent>
+                                    <div>
+                                        <Button className="moreButton" size="small" onClick={agregarItemEnCarrito} variant="dark"><p>+</p></Button>
+                                    </div>
+                                </Card>
+                            </div>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
+        </div> 
     );
 };
 
