@@ -1,0 +1,33 @@
+.horizontal-card {
+    max-width: 30rem;
+  }
+  
+  .card-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Alinea horizontalmente al centro */
+    align-items: center; /* Alinea verticalmente al centro */ 
+  }
+  
+  .img-square-wrapper {
+    flex-shrink: 0;
+    width: 10rem; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 10rem; /* Ajusta el tamaño de la imagen según sea necesario */
+    overflow: hidden;
+    display: flex; /* Aplica flexbox para alinear verticalmente */
+    justify-content: center; /* Alinea horizontalmente al centro */
+    align-items: center; /* Alinea verticalmente al centro */ 
+  }
+  
+  .img-square-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;; /* Para asegurar que la imagen se ajuste dentro del contenedor */
+  }
+
+.botonStyle{
+    margin-right: 0.1em;
+    margin-left: 0.6em;
+    width: 2.3em;
+    height: auto;
+}

@@ -1,8 +1,25 @@
+.cart {
+    background: #ffffff;
+    display: none;
+    padding: 32px;
+    position: absolute;
+    right: 0px;
+    top: 0%;
+    bottom: auto;
+    width: 200px;
+    border-radius: .5rem;
+    z-index: 1000;
+}
+
 .cart img {
     width: 100%;
     height: auto;
 }
 
+.cart li {
+    border-bottom: 1px solid #444;
+    padding-bottom: 16px;
+}
 
 .cart footer {
     display: flex;
@@ -11,12 +28,9 @@
     align-items: center;
 }
 
-.cart button {
+.cart footer button {
+    padding: 8px;
     border-radius: .5rem;
-    height: 2.2em;
-    width: 2.2em;
-    justify-content: center;
-    align-items: center;
 }
 
 .cart-button {
@@ -45,6 +59,3 @@
     
 }
 
-#miOffcanvas .offcanvas-backdrop.show {
-    opacity: 1 !important; /* Aumentar la especificidad */
-}

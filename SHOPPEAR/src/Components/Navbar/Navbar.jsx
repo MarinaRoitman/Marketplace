@@ -4,9 +4,9 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import logo from '../../assets/logo.png';
-import search from '../../assets/search.png';
-import carritoVacio from '../../assets/carrito vacio.png';
+import logo from '../../Assets/logo.png';
+import search from '../../Assets/search.png';
+import carritoVacio from '../../Assets/carrito vacio.png';
 import {Link} from 'react-router-dom';
 import SideMenuCarrito from '../SideMenuCarrito/sidemenucarrito.jsx';
 
@@ -66,7 +66,7 @@ const NavbarPrincipal = () => {
                     <button className="button1" role="button">
                       <Link to="/Pedidos" className='styleLinkNone'>Mis Pedidos</Link>
                     </button>
-                    <SideMenuCarrito role="button"/>
+                    <SideMenuCarrito/>
                   </div>
                 </div>
               </Col>
