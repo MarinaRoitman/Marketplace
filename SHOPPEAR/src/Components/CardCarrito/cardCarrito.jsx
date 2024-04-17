@@ -1,7 +1,7 @@
 import React from 'react';
 import './cardCarrito.css';
 import Card from 'react-bootstrap/Card';
-import imgTest from '../../Assets/MUJER/mj1.jpg';
+import imgTest from '/assets/MUJER/mj1.jpg';
 import Button from 'react-bootstrap/Button';
 import { BasuraIcon } from '../Iconos/iconos.jsx';
 

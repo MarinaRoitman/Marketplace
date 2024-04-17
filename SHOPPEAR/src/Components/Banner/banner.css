@@ -51,10 +51,10 @@
 
 .cambiarBotones{
 .carousel-control-next-icon {
-    background-image: url("../../assets/derecha.svg");
+    background-image: url("..//assets/derecha.svg");
 }
 .carousel-control-prev-icon {
-    background-image: url("../../assets/izquierda.svg"); 
+    background-image: url("..//assets/izquierda.svg"); 
 }
 
 .carousel-control-next-icon,

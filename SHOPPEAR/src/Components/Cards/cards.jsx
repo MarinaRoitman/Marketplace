@@ -3,7 +3,8 @@ import Card from '../Card/card';
 
 const Cards = ({}) => {
     const[productos, setProductos] = useState([])
-    useEffect(()=>{fetch('../../../../JSONs/productos.json').then(response => response.json()).then(productosJSON => setProductos(productosJSON.productos))})
+    const imageURL = new URL("./..//assets/react.svg", import.meta.url).href;
+    useEffect(()=>{fetch('../../../../JSONs/productos.json').then(response => response.json()).then(productosJSON => setProductos(productosJSON.productos))},[])
     return (
         <div>
             {
@@ -14,7 +15,7 @@ const Cards = ({}) => {
                 nombre = {producto.nombre}
                 precio = {producto.precio}
                 rating = {producto.rating}
-                img = {"../.." + producto.img}
+                img ={producto.img}
                 />
             )
             }

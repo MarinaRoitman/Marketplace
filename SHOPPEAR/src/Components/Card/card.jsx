@@ -6,9 +6,10 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
+
 export const CardComponent = (producto) => {
     const {id, nombre, precio, rating, img} = producto
-
+    console.log(img)
     let carrito = {
         productosIds: [],
         cantidades: [],

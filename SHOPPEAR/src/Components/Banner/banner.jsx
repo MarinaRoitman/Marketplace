@@ -1,6 +1,6 @@
 import React from 'react'
 import './banner.css'
-import banner1 from '../../Assets/ofertaBanner.png';
+import banner1 from '/assets/ofertaBanner.png';
 import Carousel from 'react-bootstrap/Carousel';
 
 const banner = () => {
