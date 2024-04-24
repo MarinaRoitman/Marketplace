@@ -1,31 +1,45 @@
 /* CSS de Card*/
 
-.centrarElem{
+.centrarElem {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    max-width: 100%;
+    margin: 3em; 
 }
 
-.centrar{
+.centrar {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    margin-top: 0;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card-image{
     width: 90%; 
     height: auto; 
-    object-fit: contain; 
+    object-fit: cover; 
+    object-position: center;
     border-radius: 1em; 
 }
 
+.card-container .card-image {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1em;
+}
+
 .styleCard {
-    width: 20em; 
-    height: 22em; 
-    margin: 0.5em; 
-    padding: 0.5em; 
+    width: 15em;
+    height: 10em;
+    margin: 0.5em;
+    padding: 0.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,7 +57,8 @@
 
 .card-text p {
     margin: 1em;
-    
+    justify-content: center;
+    align-items: first baseline;
 }
 
 .moreButton {

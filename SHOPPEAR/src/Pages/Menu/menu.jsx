@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../../Components/Banner/banner';
-import Cards from '../../Components/Cards/cards';
+import Cards from '../../Components/Card/card';
 
 function menuPrincipal() {
     return (
@@ -12,6 +12,7 @@ function menuPrincipal() {
                     <hr />
                 </div>
             </div> 
+            <br />
             <Cards/>
         </div>
     );

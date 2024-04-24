@@ -1,12 +1,11 @@
 import React from 'react'
 import './card.css'
 import Button from 'react-bootstrap/Button';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
-
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import json from '../../../JSONs/productos.json'
+
 
 export const CardComponent = (producto) => {
     const {id, nombre, precio, rating, img} = producto
@@ -47,21 +46,21 @@ export const CardComponent = (producto) => {
         
         agregarAlCarrito(producto.id);
     }
-    
+
+    let cardArr = json.productos;
 
     return (
         <div className="centrar">
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                    {Array.from(Array(1)).map((_, index) => (
-                        <Grid xs={2} sm={4} md={4} key={index}>
-                            <div className="centrarElem CardContentWithoutPadding">
-                                <Card className='styleCard' sx={{ borderRadius: '2em', maxWidth: '100%', height: 'fit-content'}}>
+            <div className="card-container">
+                    {cardArr.map((producto, index) => (
+                            <div key={index} className="centrarElem CardContentWithoutPadding">
+                                <Card className='styleCard' style={{ borderRadius: '2em', width: '18rem', height:'65vh', height: 'fit-content'}}>
                                     <CardMedia
                                         component="img"
                                         height="400"
                                         src={producto.img}
                                         className="card-image"
+                                        style={{width:'28vh',height:'28vh'} }
                                     />
                                     <CardContent>
                                         <div className="card-text">
@@ -75,40 +74,10 @@ export const CardComponent = (producto) => {
                                     </div>
                                 </Card>
                             </div>
-                        </Grid>
                     ))}
-                </Grid>
-            </Box>
+                    </div>
         </div> 
     );
 };
 
 export default CardComponent;
-
-/*
-        <div>
-            <div className="centrar">
-                <div className="centrarElem">
-                    <Box sx={{ flexGrow: 1 }}>
-                        <Grid container spacing={2} columns={{ xs: 3, sm: 6, md: 12 }}>
-                            <Grid item xs={12} sm={4} md={4}>
-                                <Card className='styleCard' sx={{ borderRadius: '2em', maxWidth: '90%'}}>
-                                    <CardContent>
-                                        <img src={producto.img} alt={producto.nombre} className='sizeImg'/>
-                                        <div style={{ marginLeft: '10px' }}>
-                                            <p>{producto.nombre}</p>
-                                            <p>${producto.precio}</p>
-                                            <p>{producto.rating}</p>
-                                        </div>
-                                    </CardContent>
-                                    <div>
-                                        <Button className="moreButton" size="small" onClick={agregarItemEnCarrito} variant="dark"><p>+</p></Button>
-                                    </div>
-                                </Card>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </div>
-            </div> 
-        </div>
-*/
