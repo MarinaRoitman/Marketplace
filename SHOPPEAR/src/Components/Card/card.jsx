@@ -54,13 +54,12 @@ export const CardComponent = (producto) => {
             <div className="card-container">
                     {cardArr.map((producto, index) => (
                             <div key={index} className="centrarElem CardContentWithoutPadding">
-                                <Card className='styleCard' style={{ borderRadius: '2em', width: '18rem', height:'65vh', height: 'fit-content'}}>
+                                <Card className='styleCard' style={{ borderRadius: '2em', width: '18rem', height:'28rem'}}>
                                     <CardMedia
                                         component="img"
                                         height="400"
                                         src={producto.img}
                                         className="card-image"
-                                        style={{width:'28vh',height:'28vh'} }
                                     />
                                     <CardContent>
                                         <div className="card-text">
