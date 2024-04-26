@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../../Components/Banner/banner';
-import Cards from '../../Components/Card/card';
+import Cards from '../../Components/Card/card.jsx';
 
 function menuPrincipal() {
     return (
