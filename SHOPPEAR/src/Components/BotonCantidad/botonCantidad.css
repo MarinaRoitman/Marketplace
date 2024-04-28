@@ -1,0 +1,26 @@
+/*css de botonCantidad*/
+
+.btn-grupo {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ffffff;
+    width: fit-content;
+    border: 1px solid rgba(0, 0, 0, 0.365);
+}
+
+.btn-grupo:hover {
+    border: 1px solid #0000002a;
+}
+
+.p-style {
+    width: 50px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0; 
+    margin-bottom: 0;
+}

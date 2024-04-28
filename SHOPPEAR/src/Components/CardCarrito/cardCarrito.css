@@ -51,3 +51,24 @@
 .trashStyle{
   margin-left: 10em;
 }
+
+.img-div {
+  flex-shrink: 0;
+  width: 15rem; 
+  height: 16rem; 
+  overflow: hidden;
+  display: flex; 
+  justify-content: center; 
+  align-self: center; 
+}
+
+.img-div img {
+  object-fit: contain;
+  border-radius: 0.9em;
+  border: 0.1em solid rgba(0, 0, 0, 0.188);
+}
+
+.me-modal-img{
+  margin-right: 3.5rem;
+  margin-left: 2.5rem;
+}

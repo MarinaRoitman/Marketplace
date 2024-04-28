@@ -4,6 +4,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import './sidemenucarrito.css';
 import { CarritoIcon } from '../Iconos/iconos.jsx';
 import CardCarrito from '../CardCarrito/cardCarrito.jsx';
+import ModalExitoso from '../ModalExitoso/ModalExitoso.jsx';
 
 function OffCanvasExample({ name, ...props }) {
 const options = [
@@ -24,27 +25,28 @@ const options = [
   return (
     <>
       <button className="cart-button me-2" onClick={toggleShow}>
-      <CarritoIcon />
+        <CarritoIcon />
       </button>
 
       <Offcanvas show={show} onHide={handleClose} placement='end'>
         <Offcanvas.Header closeButton>
           <h2>Mi Carrito</h2>
         </Offcanvas.Header>
-        <Offcanvas.Body>
-          <CardCarrito/>
-          <footer>
-              <div>
-                <hr />
-                <h2>Total: $</h2>
-                <Button variant='dark'>Checkout</Button>
-              </div>
-          </footer>
+        <Offcanvas.Body style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <CardCarrito />
+          <div style={{ textAlign: 'center', marginTop: 'auto' }}>
+            <div>
+              <hr />
+              <h2 style={{ textAlign: 'left' }}>Total: $1000</h2>
+                <ModalExitoso/>
+            </div>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>
   );
 }
+
 export default OffCanvasExample;
 
 /*

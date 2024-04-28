@@ -11,7 +11,7 @@ import Mujer from './Pages/Mujer/mujer.jsx';
 import Niños from './Pages/Chicos/Niños.jsx';
 import Mascotas from './Pages/Mascotas/mascotas.jsx';
 import Account from './Pages/Cuenta/cuenta.jsx';
-import Pedidos from './Pages/Pedidos/pedidos.jsx';
+
 function App() {
   return (
     <div>
@@ -27,7 +27,6 @@ function App() {
               <Route path="/Niños" element={<Niños />}></Route>
               <Route path="/Mascotas" element={<Mascotas />}></Route>
               <Route path="/Cuenta" element={<Account />}></Route>
-              <Route path="/Pedidos" element={<Pedidos />}></Route>
           </Routes>
         </Router>
     </div>

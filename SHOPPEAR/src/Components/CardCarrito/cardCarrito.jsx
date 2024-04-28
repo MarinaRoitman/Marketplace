@@ -2,8 +2,8 @@ import React from 'react';
 import './cardCarrito.css';
 import Card from 'react-bootstrap/Card';
 import imgTest from '/assets/MUJER/mj1.jpg';
-import Button from 'react-bootstrap/Button';
 import { BasuraIcon } from '../Iconos/iconos.jsx';
+import BotonCantidad from '../BotonCantidad/botonCantidad.jsx';
 
 const cardCarrito = () => {
   return (
@@ -20,11 +20,9 @@ const cardCarrito = () => {
           <div>
             <p>Precio: 1000</p>
           </div>
-          <footer>
-            <small>Cantidad: 1</small>
-            <Button className="botonStyle" variant="dark">+</Button>
-            <Button className="botonStyle" variant="dark">-</Button>
-          </footer>
+          
+          <BotonCantidad minValue={0} maxValue={20}/>
+          
         </Card.Body>
       </div>
     </Card>

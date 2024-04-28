@@ -3,7 +3,6 @@
     height: auto;
 }
 
-
 .cart footer {
     display: flex;
     gap: 8px;
@@ -40,9 +39,7 @@
 
 }
 
-svg:hover{
-    stroke: black;
-}
+
 
 .cart.open {
     display: block;
@@ -61,4 +58,9 @@ svg:hover{
 .offcanvas-footer {
     margin-bottom: auto; 
     padding: 7rem;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
 }

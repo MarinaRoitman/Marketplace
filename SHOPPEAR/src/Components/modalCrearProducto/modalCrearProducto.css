@@ -1,4 +1,4 @@
-/* CSS de cuentaBotones*/
+/* CSS de modal*/
 
 .card-horizontal {
     display: flex;
@@ -7,18 +7,28 @@
     align-items: center;
 }
 
-.img-square-wrapper {
+.img-div {
     flex-shrink: 0;
-    width: 20rem; 
-    height: 20rem; 
+    width: 15rem; 
+    height: 18rem; 
     overflow: hidden;
     display: flex; 
     justify-content: center; 
-    align-items: center; 
+    align-self: center; 
 }
 
-.img-square-wrapper img {
+.img-div img {
     object-fit: contain;
     border-radius: 0.9em;
     border: 0.1em solid rgba(0, 0, 0, 0.188);
 }
+
+.centrar{
+    text-align: center;
+}
+
+.colStyle{
+    margin: 1em;
+}
+
+

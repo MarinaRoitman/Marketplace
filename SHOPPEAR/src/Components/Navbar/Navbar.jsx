@@ -63,9 +63,6 @@ const NavbarPrincipal = () => {
                     <button className="button1" role="button">
                       <Link to="/Cuenta" className='styleLinkNone'>Mi cuenta</Link>
                     </button>
-                    <button className="button1" role="button">
-                      <Link to="/Pedidos" className='styleLinkNone'>Mis Pedidos</Link>
-                    </button>
                     <SideMenuCarrito/>
                   </div>
                 </div>
