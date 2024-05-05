@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-
+import Footer from './Components/Footer/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -11,6 +11,7 @@ import Mujer from './Pages/Mujer/mujer.jsx';
 import Niños from './Pages/Chicos/Niños.jsx';
 import Mascotas from './Pages/Mascotas/mascotas.jsx';
 import Account from './Pages/Cuenta/cuenta.jsx';
+
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/Mascotas" element={<Mascotas />}></Route>
               <Route path="/Cuenta" element={<Account />}></Route>
           </Routes>
+          <Footer></Footer>
         </Router>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
-import Modal from '../../Components/modalCrearProducto/modalCrearProducto.jsx'; 
+import ModalProducto from '../../Components/ModalCrearProducto/modalCrearProducto.jsx'; 
+import ModalDescuento from '../../Components/ModalDescuento/modalDescuento.jsx'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Button } from 'react-bootstrap';
@@ -15,7 +16,8 @@ function Cuenta() {
             <Row>
                 <Col className='centrar colStyle'>
                     <Button variant='info' style={{margin:'1em'}}>Mis Datos</Button>
-                    <Modal/>
+                    <ModalProducto />
+                    <ModalDescuento/>
                 </Col>
             </Row>
             <div style={{margin:'4em', backgroundColor:'rgb(225, 229, 230)', borderRadius:'3em'}}>
