@@ -12,6 +12,8 @@ import Niños from './Pages/Chicos/Niños.jsx';
 import Mascotas from './Pages/Mascotas/mascotas.jsx';
 import Account from './Pages/Cuenta/cuenta.jsx';
 
+import ProductosDisplay from './Components/ProductosDisplay/productosDisplay.jsx';
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
               <Route path="/Niños" element={<Niños />}></Route>
               <Route path="/Mascotas" element={<Mascotas />}></Route>
               <Route path="/Cuenta" element={<Account />}></Route>
+              <Route path="/producto/:id" element={<ProductosDisplay />} />
           </Routes>
           <Footer></Footer>
         </Router>

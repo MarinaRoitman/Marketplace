@@ -8,6 +8,8 @@ import json from '../../../JSONs/productos.json'
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/carrito.actions';
 
+import { Link } from 'react-router-dom';
+
 export const CardComponent = (producto) => {
     const {id, nombre, precio, rating, img} = producto
     const Dispatch = useDispatch();
@@ -29,6 +31,7 @@ export const CardComponent = (producto) => {
                     {cardArr.map((producto, index) => (
                             <div key={index} className="centrarElem CardContentWithoutPadding">
                                 <Card className='styleCard' style={{ borderRadius: '2em', width: '18rem', height:'28rem'}}>
+                                <Link to={`/producto/${producto.id}`}>
                                     <CardMedia
                                         component="img"
                                         height="400"
@@ -42,6 +45,7 @@ export const CardComponent = (producto) => {
                                             <p>{producto.rating}</p>
                                         </div>
                                     </CardContent>
+                                </Link>
                                     <div>
                                         <Button className="moreButton" size="small" onClick={() => agregarAlCarrito(producto.id)} variant="dark"><p>+</p></Button>
                                     </div>
