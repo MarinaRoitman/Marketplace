@@ -1,60 +1,75 @@
-import React, { useEffect } from 'react'
-import './card.css'
-import Button from 'react-bootstrap/Button';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import json from '../../../JSONs/productos.json'
-import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/actions/carrito.actions';
+import React, { useEffect } from "react";
+import "./card.css";
+import Button from "react-bootstrap/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addToCart,
+  editExistingProduct,
+} from "../../redux/actions/carrito.actions";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-export const CardComponent = (producto) => {
-    const {id, nombre, precio, rating, img} = producto
-    const Dispatch = useDispatch();
-    
-    function agregarAlCarrito(id){
-        Dispatch(addToCart(id))
+export const CardComponent = (props) => {
+  const { id, name, price, rate, img } = props;
+  const dispatch = useDispatch();
+  const currentProducts = useSelector((state) => state.cart.cartItems);
+
+  function addProductInCart() {
+    const isProductInCart = currentProducts.find((item) => item.id === id);
+    if (!isProductInCart)
+      dispatch(addToCart({ id, name, price, rate, img, mount: 1 }));
+    else {
+      const newProducts = currentProducts.map((product) => {
+        if (product.id === id) {
+          return {
+            ...product,
+            mount: product.mount + 1,
+          };
+        } else return product;
+      });
+      dispatch(editExistingProduct(newProducts));
     }
-    const nose = useSelector((state) => state.cartItems);
+  }
 
-    useEffect(() => {
-        console.log(nose);
-    }, [nose])
-
-    let cardArr = json.productos;
-
-    return (
-        <div className="centrar">
-            <div className="card-container">
-                    {cardArr.map((producto, index) => (
-                            <div key={index} className="centrarElem CardContentWithoutPadding">
-                                <Card className='styleCard' style={{ borderRadius: '2em', width: '18rem', height:'28rem'}}>
-                                <Link to={`/producto/${producto.id}`}>
-                                    <CardMedia
-                                        component="img"
-                                        height="400"
-                                        src={producto.img}
-                                        className="card-image"
-                                    />
-                                    <CardContent>
-                                        <div className="card-text">
-                                            <p>{producto.nombre}</p>
-                                            <p>${producto.precio}</p>
-                                            <p>{producto.rating}</p>
-                                        </div>
-                                    </CardContent>
-                                </Link>
-                                    <div>
-                                        <Button className="moreButton" size="small" onClick={() => agregarAlCarrito(producto.id)} variant="dark"><p>+</p></Button>
-                                    </div>
-                                </Card>
-                            </div>
-                    ))}
-                    </div>
-        </div> 
-    );
+  return (
+    <div className="centrar">
+      <div className="card-container">
+        <Card
+          className="styleCard"
+          style={{ borderRadius: "2em", width: "18rem", height: "28rem" }}
+        >
+          <Link to={`producto/${id}`}>
+            <CardMedia
+              component="img"
+              height="400"
+              src={img}
+              className="card-image"
+            />
+            <CardContent>
+              <div className="card-text">
+                <p>{name}</p>
+                <p>${price}</p>
+                <p>{rate}</p>
+              </div>
+            </CardContent>
+          </Link>
+          <div>
+            <Button
+              className="moreButton"
+              size="small"
+              onClick={addProductInCart}
+              variant="dark"
+            >
+              <p>+</p>
+            </Button>
+          </div>
+        </Card>
+      </div>
+    </div>
+  );
 };
 
 export default CardComponent;
