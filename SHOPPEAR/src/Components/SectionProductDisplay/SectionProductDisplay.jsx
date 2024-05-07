@@ -4,12 +4,13 @@ import Card from "../Card/card";
 import "./SectionProductDisplay.css"
 const SectionProductDisplay = ({}) => {
   const [productos, setProductos] = useState([]);
-  const products = useSelector((state) => state.products.products);
+  const filteredProducts = useSelector((state) => state.search.productosFiltrados);
   //console.log(products);
+
   return (
     <div className="productos">
-      {products.length &&
-        products.map((product) => (
+      {filteredProducts.length &&
+        filteredProducts.map((product) => (
           <Card
             key={product.id}
             id={product.id}

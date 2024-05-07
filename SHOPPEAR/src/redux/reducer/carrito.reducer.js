@@ -1,5 +1,3 @@
-import products from "../../__mocks__/products";
-
 const initialState = {
   cartItems: [],
 };

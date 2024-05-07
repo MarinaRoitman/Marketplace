@@ -2,7 +2,8 @@ import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import {useSelector, useDispatch} from 'react-redux'
+import {useEffect} from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Menu/menu.jsx";
 import Electronica from "./Pages/Electronica/electronica.jsx";
@@ -13,8 +14,16 @@ import Mascotas from "./Pages/Mascotas/mascotas.jsx";
 import Account from "./Pages/Cuenta/cuenta.jsx";
 import Pago from './Pages/Pago/pago.jsx';
 import PruebaDisplay from "./Pages/pruebaDisplay/prueba.jsx";
+import {startSearch} from "./redux/actions/search.actions.js";
 
 function App() {
+  const items = useSelector((state)=> state.products.products)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(startSearch(items))
+  }, []);
+
   return (
     <div>
       <Router>

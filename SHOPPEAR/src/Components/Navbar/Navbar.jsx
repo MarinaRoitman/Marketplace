@@ -18,16 +18,14 @@ const NavbarPrincipal = () => {
   const [searchValue, setSearchValue] = useState("");
 
   const dispatch = useDispatch();
-  const currentProducts = useSelector((state) => state.cart.cartItems);
+  const filteredProducts = useSelector((state) => state.products.products);
 
   const handleChange = (event) => {
-    //va atrasado, el campo empieza valiendo null
+    console.log("state: ", filteredProducts);
     setSearchValue(event.currentTarget.value);
-    console.log(event.currentTarget.value);
-
-    dispatch(startSearch(event.currentTarget.value));
+    console.log("letra:", event.currentTarget.value);
+    dispatch(startSearch(filteredProducts.filter(producto => producto.nombre.toLowerCase().includes(searchValue))));
   }
-
   return (
     <>
   <div className="contenedor">

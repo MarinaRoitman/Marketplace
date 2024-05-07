@@ -4,7 +4,7 @@ import Card from "../../Components/Card/card";
 
 const niños = ({}) => {
   const [productos, setProductos] = useState([]);
-  const products = useSelector((state) => state.products.products).filter((item) => item.categoria == "ninos");
+  const products = useSelector((state) => state.search.productosFiltrados).filter((item) => item.categoria == "ninos");
   //console.log(products);
   return (
     <div style={{display: 'flex',
