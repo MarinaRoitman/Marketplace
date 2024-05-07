@@ -37,8 +37,7 @@ function App() {
           <Route path="/Mascotas" element={<Mascotas />}></Route>
           <Route path="/Cuenta" element={<Account />}></Route>
           <Route path="/Pago" element={<Pago />}></Route>
-          <Route path="/holi" element={<PruebaDisplay />}></Route>
-
+          <Route path="/producto/:searchID" element={<PruebaDisplay />} />
         </Routes>
         <Footer />
       </Router>
@@ -47,6 +46,3 @@ function App() {
 }
 
 export default App;
-/*
-          <Route path="/producto/:id" element={<ProductosDisplay />} />
-*/
