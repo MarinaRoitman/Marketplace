@@ -1,5 +1,5 @@
 import React, {useEffect , useState} from 'react';
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import './sidemenucarrito.css';
@@ -7,9 +7,13 @@ import { CarritoIcon } from '../Iconos/iconos.jsx';
 import CardCarrito from '../CardCarrito/cardCarrito.jsx';
 import ModalExitoso from '../ModalExitoso/ModalExitoso.jsx';
 import { Link } from 'react-router-dom';
-
+import {
+  removeFromCart,
+} from "../../redux/actions/carrito.actions";
 function OffCanvasExample({ name, ...props }) {
   const cartItems = useSelector((state)=> state.cart.cartItems)
+  const dispatch = useDispatch();
+  
 
   const options = [
   {
@@ -41,6 +45,12 @@ const handleSubmit = () => {
   //mostrar pantalla de exito!
 }
 
+const deleteProduct = (id) => {
+  //cuando borro al tener mas de un producto se visualiza mal
+  const newProducts = cartItems.filter((product) => product.id !== id);
+  dispatch(removeFromCart(newProducts));
+}
+console.log(cartItems)
   return (
     <>
       <button className="cart-button me-2" onClick={toggleShow}>
@@ -52,7 +62,7 @@ const handleSubmit = () => {
           <h2>Mi Carrito</h2>
         </Offcanvas.Header>
         <Offcanvas.Body style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-          {cartItems.map((item)=> <CardCarrito {...item}/>)}
+          {cartItems.map((item)=> <CardCarrito {...item} deleteProduct={deleteProduct}/>)}
           <div style={{ textAlign: 'center', marginTop: 'auto' }}>
             <div>
               <hr />

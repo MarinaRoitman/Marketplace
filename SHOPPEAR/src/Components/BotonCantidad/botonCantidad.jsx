@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./botonCantidad.css";
 import { Button } from "react-bootstrap";
 
 const BotonCantidad = ({ mount, onClick }) => {
-    const [count, setCount] = useState(mount);
+    const [count, setCount] = useState();
+    
+    useEffect(()=>{
+        setCount(mount)
+    },[mount])
 
     const handleIncrementCounter = () => {
         setCount((count) => count + 1);

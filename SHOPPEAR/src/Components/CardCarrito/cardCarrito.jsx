@@ -11,7 +11,7 @@ import {
   removeFromCart,
 } from "../../redux/actions/carrito.actions";
 
-const cardCarrito = ({id, name, price, rate, img, mount}) => {
+const cardCarrito = ({id, name, price, rate, img, mount, deleteProduct}) => {
   const dispatch = useDispatch();
   const currentProducts = useSelector((state) => state.cart.cartItems);
 
@@ -19,11 +19,6 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
   console.log("ola", currentProducts)
   }, [currentProducts]);
 
-  const deleteProduct = () => {
-    //cuando borro al tener mas de un producto se visualiza mal
-    const newProducts = currentProducts.filter((product) => product.id !== id);
-    dispatch(removeFromCart(newProducts));
-  }
 
   const handleClickMount = (mount) => {
     const isProductInCart = currentProducts.find((item) => item.id === id);
@@ -51,7 +46,7 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
         <Card.Body>
           <div className="product-info">
             <h5>{name}</h5>
-            <button className='trashButtonStyle' onClick={() => deleteProduct()}><BasuraIcon className="trashStyle"  width="24" height="24"/></button>
+            <button className='trashButtonStyle' onClick={() => deleteProduct(id)}><BasuraIcon className="trashStyle"  width="24" height="24"/></button>
           </div>
           <div>
             <p>${price}</p>
