@@ -1,5 +1,5 @@
 import React from "react";
-import Banner from "../../Components/Banner/banner";
+import Banner from "../../Components/Banner/bannerPrincipal";
 import SectionProductDisplay from "../../Components/SectionProductDisplay/SectionProductDisplay";
 
 function menuPrincipal() {

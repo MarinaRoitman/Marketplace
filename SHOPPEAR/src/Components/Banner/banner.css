@@ -63,3 +63,10 @@
   height: 4em; /* Alto de la flecha */
 }
 }
+
+.noButtons{
+    .carousel-control-prev,
+    .carousel-control-next {
+    display: none !important;
+    }
+}
