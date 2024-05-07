@@ -74,6 +74,9 @@ const NavbarPrincipal = () => {
               <Col xs={12} md={4} className="d-flex align-items-center justify-content-center padding-top-md" > 
                 <div>
                   <div>
+                  <button className="button1" role="button">
+                      <Link to="/holi" className='styleLinkNone'>holi</Link>
+                    </button>
                     <button className="button1" role="button">
                       <Link to="/Cuenta" className='styleLinkNone'>Mi cuenta</Link>
                     </button>
@@ -99,7 +102,7 @@ const NavbarPrincipal = () => {
                     <Link to="/Niños" className='styleLinkNone'>Niños</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Mascotas" className='styleLinkNone'>Mascota</Link>
+                    <Link to="/Mascotas" className='styleLinkNone'>Mascotas</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
                     <Link to="/Electronica" className='styleLinkNone'>Electrónica</Link>

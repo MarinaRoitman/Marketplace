@@ -12,7 +12,7 @@ import Niños from "./Pages/Chicos/Niños.jsx";
 import Mascotas from "./Pages/Mascotas/mascotas.jsx";
 import Account from "./Pages/Cuenta/cuenta.jsx";
 import Pago from './Pages/Pago/pago.jsx';
-import ProductosDisplay from "./Components/ProductosDisplay/productosDisplay.jsx";
+import PruebaDisplay from "./Pages/pruebaDisplay/prueba.jsx";
 
 function App() {
   return (
@@ -27,8 +27,9 @@ function App() {
           <Route path="/Niños" element={<Niños />}></Route>
           <Route path="/Mascotas" element={<Mascotas />}></Route>
           <Route path="/Cuenta" element={<Account />}></Route>
-          <Route path="/Pago" element={<Pago />}/>
-          <Route path="/producto/:id" element={<ProductosDisplay />} />
+          <Route path="/Pago" element={<Pago />}></Route>
+          <Route path="/holi" element={<PruebaDisplay />}></Route>
+
         </Routes>
         <Footer />
       </Router>
@@ -37,3 +38,6 @@ function App() {
 }
 
 export default App;
+/*
+          <Route path="/producto/:id" element={<ProductosDisplay />} />
+*/

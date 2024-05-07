@@ -51,7 +51,7 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
         <Card.Body>
           <div className="product-info">
             <h5>{name}</h5>
-            <button onClick={() => deleteProduct()}><BasuraIcon className="trashStyle"/></button>
+            <button className='trashButtonStyle' onClick={() => deleteProduct()}><BasuraIcon className="trashStyle"  width="24" height="24"/></button>
           </div>
           <div>
             <p>${price}</p>

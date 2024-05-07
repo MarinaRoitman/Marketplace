@@ -7,7 +7,11 @@ const mujer = ({}) => {
   const products = useSelector((state) => state.products.products).filter((item) => item.categoria == "mujeres");
   //console.log(products);
   return (
-    <div>
+    <div style={{display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: '7px',
+    justifyContent: 'center'}}>
       {products.length &&
         products.map((product) => (
           <Card

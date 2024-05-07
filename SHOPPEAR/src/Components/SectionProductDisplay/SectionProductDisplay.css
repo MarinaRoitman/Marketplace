@@ -1,0 +1,7 @@
+.productos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 7px;
+    justify-content: center;
+}
