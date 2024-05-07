@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useMemo} from 'react';
+import {useSelector} from 'react-redux'
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import './sidemenucarrito.css';
@@ -7,6 +8,7 @@ import CardCarrito from '../CardCarrito/cardCarrito.jsx';
 import ModalExitoso from '../ModalExitoso/ModalExitoso.jsx';
 
 function OffCanvasExample({ name, ...props }) {
+  const cartItems = useSelector((state)=> state.products.products)
 const options = [
   {
     name: 'Disable backdrop',
@@ -22,6 +24,10 @@ const options = [
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
 
+  const handleCalculateTotal = useMemo(() => {
+    //calcular el total
+  },[])
+
   return (
     <>
       <button className="cart-button me-2" onClick={toggleShow}>
@@ -33,7 +39,7 @@ const options = [
           <h2>Mi Carrito</h2>
         </Offcanvas.Header>
         <Offcanvas.Body style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-          <CardCarrito />
+          {cartItems.map((item)=> <CardCarrito {...item}/>)}
           <div style={{ textAlign: 'center', marginTop: 'auto' }}>
             <div>
               <hr />

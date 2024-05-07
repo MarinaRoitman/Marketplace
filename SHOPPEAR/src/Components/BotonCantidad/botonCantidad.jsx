@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import "./botonCantidad.css";
 import { Button } from "react-bootstrap";
 
-const BotonCantidad = ({ minValue = 0, maxValue = 100 }) => {
-    const [count, setCount] = useState(minValue);
+const BotonCantidad = ({ mount, onClick }) => {
+    const [count, setCount] = useState(mount);
 
     const handleIncrementCounter = () => {
-        if (count < maxValue) {
+
             setCount((prevState) => prevState + 1);
-        }
+            onClick(prevState + 1)
+        
     };
 
     const handleDecrementCounter = () => {
-        if (count > minValue) {
+        if (count > 0) {
             setCount((prevState) => prevState - 1);
+            onClick(prevState - 1)
         }
     };
 
