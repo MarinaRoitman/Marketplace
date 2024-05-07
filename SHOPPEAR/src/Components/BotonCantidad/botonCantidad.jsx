@@ -13,7 +13,7 @@ const BotonCantidad = ({ mount, onClick }) => {
     };
 
     const handleDecrementCounter = () => {
-        if (count > 0) {
+        if (count > 1) {
             setCount((prevState) => prevState - 1);
             onClick(prevState - 1)
         }

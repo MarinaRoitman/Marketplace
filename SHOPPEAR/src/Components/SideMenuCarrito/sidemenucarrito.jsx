@@ -8,7 +8,7 @@ import CardCarrito from '../CardCarrito/cardCarrito.jsx';
 import ModalExitoso from '../ModalExitoso/ModalExitoso.jsx';
 
 function OffCanvasExample({ name, ...props }) {
-  const cartItems = useSelector((state)=> state.products.products)
+  const cartItems = useSelector((state)=> state.cart.cartItems)
 const options = [
   {
     name: 'Disable backdrop',
@@ -28,6 +28,16 @@ const options = [
     //calcular el total
   },[])
 
+const handleSubmit = () => {
+  //redireccionar a pagos
+  //mostrar tipos de pago debito/credito
+  //datos del usuario, nombre, apellido, celular, 
+  //datos tarjeta
+  //una vez procesada 
+  //mostrar pantalla de exito!
+}
+
+
   return (
     <>
       <button className="cart-button me-2" onClick={toggleShow}>
@@ -44,7 +54,9 @@ const options = [
             <div>
               <hr />
               <h2 style={{ textAlign: 'left' }}>Total: $1000</h2>
-                <ModalExitoso/>
+              <Button variant="dark" onClick={handleSubmit}>
+                  Comprar
+              </Button>
             </div>
           </div>
         </Offcanvas.Body>

@@ -9,9 +9,7 @@ const ModalExitoso = () => {
     const handleShow = () => setShow(true);
 return (
     <>
-    <Button variant="dark" onClick={handleShow}>
-        Comprar
-    </Button>
+
 
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
