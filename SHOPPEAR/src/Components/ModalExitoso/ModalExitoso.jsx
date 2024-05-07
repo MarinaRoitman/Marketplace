@@ -9,8 +9,9 @@ const ModalExitoso = () => {
     const handleShow = () => setShow(true);
 return (
     <>
-
-
+        <Button variant="dark" onClick={handleShow} style={{margin:'1em'}}>
+            Confirmar Compra
+        </Button>
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
         <Modal.Title>Compra Exitosa</Modal.Title>

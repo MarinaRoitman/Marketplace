@@ -11,7 +11,7 @@ import Mujer from "./Pages/Mujer/mujer.jsx";
 import Niños from "./Pages/Chicos/Niños.jsx";
 import Mascotas from "./Pages/Mascotas/mascotas.jsx";
 import Account from "./Pages/Cuenta/cuenta.jsx";
-
+import Pago from './Pages/Pago/pago.jsx';
 import ProductosDisplay from "./Components/ProductosDisplay/productosDisplay.jsx";
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
           <Route path="/Niños" element={<Niños />}></Route>
           <Route path="/Mascotas" element={<Mascotas />}></Route>
           <Route path="/Cuenta" element={<Account />}></Route>
+          <Route path="/Pago" element={<Pago />}/>
           <Route path="/producto/:id" element={<ProductosDisplay />} />
         </Routes>
         <Footer />

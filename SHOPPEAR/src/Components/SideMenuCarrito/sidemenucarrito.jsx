@@ -6,6 +6,7 @@ import './sidemenucarrito.css';
 import { CarritoIcon } from '../Iconos/iconos.jsx';
 import CardCarrito from '../CardCarrito/cardCarrito.jsx';
 import ModalExitoso from '../ModalExitoso/ModalExitoso.jsx';
+import { Link } from 'react-router-dom';
 
 function OffCanvasExample({ name, ...props }) {
   const cartItems = useSelector((state)=> state.cart.cartItems)
@@ -56,9 +57,12 @@ const handleSubmit = () => {
             <div>
               <hr />
               <h2 style={{ textAlign: 'left' }}>Total: ${sumaTotal}</h2>
-              <Button variant="dark" onClick={handleSubmit}>
+              <Link to="/Pago" className='styleLinkNone'>
+                <Button variant="dark" onClick={handleSubmit}>
                   Comprar
               </Button>
+              </Link>
+
             </div>
           </div>
         </Offcanvas.Body>
