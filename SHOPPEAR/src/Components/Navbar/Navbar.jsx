@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,6 +11,15 @@ import {Link} from 'react-router-dom';
 import SideMenuCarrito from '../SideMenuCarrito/sidemenucarrito.jsx';
 
 const NavbarPrincipal = () => {
+
+  const [searchValue, setSearchValue] = useState(null);
+
+  const handleChange = (event) => {
+    //va atrasado, el campo empieza valiendo null
+    setSearchValue(event.currentTarget.value);
+    console.log(searchValue);
+  }
+
   return (
     <>
   <div className="contenedor">
@@ -52,7 +61,7 @@ const NavbarPrincipal = () => {
           </Col>
               <Col xs={12} md={4} className="d-flex align-items-center justify-content-center">
                 <div id="search-box">
-                  <input className="input" placeholder="Buscar"
+                  <input className="input" value={searchValue} placeholder="Buscar" onChange={handleChange}
                     style={{ width: '20em', border: 'none'}}/>
                     <img src={search} className='icon' alt="Search"></img> 
                 </div>
