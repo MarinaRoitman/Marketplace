@@ -10,10 +10,12 @@ import carritoVacio from '/assets/carrito vacio.png';
 import {Link} from 'react-router-dom';
 import SideMenuCarrito from '../SideMenuCarrito/sidemenucarrito.jsx';
 import {useDispatch, useSelector } from 'react-redux'
-
+import {
+  startSearch
+} from "../../redux/actions/search.actions.js";
 const NavbarPrincipal = () => {
 
-  const [searchValue, setSearchValue] = useState(null);
+  const [searchValue, setSearchValue] = useState("");
 
   const dispatch = useDispatch();
   const currentProducts = useSelector((state) => state.cart.cartItems);
@@ -21,8 +23,9 @@ const NavbarPrincipal = () => {
   const handleChange = (event) => {
     //va atrasado, el campo empieza valiendo null
     setSearchValue(event.currentTarget.value);
-    dispatch(startSearch(searchValue));
-    console.log(searchValue);
+    console.log(event.currentTarget.value);
+
+    dispatch(startSearch(event.currentTarget.value));
   }
 
   return (
@@ -121,5 +124,4 @@ export default NavbarPrincipal;
 
 /*
 <button className="buttonCart" role="button"><img src={carritoVacio} className='sizeCarrito' alt="carrito vacio" /></button>
-                  
 */
