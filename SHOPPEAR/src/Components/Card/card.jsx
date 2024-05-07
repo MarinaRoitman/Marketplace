@@ -41,7 +41,7 @@ export const CardComponent = (props) => {
           className="styleCard"
           style={{ borderRadius: "2em", width: "18rem", height: "28rem" }}
         >
-          <Link to={`producto/${id}`}>
+          <Link to={`producto/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
             <CardMedia
               component="img"
               height="400"
@@ -49,10 +49,10 @@ export const CardComponent = (props) => {
               className="card-image"
             />
             <CardContent>
-              <div className="card-text">
-                <p>{name}</p>
-                <p>${price}</p>
-                <p>{rate}</p>
+              <div className="card-text" >
+                <p style={{ textAlign: 'center',fontWeight: 'bold'}}>{name}</p>
+                <p style={{ textAlign: 'center' }}>${price}</p>
+                <p style={{ textAlign: 'center' }}>{rate}</p>
               </div>
             </CardContent>
           </Link>

@@ -5,7 +5,7 @@ import Card from "../Card/card";
 const SectionProductDisplay = ({}) => {
   const [productos, setProductos] = useState([]);
   const products = useSelector((state) => state.products.products);
-  //console.log("ola", products);
+  //console.log(products);
   return (
     <div>
       {products.length &&

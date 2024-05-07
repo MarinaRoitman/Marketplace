@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import './cardCarrito.css';
 import Card from 'react-bootstrap/Card';
-import imgTest from '/assets/MUJER/mj1.jpg';
+
 import { BasuraIcon } from '../Iconos/iconos.jsx';
 import BotonCantidad from '../BotonCantidad/botonCantidad.jsx';
 import {
   addToCart,
   editExistingProduct,
+  removeFromCart,
 } from "../../redux/actions/carrito.actions";
 
 const cardCarrito = ({id, name, price, rate, img, mount}) => {
   const dispatch = useDispatch();
   const currentProducts = useSelector((state) => state.cart.cartItems);
+
+  useEffect(() => {
+  console.log("ola", currentProducts)
+  }, [currentProducts]);
+
+  const deleteProduct = () => {
+    //cuando borro al tener mas de un producto se visualiza mal
+    const newProducts = currentProducts.filter((product) => product.id !== id);
+    dispatch(removeFromCart(newProducts));
+  }
 
   const handleClickMount = (mount) => {
     const isProductInCart = currentProducts.find((item) => item.id === id);
@@ -30,6 +41,7 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
       dispatch(editExistingProduct(newProducts));
     }
   }
+
   return (
     <Card className="horizontal-card">
       <div className="card-horizontal">
@@ -39,10 +51,10 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
         <Card.Body>
           <div className="product-info">
             <h5>{name}</h5>
-            <BasuraIcon className="trashStyle" />
+            <button onClick={() => deleteProduct()}><BasuraIcon className="trashStyle"/></button>
           </div>
           <div>
-            <p>Precio: {price}</p>
+            <p>${price}</p>
           </div>
           <BotonCantidad mount={mount} onClick={handleClickMount}/>
 

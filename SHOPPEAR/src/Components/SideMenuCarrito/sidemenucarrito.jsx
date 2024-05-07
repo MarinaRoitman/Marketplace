@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react';
+import React, {useEffect , useState} from 'react';
 import {useSelector} from 'react-redux'
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -9,7 +9,8 @@ import ModalExitoso from '../ModalExitoso/ModalExitoso.jsx';
 
 function OffCanvasExample({ name, ...props }) {
   const cartItems = useSelector((state)=> state.cart.cartItems)
-const options = [
+
+  const options = [
   {
     name: 'Disable backdrop',
     scroll: false,
@@ -24,9 +25,11 @@ const options = [
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
 
-  const handleCalculateTotal = useMemo(() => {
-    //calcular el total
-  },[])
+  const [sumaTotal, setSumaTotal] = useState(0);
+
+  useEffect(() => {
+  setSumaTotal(cartItems.reduce((total,item) => total+=item.price*item.mount, 0))
+  }, [cartItems]);
 
 const handleSubmit = () => {
   //redireccionar a pagos
@@ -36,7 +39,6 @@ const handleSubmit = () => {
   //una vez procesada 
   //mostrar pantalla de exito!
 }
-
 
   return (
     <>
@@ -53,7 +55,7 @@ const handleSubmit = () => {
           <div style={{ textAlign: 'center', marginTop: 'auto' }}>
             <div>
               <hr />
-              <h2 style={{ textAlign: 'left' }}>Total: $1000</h2>
+              <h2 style={{ textAlign: 'left' }}>Total: ${sumaTotal}</h2>
               <Button variant="dark" onClick={handleSubmit}>
                   Comprar
               </Button>
@@ -66,17 +68,3 @@ const handleSubmit = () => {
 }
 
 export default OffCanvasExample;
-
-/*
-function Example() {
-  return (
-    <>
-      {options.map((props, idx) => (
-        <OffCanvasExample key={idx} {...props} />
-      ))}
-    </>
-  );
-}
-
-render(<Example />);
-*/
