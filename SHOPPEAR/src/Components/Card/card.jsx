@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 export const CardComponent = (props) => {
   const { id, name, price, rate, img } = props;
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.products)
   const currentProducts = useSelector((state) => state.cart.cartItems);
 
   function addProductInCart() {
