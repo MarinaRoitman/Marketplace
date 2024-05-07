@@ -13,7 +13,7 @@ import Niños from "./Pages/Chicos/Niños.jsx";
 import Mascotas from "./Pages/Mascotas/mascotas.jsx";
 import Account from "./Pages/Cuenta/cuenta.jsx";
 import Pago from './Pages/Pago/pago.jsx';
-import PruebaDisplay from "./Pages/pruebaDisplay/prueba.jsx";
+import ProductosDisplay from "./Components/ProductosDisplay/productosDisplay.jsx";
 import {startSearch} from "./redux/actions/search.actions.js";
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
           <Route path="/Mascotas" element={<Mascotas />}></Route>
           <Route path="/Cuenta" element={<Account />}></Route>
           <Route path="/Pago" element={<Pago />}></Route>
-          <Route path="/producto/:searchID" element={<PruebaDisplay />} />
+          <Route path="/producto/:searchID" element={<ProductosDisplay />} />
         </Routes>
         <Footer />
       </Router>

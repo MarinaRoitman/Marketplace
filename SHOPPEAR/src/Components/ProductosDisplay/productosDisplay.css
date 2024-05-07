@@ -1,0 +1,6 @@
+.productosAcomodados{
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    flex-direction: column;
+}

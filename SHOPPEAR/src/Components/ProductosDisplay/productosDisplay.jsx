@@ -1,37 +1,84 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import {useSelector} from 'react-redux'
-import img from '/assets/MUJER/mj13.jpg';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { useSelector, useDispatch } from "react-redux";
+import './productosDisplay.css'
+import { Link } from 'react-router-dom';
+import {
+    addToCart,
+    editExistingProduct,
+} from "../../redux/actions/carrito.actions";
 
 
-export const productosDisplay = () => {
-return (
-    <Container>
-        <Col>
+const Prueba = () => {
+    const { searchID } = useParams(); // Obtener el ID del producto de la URL
+    const products = useSelector((state) => state.products.products);
+    const currentProducts = useSelector((state) => state.cart.cartItems);
+    const dispatch = useDispatch();
+
+    let detailedProduct = null;
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].id === parseInt(searchID)) {
+            detailedProduct = products[i];
+            break;
+        }
+    }
+
+    if (!detailedProduct) {
+        return <div>No se encontró el producto.</div>;
+    }
+
+    const { nombre, descripcion, id, precio, stock, img, rating } = detailedProduct;
+    
+    console.log("detailed product", detailedProduct)
+
+    function addProductInCart() {
+        const isProductInCart = currentProducts.find((item) => item.id === id);
+        const intID = parseInt(id)
+        if (!isProductInCart)
+        dispatch(addToCart({ intID, nombre, precio, rating, img, mount: 1 })); // POR QUE LLEGA BIEN LOS DATOS AL CARRITO, PERO EL MENU LLEGA CUALQUIER COSA???
+        else {
+        const newProducts = currentProducts.map((product) => {
+            if (product.id === id) {
+            return {
+                ...product,
+                mount: product.mount + 1,
+            };
+            } else return product;
+        });
+        dispatch(editExistingProduct(newProducts));
+        }
+    }
+
+    return (
         <div>
-            <div className="product-detail-container" >
-                <div className="product-imagen">
-                    <img src={img} alt='img' />
+            <Link to="/" className='styleLinkNone'>
+                <Button variant='dark' style={{marginLeft:'1em'}}>
+                    Volver al Menú
+                </Button>
+            </Link>
+            <div className="product-detail-container" style={{
+                display: 'flex',
+                flexDirection: 'row', 
+                gap: '20px',
+                justifyContent:'center',
+                alignItems: 'center', 
+                margin: '3em' 
+            }}>
+                <div>
+                    <img src={img} alt='img' style={{Width: '40em', height:'40em'}}/>
+                </div>
+                <div className="productosAcomodados" style={{ marginLeft: '20px', margin: '9em'}}>
+                    <h2>{nombre}</h2>
+                    <p className="product-descripcion">{descripcion}</p>
+                    <p className="product-precio">Precio: ${precio}</p>
+                    <p className="product-precio">{rating}</p>
+                    <p className="product-precio">Quedan {stock} unidades</p>
+                    <Button variant='dark' onClick={addProductInCart}>Agregar al carrito</Button>
                 </div>
             </div>
         </div>
-    </Col>
-    <Col>
-    <div className="product-info">
-        <h2>{producto.name}</h2>
-        <p className="product-descripcion">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit mattis diam quis vehicula. Nulla scelerisque diam a porta porttitor. Nam dictum sapien sed venenatis ornare. Proin ullamcorper luctus tellus. Praesent malesuada, nisl eget convallis lobortis, nibh sem tincidunt tortor, eget semper lectus nisi ut eros. Ut dictum tristique vestibulum. Integer dignissim vulputate turpis in mollis. Ut ac felis porttitor, fermentum erat sit amet, molestie nisl. Etiam rhoncus ultricies facilisis. In malesuada massa nulla, ac venenatis purus volutpat in. Donec ac mauris sed tortor rutrum cursus. Sed velit ex, tempus sed dolor ac, bibendum hendrerit urna. Ut vel nulla leo. Maecenas pellentesque enim sit amet sapien consectetur tincidunt. Sed in porttitor erat, pharetra fermentum libero. Mauris semper ipsum ut elit tincidunt lacinia.
-        </p>
-        <p className="product-precio">Precio: $8000</p>
-    </div>
-    </Col>
-
-    </Container>
-)
+    );
 }
 
-export default productosDisplay
+export default Prueba;
