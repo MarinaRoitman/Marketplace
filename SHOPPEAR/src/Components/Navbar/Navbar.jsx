@@ -9,14 +9,19 @@ import search from '/assets/search.png';
 import carritoVacio from '/assets/carrito vacio.png';
 import {Link} from 'react-router-dom';
 import SideMenuCarrito from '../SideMenuCarrito/sidemenucarrito.jsx';
+import {useDispatch, useSelector } from 'react-redux'
 
 const NavbarPrincipal = () => {
 
   const [searchValue, setSearchValue] = useState(null);
 
+  const dispatch = useDispatch();
+  const currentProducts = useSelector((state) => state.cart.cartItems);
+
   const handleChange = (event) => {
     //va atrasado, el campo empieza valiendo null
     setSearchValue(event.currentTarget.value);
+    dispatch(startSearch(searchValue));
     console.log(searchValue);
   }
 
