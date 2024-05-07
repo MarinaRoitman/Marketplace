@@ -57,7 +57,7 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/HOMBRE/hb1.jpg",
         "stock": 20,
-        "categoria": "hombre"
+        "categoria": "hombres"
     },
     {
         "id": 7,
@@ -67,7 +67,7 @@ const products = [
         "rating": "★★★☆☆",
         "img": "/assets/HOMBRE/hb2.jpg",
         "stock": 20,
-        "categoria": "hombre"
+        "categoria": "hombres"
     },
     {
         "id": 8,
@@ -77,7 +77,7 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/HOMBRE/hb3.jpg",
         "stock": 20,
-        "categoria": "hombre"
+        "categoria": "hombres"
     },
     {
         "id": 9,
@@ -87,7 +87,7 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/HOMBRE/hb4.jpg",
         "stock": 20,
-        "categoria": "hombre"
+        "categoria": "hombres"
     },
     {
         "id": 10,
@@ -97,7 +97,7 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/HOMBRE/hb5.jpg",
         "stock": 20,
-        "categoria": "hombre"
+        "categoria": "hombres"
     },
     {
         "id": 11,

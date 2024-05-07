@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import Card from "../../Components/Card/card";
 
-function mascotas() {
-return (
+const mascotas = ({}) => {
+  const [productos, setProductos] = useState([]);
+  const products = useSelector((state) => state.products.products).filter((item) => item.categoria == "mascotas");
+  //console.log(products);
+  return (
     <div>
-    <h1>Página de MASCOTAS</h1>
+      {products.length &&
+        products.map((product) => (
+          <Card
+            key={product.id}
+            id={product.id}
+            name={product.nombre}
+            price={product.precio}
+            rate={product.rating}
+            img={product.img}
+          />
+        ))}
     </div>
-);
-}
+  );
+};
 
 export default mascotas;
