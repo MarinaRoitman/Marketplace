@@ -3,6 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {useSelector,useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom';
+import {
+    emptyCart,
+  } from "../../redux/actions/carrito.actions";
 
 const ModalExitoso = () => {
     const products = useSelector((state)=> state.products.products)
@@ -12,6 +15,11 @@ const ModalExitoso = () => {
 
     const handleClose = () => setShow(false);
     
+    function erraseCart(){
+        dispatch(emptyCart());
+        setShow(false);
+    }
+
     function confirmarCompra(){
         console.log(products)
         const itemsUpdate = products.map((item) => {
@@ -39,7 +47,7 @@ return (
             ¡Muchas Gracias por tu compra!</Modal.Body>
         <Modal.Footer>
             <Link to="/" className='styleLinkNone'>
-                <Button variant="dark" onClick={handleClose}>
+                <Button variant="dark" onClick={erraseCart}>
                     Cerrar
                 </Button>
             </Link>

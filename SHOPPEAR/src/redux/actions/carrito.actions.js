@@ -12,3 +12,7 @@ export const editExistingProduct = (newProduct) => ({
   type: "EDIT_PRODUCT",
   payload: newProduct,
 });
+
+export const emptyCart = () => ({
+  type: "EMPTY_CART",
+});
