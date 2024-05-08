@@ -91,19 +91,19 @@ const NavbarPrincipal = () => {
                     <Link to="/" className='styleLinkNone'>Menú</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Mujer" className='styleLinkNone'>Mujer</Link>
+                    <Link to="/Mujer" value="mujeres" className='styleLinkNone'>Mujer</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Hombre" className='styleLinkNone'>Hombre</Link>
+                    <Link to="/Hombre" value="hombres" className='styleLinkNone'>Hombre</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Niños" className='styleLinkNone'>Niños</Link>
+                    <Link to="/Niños" value="ninos" className='styleLinkNone'>Niños</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Mascotas" className='styleLinkNone'>Mascotas</Link>
+                    <Link to="/Mascotas" value="mascotas" className='styleLinkNone'>Mascotas</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Electronica" className='styleLinkNone'>Electrónica</Link>
+                    <Link to="/Electronica" value="tecnologia" className='styleLinkNone'>Electrónica</Link>
                   </li>
                 </ul>
               </div>
