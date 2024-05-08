@@ -21,9 +21,9 @@ const NavbarPrincipal = () => {
   const filteredProducts = useSelector((state) => state.products.products);
 
   const handleChange = (event) => {
-    console.log("state: ", filteredProducts);
+    //console.log("state: ", filteredProducts);
     setSearchValue(event.currentTarget.value);
-    console.log("letra:", event.currentTarget.value);
+    //console.log("letra:", event.currentTarget.value);
     dispatch(startSearch(filteredProducts.filter(producto => producto.nombre.toLowerCase().includes(searchValue))));
   }
   return (

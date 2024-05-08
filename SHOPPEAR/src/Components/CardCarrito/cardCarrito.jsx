@@ -25,7 +25,7 @@ const cardCarrito = ({id, name, price, rate, img, mount, deleteProduct}) => {
     const isProductInCart = currentProducts.find((item) => item.id === id);
     const product = products.find((item) => item.id === id)
     const cartProduct = currentProducts.find((item) => item.id === id)
-    console.log("maruru uwu", cartProduct)
+    console.log("prueba:", cartProduct)
 
     if (product.stock > 0){
         if(value <= product.stock){ //cant toma el valor del botonCantidad, ya tiene el valor nuevo

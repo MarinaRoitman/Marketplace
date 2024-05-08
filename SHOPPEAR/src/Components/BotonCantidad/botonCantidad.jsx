@@ -3,23 +3,13 @@ import "./botonCantidad.css";
 import { Button } from "react-bootstrap";
 
 const BotonCantidad = ({ mount, setMount, onClick }) => {
-    /*
-    const [count, setCount] = useState();
-    
-    useEffect(()=>{
-        setCount(mount)
-    },[mount])
-    */
-
 
     const handleIncrementCounter = () => {
-        //setMount((mount) => mount + 1);
         onClick(mount+1)
     };
 
     const handleDecrementCounter = () => {
         if (mount > 1) {
-            //setMount((mount) => mount - 1);
             onClick(mount-1)
         }
     };
