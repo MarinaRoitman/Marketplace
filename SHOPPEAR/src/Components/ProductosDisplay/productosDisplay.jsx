@@ -30,23 +30,30 @@ const productosDisplay = () => {
     
     //console.log("detailed product", detailedProduct)
 
-    function addProductInCart() {
-        const isProductInCart = currentProducts.find((item) => item.id === id);
-        const intID = parseInt(id)
-        if (!isProductInCart)
-        dispatch(addToCart({ intID, nombre, precio, rating, img, mount: 1 })); // POR QUE LLEGA BIEN LOS DATOS AL CARRITO, PERO EL MENU LLEGA CUALQUIER COSA???
-        else {
+  function addProductInCart() {
+    const isProductInCart = currentProducts.find((item) => item.id === id);
+    const product = products.find((item) => item.id === id)
+    const cartProduct = currentProducts.find((item) => item.id === id)
+    if (product.stock > 0){
+      if (!isProductInCart)
+        dispatch(addToCart({ id, name: nombre, price: precio, rate: rating, img, mount: 1 }));
+      else {
+        if(cartProduct.mount < product.stock){
         const newProducts = currentProducts.map((product) => {
-            if (product.id === id) {
+          if (product.id === id) {
             return {
-                ...product,
-                mount: product.mount + 1,
+              ...product,
+              mount: product.mount + 1,
             };
-            } else return product;
+          } else return product;
         });
         dispatch(editExistingProduct(newProducts));
-        }
+      }
     }
+    } else {
+      <ModalError></ModalError>;
+    }
+  }
 
     return (
         <div>

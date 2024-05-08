@@ -22,9 +22,11 @@ const NavbarPrincipal = () => {
 
   const handleChange = (event) => {
     //console.log("state: ", filteredProducts);
-    setSearchValue(event.currentTarget.value);
-    //console.log("letra:", event.currentTarget.value);
+    setSearchValue(event.currentTarget.value.toLowerCase());
+    console.log("letra:", event.currentTarget.value);
+    console.log("ZA", filteredProducts.filter(producto => producto.nombre.toLowerCase().includes(searchValue)));
     dispatch(startSearch(filteredProducts.filter(producto => producto.nombre.toLowerCase().includes(searchValue))));
+    console.log("ZB", filteredProducts.filter(producto => producto.nombre.toLowerCase().includes(searchValue)));
   }
   return (
     <>
