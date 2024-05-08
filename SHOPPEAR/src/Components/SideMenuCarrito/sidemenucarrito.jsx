@@ -37,7 +37,6 @@ function OffCanvasExample({ name, ...props }) {
   }, [cartItems]);
 
 const deleteProduct = (id) => {
-  //cuando borro al tener mas de un producto se visualiza mal
   const newProducts = cartItems.filter((product) => product.id !== id);
   dispatch(removeFromCart(newProducts));
 }

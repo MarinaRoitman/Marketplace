@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import {useSelector,useDispatch} from 'react-redux'
+import { Link } from 'react-router-dom';
 
 const ModalExitoso = () => {
     const products = useSelector((state)=> state.products.products)
@@ -37,9 +38,11 @@ return (
             Su compra se realizó correctamente. <br />
             ¡Muchas Gracias por tu compra!</Modal.Body>
         <Modal.Footer>
-    <Button variant="dark" onClick={handleClose}>
-            Cerrar
-        </Button>
+            <Link to="/" className='styleLinkNone'>
+                <Button variant="dark" onClick={handleClose}>
+                    Cerrar
+                </Button>
+            </Link>
         </Modal.Footer>
     </Modal>
 </>
