@@ -7,7 +7,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/HOGAR/hg1.jpg",
         "stock": 0,
-        "categoria": "hogar"
+        "categoria": "hogar",
+        "descuento": 0
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@ const products = [
         "rating": "★★★☆☆",
         "img": "/assets/HOGAR/hg2.jpg",
         "stock": 2,
-        "categoria": "hogar"
+        "categoria": "hogar",
+        "descuento": 0
     },
     {
         "id": 3,
@@ -27,7 +29,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/HOGAR/hg3.jpg",
         "stock": 20,
-        "categoria": "hogar"
+        "categoria": "hogar",
+        "descuento": 0
     },
     {
         "id": 4,
@@ -37,7 +40,8 @@ const products = [
         "rating": "★★☆☆☆",
         "img": "/assets/HOGAR/hg4.jpg",
         "stock": 20,
-        "categoria": "hogar"
+        "categoria": "hogar",
+        "descuento": 0
     },
     {
         "id": 5,
@@ -47,7 +51,8 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/HOGAR/hg5.jpg",
         "stock": 20,
-        "categoria": "hogar"
+        "categoria": "hogar",
+        "descuento": 0
     },
     {
         "id": 6,
@@ -57,7 +62,8 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/HOMBRE/hb1.jpg",
         "stock": 20,
-        "categoria": "hombres"
+        "categoria": "hombres",
+        "descuento": 0
     },
     {
         "id": 7,
@@ -67,7 +73,8 @@ const products = [
         "rating": "★★★☆☆",
         "img": "/assets/HOMBRE/hb2.jpg",
         "stock": 20,
-        "categoria": "hombres"
+        "categoria": "hombres",
+        "descuento": 0
     },
     {
         "id": 8,
@@ -77,7 +84,8 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/HOMBRE/hb3.jpg",
         "stock": 20,
-        "categoria": "hombres"
+        "categoria": "hombres",
+        "descuento": 0
     },
     {
         "id": 9,
@@ -87,7 +95,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/HOMBRE/hb4.jpg",
         "stock": 20,
-        "categoria": "hombres"
+        "categoria": "hombres",
+        "descuento": 0
     },
     {
         "id": 10,
@@ -97,7 +106,8 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/HOMBRE/hb5.jpg",
         "stock": 20,
-        "categoria": "hombres"
+        "categoria": "hombres",
+        "descuento": 0
     },
     {
         "id": 11,
@@ -107,7 +117,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/MASCOTAS/mc1.jpg",
         "stock": 20,
-        "categoria": "mascotas"
+        "categoria": "mascotas",
+        "descuento": 0
     },
     {
         "id": 12,
@@ -117,7 +128,8 @@ const products = [
         "rating": "★☆☆☆☆",
         "img": "/assets/MASCOTAS/mc2.jpg",
         "stock": 20,
-        "categoria": "mascotas"
+        "categoria": "mascotas",
+        "descuento": 0
     },
     {
         "id": 13,
@@ -127,7 +139,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/MASCOTAS/mc3.jpg",
         "stock": 20,
-        "categoria": "mascotas"
+        "categoria": "mascotas",
+        "descuento": 0
     },
     {
         "id": 14,
@@ -137,7 +150,8 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/MASCOTAS/mc4.jpg",
         "stock": 20,
-        "categoria": "mascotas"
+        "categoria": "mascotas",
+        "descuento": 0
     },
     {
         "id": 15,
@@ -147,7 +161,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/MASCOTAS/mc5.jpg",
         "stock": 20,
-        "categoria": "mascotas"
+        "categoria": "mascotas",
+        "descuento": 0
     },
     {
         "id": 16,
@@ -157,7 +172,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/MUJER/mj1.jpg",
         "stock": 20,
-        "categoria": "mujeres"
+        "categoria": "mujeres",
+        "descuento": 0
     },
     {
         "id": 17,
@@ -167,7 +183,8 @@ const products = [
         "rating": "★☆☆☆☆",
         "img": "/assets/MUJER/mj2.jpg",
         "stock": 20,
-        "categoria": "mujeres"
+        "categoria": "mujeres",
+        "descuento": 0
     },
     {
         "id": 18,
@@ -177,7 +194,8 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/MUJER/mj3.jpg",
         "stock": 20,
-        "categoria": "mujeres"
+        "categoria": "mujeres",
+        "descuento": 0
     },
     {
         "id": 19,
@@ -187,7 +205,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/MUJER/mj4.jpg",
         "stock": 20,
-        "categoria": "mujeres"
+        "categoria": "mujeres",
+        "descuento": 0
     },
     {
         "id": 20,
@@ -197,7 +216,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/MUJER/mj5.jpg",
         "stock": 20,
-        "categoria": "mujeres"
+        "categoria": "mujeres",
+        "descuento": 0
     },
     {
         "id": 21,
@@ -207,7 +227,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/NIÑOS/nn1.jpg",
         "stock": 20,
-        "categoria": "ninos"
+        "categoria": "ninos",
+        "descuento": 0
     },
     {
         "id": 22,
@@ -217,7 +238,8 @@ const products = [
         "rating": "★★☆☆☆",
         "img": "/assets/NIÑOS/nn2.jpg",
         "stock": 20,
-        "categoria": "ninos"
+        "categoria": "ninos",
+        "descuento": 0
     },
     {
         "id": 23,
@@ -227,7 +249,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/NIÑOS/nn3.jpg",
         "stock": 20,
-        "categoria": "ninos"
+        "categoria": "ninos",
+        "descuento": 0
     },
     {
         "id": 24,
@@ -237,7 +260,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/NIÑOS/nn4.jpg",
         "stock": 20,
-        "categoria": "ninos"
+        "categoria": "ninos",
+        "descuento": 0
     },
     {
         "id": 25,
@@ -247,7 +271,8 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/NIÑOS/nn5.jpg",
         "stock": 20,
-        "categoria": "ninos"
+        "categoria": "ninos",
+        "descuento": 0
     },
     {
         "id": 26,
@@ -257,7 +282,8 @@ const products = [
         "rating": "☆☆☆☆☆",
         "img": "/assets/TECNOLOGIA/tec1.jpg",
         "stock": 20,
-        "categoria": "tecnologia"
+        "categoria": "tecnologia",
+        "descuento": 0
     },
     {
         "id": 27,
@@ -267,7 +293,8 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/TECNOLOGIA/tec2.jpg",
         "stock": 20,
-        "categoria": "tecnologia"
+        "categoria": "tecnologia",
+        "descuento": 0
     },
     {
         "id": 28,
@@ -277,7 +304,8 @@ const products = [
         "rating": "★★★★☆",
         "img": "/assets/TECNOLOGIA/tec3.jpg",
         "stock": 20,
-        "categoria": "tecnologia"
+        "categoria": "tecnologia",
+        "descuento": 0
     },
     {
         "id": 29,
@@ -287,7 +315,8 @@ const products = [
         "rating": "★★★★★",
         "img": "/assets/TECNOLOGIA/tec4.jpg",
         "stock": 20,
-        "categoria": "tecnologia"
+        "categoria": "tecnologia",
+        "descuento": 0
     },
     {
         "id": 30,
@@ -297,7 +326,8 @@ const products = [
         "rating": "★★★☆☆",
         "img": "/assets/TECNOLOGIA/tec5.jpg",
         "stock": 20,
-        "categoria": "tecnologia"
+        "categoria": "tecnologia",
+        "descuento": 0
     }
 ]
 
