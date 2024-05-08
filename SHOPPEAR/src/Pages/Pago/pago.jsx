@@ -128,7 +128,7 @@ const Pago = () => {
 
                     <Col xs={12} md={4}>
                         <div>
-                            <h2 style={{ textAlign: 'left' }}>Total: ${sumaTotal}</h2>
+                            <h2 style={{ textAlign: 'left', marginTop: '1em', marginBottom:'1em'}}>Total: ${sumaTotal}</h2>
                             {cartItems.map((item)=> <CardCarrito {...item}/>)}
                         </div>
                     </Col>
