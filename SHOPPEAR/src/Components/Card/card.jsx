@@ -50,7 +50,7 @@ export const CardComponent = (props) => {
           className="styleCard"
           style={{ borderRadius: "2em", width: "18rem", height: "28rem" }}
         >
-          <Link to={`producto/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+          <Link to={`/producto/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
             <CardMedia
               component="img"
               height="400"
