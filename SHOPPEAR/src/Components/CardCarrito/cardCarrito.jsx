@@ -16,30 +16,33 @@ const cardCarrito = ({id, name, price, rate, img, mount, deleteProduct}) => {
   const currentProducts = useSelector((state) => state.cart.cartItems);
   const products = useSelector((state) => state.products.products);
   useEffect(() => {
-  console.log("ola", currentProducts)
+  console.log("pp", currentProducts)
   }, [currentProducts]);
   
   const [cant, setCant] = useState(mount);
 
-  const handleClickMount = () => {
+  const handleClickMount = (value) => {
     const isProductInCart = currentProducts.find((item) => item.id === id);
     const product = products.find((item) => item.id === id)
     const cartProduct = currentProducts.find((item) => item.id === id)
     console.log("maruru uwu", cartProduct)
+
     if (product.stock > 0){
-        if(cant <= product.stock){
-        const newProducts = currentProducts.map((product) => {
-          if (product.id === id) {
+        if(value <= product.stock){ //cant toma el valor del botonCantidad, ya tiene el valor nuevo
+        const newProducts = currentProducts.map((item) => {
+          if (item.id === id) {
+            setCant(value)
             return {
-              ...product,
-              mount: cant,
+              ...item,
+              mount: value,
             };
-          } else return product;
+          } else return item; //devuelve el item intacto a la lista de newProducts
         });
         dispatch(editExistingProduct(newProducts));
+      } else {
+        setCant(mount) //devuelvo a cant al valor de mount, que no puede pasar del stock maximo
+        console.log("after set: ", cant)
       }
-    } else {
-      <ModalError></ModalError>;
     }
   }
 
@@ -57,7 +60,7 @@ const cardCarrito = ({id, name, price, rate, img, mount, deleteProduct}) => {
           <div>
             <p>${price}</p>
           </div>
-          <BotonCantidad mount={mount} setMount={setCant} onClick={handleClickMount}/>
+          <BotonCantidad mount={cant} setMount={setCant} onClick={handleClickMount}/>
 
         </Card.Body>
       </div>

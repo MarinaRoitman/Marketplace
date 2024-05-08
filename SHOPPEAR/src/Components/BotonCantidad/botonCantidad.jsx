@@ -13,14 +13,14 @@ const BotonCantidad = ({ mount, setMount, onClick }) => {
 
 
     const handleIncrementCounter = () => {
-        setMount((mount) => mount + 1);
-        onClick()
+        //setMount((mount) => mount + 1);
+        onClick(mount+1)
     };
 
     const handleDecrementCounter = () => {
         if (mount > 1) {
-            setMount((mount) => mount - 1);
-            onClick()
+            //setMount((mount) => mount - 1);
+            onClick(mount-1)
         }
     };
 
