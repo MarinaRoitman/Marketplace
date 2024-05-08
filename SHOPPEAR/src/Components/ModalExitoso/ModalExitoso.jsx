@@ -4,9 +4,14 @@ import Modal from 'react-bootstrap/Modal';
 import {useSelector,useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom';
 import {
-    emptyCart,
+    emptyCart, editExistingProduct,
   } from "../../redux/actions/carrito.actions";
+  import {
+    discountStock,
+  } from "../../redux/actions/products.actions";
 
+
+  
 const ModalExitoso = () => {
     const products = useSelector((state)=> state.products.products)
     const cartItems = useSelector((state)=> state.cart.cartItems)
@@ -25,12 +30,18 @@ const ModalExitoso = () => {
         const itemsUpdate = products.map((item) => {
             const itemCart = cartItems.find((i) => i.id === item.id);
             if(itemCart){
+                
+                //item.stock = item.stock - itemCart.mount;
+
                 return {...item, stock: item.stock - itemCart.mount}
             }
             return item
         });
         setShow(true);
-        dispatch(editExistingProduct(itemsUpdate));
+        //dispatch(editExistingProduct(itemsUpdate));
+        //console.log("patito",itemsUpdate);
+        dispatch(discountStock(itemsUpdate));
+
     }
 
 return (

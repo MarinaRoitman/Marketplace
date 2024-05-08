@@ -11,6 +11,11 @@ const productsReducer = (state = initialState, action) => {
         ...state,
         products: [...state.products, action.payload],
       };
+    case "DISCOUNT_STOCK":
+      return{
+        ...state,
+        products: action.payload
+      };
     default:
       return state;
   }
