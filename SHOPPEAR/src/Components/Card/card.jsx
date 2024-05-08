@@ -9,7 +9,7 @@ import {
   addToCart,
   editExistingProduct,
 } from "../../redux/actions/carrito.actions";
-
+import ModalError from "../ModalError/modalError.jsx";
 import { Link } from "react-router-dom";
 
 export const CardComponent = (props) => {
@@ -20,18 +20,26 @@ export const CardComponent = (props) => {
 
   function addProductInCart() {
     const isProductInCart = currentProducts.find((item) => item.id === id);
-    if (!isProductInCart)
-      dispatch(addToCart({ id, name, price, rate, img, mount: 1 }));
-    else {
-      const newProducts = currentProducts.map((product) => {
-        if (product.id === id) {
-          return {
-            ...product,
-            mount: product.mount + 1,
-          };
-        } else return product;
-      });
-      dispatch(editExistingProduct(newProducts));
+    const product = products.find((item) => item.id === id)
+    const cartProduct = currentProducts.find((item) => item.id === id)
+    if (product.stock > 0){
+      if (!isProductInCart)
+        dispatch(addToCart({ id, name, price, rate, img, mount: 1 }));
+      else {
+        if(cartProduct.mount < product.stock){
+        const newProducts = currentProducts.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              mount: product.mount + 1,
+            };
+          } else return product;
+        });
+        dispatch(editExistingProduct(newProducts));
+      }
+    }
+    } else {
+      <ModalError></ModalError>;
     }
   }
 

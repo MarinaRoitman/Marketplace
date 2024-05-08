@@ -2,22 +2,25 @@ import React, { useEffect, useState } from "react";
 import "./botonCantidad.css";
 import { Button } from "react-bootstrap";
 
-const BotonCantidad = ({ mount, onClick }) => {
+const BotonCantidad = ({ mount, setMount, onClick }) => {
+    /*
     const [count, setCount] = useState();
     
     useEffect(()=>{
         setCount(mount)
     },[mount])
+    */
+
 
     const handleIncrementCounter = () => {
-        setCount((count) => count + 1);
-        onClick(count + 1)
+        setMount((mount) => mount + 1);
+        onClick()
     };
 
     const handleDecrementCounter = () => {
-        if (count > 1) {
-            setCount((count) => count - 1);
-            onClick(count - 1)
+        if (mount > 1) {
+            setMount((mount) => mount - 1);
+            onClick()
         }
     };
 
@@ -26,7 +29,7 @@ const BotonCantidad = ({ mount, onClick }) => {
             <Button variant='dark' className="decrement-btn" onClick={handleDecrementCounter}>
                 <span className="material-symbols-outlined">-</span>
             </Button>
-            <p className="p-style">{count}</p>
+            <p className="p-style">{mount}</p>
             <Button variant='dark' className="increment-btn" onClick={handleIncrementCounter}>
                 <span className="material-symbols-outlined">+</span>
             </Button>

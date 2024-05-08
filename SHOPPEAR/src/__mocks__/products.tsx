@@ -6,7 +6,7 @@ const products = [
         "precio": 12000,
         "rating": "★★★★☆",
         "img": "/assets/HOGAR/hg1.jpg",
-        "stock": 20,
+        "stock": 0,
         "categoria": "hogar"
     },
     {
@@ -16,7 +16,7 @@ const products = [
         "precio": 200000,
         "rating": "★★★☆☆",
         "img": "/assets/HOGAR/hg2.jpg",
-        "stock": 20,
+        "stock": 2,
         "categoria": "hogar"
     },
     {

@@ -23,14 +23,12 @@ const productosDisplay = () => {
             break;
         }
     }
-
     if (!detailedProduct) {
         return <div>No se encontró el producto.</div>;
     }
-
     const { nombre, descripcion, id, precio, stock, img, rating } = detailedProduct;
     
-    console.log("detailed product", detailedProduct)
+    //console.log("detailed product", detailedProduct)
 
     function addProductInCart() {
         const isProductInCart = currentProducts.find((item) => item.id === id);

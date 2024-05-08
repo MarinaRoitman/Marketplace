@@ -15,7 +15,7 @@ return (
         <Modal.Title>Insuficiente Stock</Modal.Title>
         </Modal.Header>
         <Modal.Body style={{textAlign:'center'}}>
-            Su compra se no se pudo procesar correctamente debido a la falta de stock. <br />
+            Su peticion no se pudo completar debido a la falta de stock. <br />
             Disculpa las molestías.</Modal.Body>
         <Modal.Footer>
     <Button variant="dark" onClick={handleClose}>

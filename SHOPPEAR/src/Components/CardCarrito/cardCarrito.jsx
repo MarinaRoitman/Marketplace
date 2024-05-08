@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import './cardCarrito.css';
 import Card from 'react-bootstrap/Card';
@@ -14,26 +14,32 @@ import {
 const cardCarrito = ({id, name, price, rate, img, mount, deleteProduct}) => {
   const dispatch = useDispatch();
   const currentProducts = useSelector((state) => state.cart.cartItems);
-
+  const products = useSelector((state) => state.products.products);
   useEffect(() => {
   console.log("ola", currentProducts)
   }, [currentProducts]);
+  
+  const [cant, setCant] = useState(mount);
 
-
-  const handleClickMount = (mount) => {
+  const handleClickMount = () => {
     const isProductInCart = currentProducts.find((item) => item.id === id);
-    if (!isProductInCart)
-      dispatch(addToCart({ id, name, price, rate, img, mount: 1 }));
-    else {
-      const newProducts = currentProducts.map((product) => {
-        if (product.id === id) {
-          return {
-            ...product,
-            mount
-          };
-        } else return product;
-      });
-      dispatch(editExistingProduct(newProducts));
+    const product = products.find((item) => item.id === id)
+    const cartProduct = currentProducts.find((item) => item.id === id)
+    console.log("maruru uwu", cartProduct)
+    if (product.stock > 0){
+        if(cant <= product.stock){
+        const newProducts = currentProducts.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              mount: cant,
+            };
+          } else return product;
+        });
+        dispatch(editExistingProduct(newProducts));
+      }
+    } else {
+      <ModalError></ModalError>;
     }
   }
 
@@ -51,7 +57,7 @@ const cardCarrito = ({id, name, price, rate, img, mount, deleteProduct}) => {
           <div>
             <p>${price}</p>
           </div>
-          <BotonCantidad mount={mount} onClick={handleClickMount}/>
+          <BotonCantidad mount={mount} setMount={setCant} onClick={handleClickMount}/>
 
         </Card.Body>
       </div>
