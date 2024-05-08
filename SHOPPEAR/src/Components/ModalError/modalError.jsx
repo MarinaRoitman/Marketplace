@@ -16,7 +16,7 @@ return (
         </Modal.Header>
         <Modal.Body style={{textAlign:'center'}}>
             Su compra se no se pudo procesar correctamente debido a la falta de stock. <br />
-            Disculpa las mostestias.</Modal.Body>
+            Disculpa las molestías.</Modal.Body>
         <Modal.Footer>
     <Button variant="dark" onClick={handleClose}>
             Cerrar
