@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import './pago.css';
 import Container from 'react-bootstrap/Container';
@@ -6,12 +6,19 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import ModalExitoso from '../../Components/ModalExitoso/ModalExitoso';
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import CardCarrito from '../../Components/CardCarrito/cardCarrito';
 
 const Pago = () => {
     const cartItems = useSelector((state)=> state.cart.cartItems);
     const [selectedPayment, setSelectedPayment] = useState('');
+    const dispatch = useDispatch();
+
+    const [sumaTotal, setSumaTotal] = useState(0);
+
+    useEffect(() => {
+    setSumaTotal(cartItems.reduce((total,item) => total+=item.price*item.mount, 0))
+    }, [cartItems]);
 
     const handlePaymentChange = (event) => {
         setSelectedPayment(event.target.value);
@@ -121,6 +128,7 @@ const Pago = () => {
 
                     <Col xs={12} md={4}>
                         <div>
+                            <h2 style={{ textAlign: 'left' }}>Total: ${sumaTotal}</h2>
                             {cartItems.map((item)=> <CardCarrito {...item}/>)}
                         </div>
                     </Col>

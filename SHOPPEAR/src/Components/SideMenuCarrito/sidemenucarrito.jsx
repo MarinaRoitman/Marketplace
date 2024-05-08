@@ -36,15 +36,6 @@ function OffCanvasExample({ name, ...props }) {
   setSumaTotal(cartItems.reduce((total,item) => total+=item.price*item.mount, 0))
   }, [cartItems]);
 
-const handleSubmit = () => {
-  //redireccionar a pagos
-  //mostrar tipos de pago debito/credito
-  //datos del usuario, nombre, apellido, celular, 
-  //datos tarjeta
-  //una vez procesada 
-  //mostrar pantalla de exito!
-}
-
 const deleteProduct = (id) => {
   //cuando borro al tener mas de un producto se visualiza mal
   const newProducts = cartItems.filter((product) => product.id !== id);
@@ -68,7 +59,7 @@ console.log(cartItems)
               <hr />
               <h2 style={{ textAlign: 'left' }}>Total: ${sumaTotal}</h2>
               <Link to="/Pago" className='styleLinkNone'>
-                <Button variant="dark" onClick={handleSubmit}>
+                <Button variant="dark">
                   Comprar
               </Button>
               </Link>

@@ -10,7 +10,7 @@ import {
 } from "../../redux/actions/carrito.actions";
 
 
-const Prueba = () => {
+const productosDisplay = () => {
     const { searchID } = useParams(); // Obtener el ID del producto de la URL
     const products = useSelector((state) => state.products.products);
     const currentProducts = useSelector((state) => state.cart.cartItems);
@@ -81,4 +81,4 @@ const Prueba = () => {
     );
 }
 
-export default Prueba;
+export default productosDisplay;
