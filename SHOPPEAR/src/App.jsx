@@ -6,11 +6,6 @@ import {useSelector, useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Menu/menu.jsx";
-import Electronica from "./Pages/Electronica/electronica.jsx";
-import Hombre from "./Pages/Hombre/hombre.jsx";
-import Mujer from "./Pages/Mujer/mujer.jsx";
-import Niños from "./Pages/Chicos/Niños.jsx";
-import Mascotas from "./Pages/Mascotas/mascotas.jsx";
 import Account from "./Pages/Cuenta/cuenta.jsx";
 import Pago from './Pages/Pago/pago.jsx';
 import ProductosDisplay from "./Components/ProductosDisplay/productosDisplay.jsx";
