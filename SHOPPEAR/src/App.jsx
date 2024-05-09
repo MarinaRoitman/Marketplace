@@ -14,6 +14,8 @@ import Mascotas from "./Pages/Mascotas/mascotas.jsx";
 import Account from "./Pages/Cuenta/cuenta.jsx";
 import Pago from './Pages/Pago/pago.jsx';
 import ProductosDisplay from "./Components/ProductosDisplay/productosDisplay.jsx";
+import Login from "./Pages/Login/login.jsx";
+import CrearCuenta from "./Pages/CrearCuenta/crearCuenta.jsx";
 import {startSearch} from "./redux/actions/search.actions.js";
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
           <Route path="/Mascotas" element={<Mascotas />}></Route>
           <Route path="/Cuenta" element={<Account />}></Route>
           <Route path="/Pago" element={<Pago />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/CrearCuenta" element={<CrearCuenta />}></Route>
           <Route path="/producto/:searchID" element={<ProductosDisplay />} />
         </Routes>
         <Footer />

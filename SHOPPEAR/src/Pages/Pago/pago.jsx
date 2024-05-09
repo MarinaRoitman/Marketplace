@@ -1,5 +1,4 @@
 import React,{useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 import './pago.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
@@ -10,10 +9,17 @@ import {useSelector, useDispatch} from 'react-redux'
 import CardCarrito from '../../Components/CardCarrito/cardCarrito';
 
 const Pago = () => {
-    const cartItems = useSelector((state)=> state.cart.cartItems);
+    const cartItems = useSelector((state) => state.cart.cartItems);
+    const [email, setEmail] = useState(''); 
+    const [password, setPassword] = useState(''); 
+    const [direccion, setDireccion] = useState('');
+    const [direccion2, setDireccion2] = useState(''); 
+    const [ciudad, setCiudad] = useState('');
+    const [provincia, setProvincia] = useState('');
+    const [codigo, setCodigo] = useState('');
+
     const [selectedPayment, setSelectedPayment] = useState('');
     const dispatch = useDispatch();
-
     const [sumaTotal, setSumaTotal] = useState(0);
 
     useEffect(() => {
@@ -36,34 +42,34 @@ const Pago = () => {
                                 <Row className="mb-3 mblank-3">
                                     <Form.Group as={Col} controlId="formGridEmail">
                                         <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" placeholder="Ingrese email" />
+                                        <Form.Control type="email" value={email} placeholder="Ingrese email" onChange={(e) => setEmail(e.target.value)} required/>
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formGridPassword">
                                         <Form.Label>Contraseña</Form.Label>
-                                        <Form.Control type="password" placeholder="Password" />
+                                        <Form.Control type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} required/>
                                     </Form.Group>
                                 </Row>
 
                                 <Form.Group className="mb-3" controlId="formGridAddress1">
                                     <Form.Label>Dirección</Form.Label>
-                                    <Form.Control placeholder="Av Santa Fe 1234" />
+                                    <Form.Control placeholder="Av Santa Fe 1234" value={direccion} onChange={(e) => setDireccion(e.target.value)} required/>
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="formGridAddress2">
                                     <Form.Label>Dirección 2</Form.Label>
-                                    <Form.Control placeholder="Apartamento, Oficina, Estudio" />
+                                    <Form.Control placeholder="Apartamento, Oficina, Estudio" value={direccion2} onChange={(e) => setDireccion2(e.target.value)} required/>
                                 </Form.Group>
 
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="formGridCity">
                                         <Form.Label>Ciudad</Form.Label>
-                                        <Form.Control />
+                                        <Form.Control value={ciudad} onChange={(e) => setCiudad(e.target.value)} required/>
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formGridState">
                                         <Form.Label>Provincia</Form.Label>
-                                        <Form.Select defaultValue="Elegir">
+                                        <Form.Select defaultValue="Elegir" value={provincia} onChange={(e) => setProvincia(e.target.value)} required>
                                             <option>Elegir</option>
                                             <option>Buenos Aires</option>
                                             <option>CABA</option>
@@ -95,7 +101,7 @@ const Pago = () => {
 
                                     <Form.Group as={Col} controlId="formGridZip">
                                         <Form.Label>Código Postal</Form.Label>
-                                        <Form.Control />
+                                        <Form.Control value={codigo} onChange={(e) => setCodigo(e.target.value)} required/>
                                     </Form.Group>
                                 </Row>
 

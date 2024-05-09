@@ -11,6 +11,9 @@ const products = useSelector((state) => state.products.products);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 
+const [productName, setProductName] = useState(''); // Estado para el nombre del producto
+const [discountPercentage, setDiscountPercentage] = useState(''); // Estado para el porcentaje de descuento
+
 
 function createDiscount(){
     console.log(productName)
@@ -29,7 +32,7 @@ function createDiscount(){
     setShow(false);
 }
 
-/* function confirmarCompra(){
+function createDiscount(){
         console.log(products)
         const itemsUpdate = products.map((item) => {
             const itemCart = cartItems.find((i) => i.id === item.id);
@@ -46,7 +49,7 @@ function createDiscount(){
         //console.log("patito",itemsUpdate);
         dispatch(discountStock(itemsUpdate));
 
-    } */
+    }
 
 return (
     <>
@@ -61,31 +64,35 @@ return (
             <Modal.Title>Crear Descuento</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+            <Form.Group onsubmit={createDiscount}>
             <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Nombre del producto:</Form.Label>
                 <Form.Control
-                type="email"
-                placeholder="Nombre del Producto"
-                autoFocus
+                    type="text" 
+                    placeholder="Nombre del Producto"
+                    value={productName} // Valor del estado
+                    onChange={(e) => setProductName(e.target.value)} // Actualiza el estado
+                    autoFocus
                 />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                 <Form.Label>Descuento (%):</Form.Label>
                 <Form.Control
-                type="number"
-                placeholder="Descuento"
+                    type="number"
+                    placeholder="Descuento"
+                    value={discountPercentage} // Valor del estado
+                    onChange={(e) => setDiscountPercentage(e.target.value)} // Actualiza el estado
             />
+            <Button variant="dark" type="submit" onClick={handleClose} style={{marginTop:'1em'}}>
+                Agregar
+            </Button>
             </Form.Group>
         </Form>
-
+            </Form.Group>
         </Modal.Body>
-        <Modal.Footer>
-        <Button variant="dark" onClick={createDiscount}>
-            Agregar
-        </Button>
-        </Modal.Footer>
+
     </Modal>
     
     </>
@@ -93,3 +100,21 @@ return (
 }
 
 export default Example;
+
+
+/*
+
+
+
+         <div style={{ display: 'block' }}>
+                    Producto: <input type="text" placeholder='Inserte Producto' name="fname"/>
+                </div>
+                <div style={{ display: 'block' }}>
+                    Inserte(%): <input type="text" placeholder='Inserte Descuento' name="fname"/>
+                    <Button variant="dark" type="submit" onClick={handleClose} style={{marginLeft:'1em'}}>
+                        Agregar
+                    </Button>
+                </div>
+                
+
+*/

@@ -9,11 +9,15 @@ import BotonCantidad from '../BotonCantidad/botonCantidad.jsx';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function Example() {
+function ModalProducto() {
 const [show, setShow] = useState(false);
 
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+
+const [nombre, setNombre] = useState('');
+const [precio, setPrecio] = useState('');
+const [descripcion, setDescripcion] = useState('');
 
 return (
     <>
@@ -42,8 +46,11 @@ return (
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
-                type="email"
+                type="name"
                 placeholder="Nombre del Producto"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                required
                 autoFocus
                 />
             </Form.Group>
@@ -53,8 +60,11 @@ return (
                 <Form style={{ maxWidth: '150px' }}>
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
-                type="Numero"
+                type="number"
                 placeholder="Precio"
+                value={precio}
+                onChange={(e) => setPrecio(e.target.value)}
+                required
                 autoFocus
                 />
                 </Form>
@@ -68,7 +78,12 @@ return (
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Descripción</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control as="textarea" rows={3} 
+                placeholder="Descripción"
+                value={descripcion}
+                onChange={(e) => setDescripcion(e.target.value)}
+                required
+            />
             </Form.Group>
             <Form.Select aria-label="Seleccionar Categoría">
                 <option>Seleccionar Categoría</option>
@@ -97,4 +112,4 @@ return (
 );
 }
 
-export default Example;
+export default ModalProducto;
