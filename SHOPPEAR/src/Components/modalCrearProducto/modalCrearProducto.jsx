@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Figure from 'react-bootstrap/Figure';
 import imgTest from '/assets/MUJER/mj1.jpg';
 import BotonCantidad from '../BotonCantidad/botonCantidad.jsx';
+import {useDispatch} from 'react-redux'
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -14,10 +15,24 @@ const [show, setShow] = useState(false);
 
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
+const dispatch = useDispatch();
 
 const [nombre, setNombre] = useState('');
 const [precio, setPrecio] = useState('');
 const [descripcion, setDescripcion] = useState('');
+const [cantProd, setCantProd] = useState(0);
+const [category, setCategory] = useState('');
+
+const createProduct = (formData) => {
+
+}
+
+const handleClickMount = (value) => {
+    if(value > 0)
+    {
+        setCantProd(value)
+    }
+    }
 
 return (
     <>
@@ -72,7 +87,7 @@ return (
                 
                 <Col>
                     <Form.Label>Cantidad</Form.Label>
-                    <BotonCantidad minValue={0} maxValue={20}/>
+                    <BotonCantidad mount={cantProd} onClick={handleClickMount}/>
                 </Col>
             </Row>
 
@@ -85,13 +100,13 @@ return (
                 required
             />
             </Form.Group>
-            <Form.Select aria-label="Seleccionar Categoría">
+            <Form.Select aria-label="Seleccionar Categoría" onChange={(e) => setCategory(e.target.value)}>
                 <option>Seleccionar Categoría</option>
-                <option value="1">Hogar</option>
-                <option value="2">Mujer</option>
-                <option value="3">Hombre</option>
-                <option value="4">Mascotas</option>
-                <option value="5">Electrónica</option>
+                <option value="Hogar">Hogar</option>
+                <option value="Mujer">Mujer</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mascotas">Mascotas</option>
+                <option value="Electrónica">Electrónica</option>
             </Form.Select>
             <br />
             <Form.Label>Agregar Foto</Form.Label>
@@ -102,7 +117,7 @@ return (
 
         </Modal.Body>
         <Modal.Footer>
-        <Button variant="dark" onClick={handleClose}>
+        <Button variant="dark" type='submit' onClick={handleClose}>
             Agregar
         </Button>
         </Modal.Footer>

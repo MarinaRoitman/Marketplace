@@ -95,19 +95,19 @@ const NavbarPrincipal = () => {
                     <Link to="/" className='styleLinkNone'>Menú</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Mujer" value="mujeres" className='styleLinkNone'>Mujer</Link>
+                    <Link to="/productos/mujeres" value="mujeres" className='styleLinkNone'>Mujer</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Hombre" value="hombres" className='styleLinkNone'>Hombre</Link>
+                    <Link to="/productos/hombres" value="hombres" className='styleLinkNone'>Hombre</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Niños" value="ninos" className='styleLinkNone'>Niños</Link>
+                    <Link to="/productos/ninos" value="ninos" className='styleLinkNone'>Niños</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Mascotas" value="mascotas" className='styleLinkNone'>Mascotas</Link>
+                    <Link to="/productos/mascotas" value="mascotas" className='styleLinkNone'>Mascotas</Link>
                   </li>
                   <li className="hvr-underline-from-left hvr-underline-from-left:before">
-                    <Link to="/Electronica" value="tecnologia" className='styleLinkNone'>Electrónica</Link>
+                    <Link to="/productos/tecnologia" value="tecnologia" className='styleLinkNone'>Tecnología</Link>
                   </li>
                 </ul>
               </div>

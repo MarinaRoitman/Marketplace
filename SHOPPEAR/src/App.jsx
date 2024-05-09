@@ -17,7 +17,7 @@ import ProductosDisplay from "./Components/ProductosDisplay/productosDisplay.jsx
 import Login from "./Pages/Login/login.jsx";
 import CrearCuenta from "./Pages/CrearCuenta/crearCuenta.jsx";
 import {startSearch} from "./redux/actions/search.actions.js";
-
+import ProductosFiltrados from "./Pages/ProductosFiltrados/productosFiltrados.jsx";
 function App() {
   const items = useSelector((state)=> state.products.products)
   const dispatch = useDispatch();
@@ -32,11 +32,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" exact element={<Home />}></Route>
-          <Route path="/Electronica" element={<Electronica />}></Route>
-          <Route path="/Hombre" element={<Hombre />}></Route>
-          <Route path="/Mujer" element={<Mujer />}></Route>
-          <Route path="/Niños" element={<Niños />}></Route>
-          <Route path="/Mascotas" element={<Mascotas />}></Route>
+          <Route path="/productos/:category" element={<ProductosFiltrados />}></Route>
           <Route path="/Cuenta" element={<Account />}></Route>
           <Route path="/Pago" element={<Pago />}></Route>
           <Route path="/Login" element={<Login />}></Route>

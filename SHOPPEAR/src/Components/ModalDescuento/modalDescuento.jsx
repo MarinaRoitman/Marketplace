@@ -64,7 +64,7 @@ return (
             <Modal.Title>Crear Descuento</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <Form.Group onsubmit={createDiscount}>
+            <Form.Group onSubmit={createDiscount}>
             <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Nombre del producto:</Form.Label>
