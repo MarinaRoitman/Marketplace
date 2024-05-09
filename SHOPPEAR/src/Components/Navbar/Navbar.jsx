@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Navbar.css'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -21,13 +21,12 @@ const NavbarPrincipal = () => {
   const filteredProducts = useSelector((state) => state.products.products);
 
   const handleChange = (event) => {
-    //console.log("state: ", filteredProducts);
-    setSearchValue(event.currentTarget.value.toLowerCase());
-    console.log("letra:", event.currentTarget.value);
-    console.log("ZA", filteredProducts.filter(producto => producto.nombre.toLowerCase().includes(searchValue)));
-    dispatch(startSearch(filteredProducts.filter(producto => producto.nombre.toLowerCase().includes(searchValue))));
-    console.log("ZB", filteredProducts.filter(producto => producto.nombre.toLowerCase().includes(searchValue)));
+    setSearchValue(event.target.value.toLowerCase());
   }
+
+  useEffect(() => {
+    dispatch(startSearch(filteredProducts.filter(producto => producto.nombre.toLowerCase().includes(searchValue))));
+  },[searchValue])
   return (
     <>
   <div className="contenedor">

@@ -1,5 +1,5 @@
 import React from 'react';
-import ModalProducto from '../../Components/ModalCrearProducto/modalCrearProducto.jsx'; 
+import ModalProducto from '../../Components/modalCrearProducto/modalCrearProducto.jsx'; 
 import ModalDescuento from '../../Components/ModalDescuento/modalDescuento.jsx'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
