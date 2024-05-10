@@ -38,9 +38,7 @@ export const CardComponent = (props) => {
         dispatch(editExistingProduct(newProducts));
       }
     }
-    } else {
-      <ModalError></ModalError>;
-    }
+    } 
   }
 
   return (
