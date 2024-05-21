@@ -36,7 +36,7 @@ const handleClickMount = (value) => {
 
 return (
     <>
-        <Button variant="info" onClick={handleShow}>
+        <Button variant="outline-info" onClick={handleShow}>
         Crear Producto
         </Button>
         <Modal size="lg"

@@ -1,0 +1,13 @@
+/*CSS de Cuenta*/
+
+.list-group-item.active {
+    z-index: 2;
+    color: var(--bs-list-group-active-color);
+    background-color: #0cc0df;
+    border-color: #0cc0df;
+}
+
+.colorTexto::after {
+    content: 'HOLA';
+    color: #0cc0df;
+}

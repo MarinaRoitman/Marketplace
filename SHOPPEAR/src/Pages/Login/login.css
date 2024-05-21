@@ -1,0 +1,21 @@
+/* CSS de Login*/
+
+.custom-button {
+    background-color: #0cc0df;
+    border-color: #0cc0df;
+    --bs-btn-active-bg: #10afcb;
+    border: none;
+}
+
+.custom-button:hover {
+    background-color: #16b8d4;
+    border-color: #16b8d4;
+    border: none;
+}
+
+.chica-inicio-img {
+    width: 110%; 
+    height: auto; 
+    max-width: 400px; 
+    transform:scaleX(-1);
+}

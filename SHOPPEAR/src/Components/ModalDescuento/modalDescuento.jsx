@@ -53,7 +53,7 @@ function createDiscount(){
 
 return (
     <>
-        <Button variant="info" onClick={handleShow} style={{margin:'1em'}}>
+        <Button variant="outline-info" onClick={handleShow} style={{margin:'1em'}}>
         Crear Descuento
         </Button>
         <Modal size="lg"
