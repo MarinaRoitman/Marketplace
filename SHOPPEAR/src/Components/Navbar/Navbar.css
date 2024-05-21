@@ -203,7 +203,7 @@
 
 .alinearTexto::after {
     content: 'AR';
-    color: #64b6d4;
+    color: #0cc0df;
     position: absolute;
     right: 0;
 }

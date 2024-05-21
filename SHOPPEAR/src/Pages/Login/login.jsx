@@ -14,8 +14,9 @@ const Login = () => {
     };
 
     return (
-        <Container>
-            <h1 className="text-center">Iniciar Sesión</h1>
+        <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '55vh' }}>
+            <div style={{boxShadow: '0px 0px 17px rgb(133 133 133 / 29%)',borderRadius:'1em', padding:'2em', width: '40%', alignItems: 'center'}}>
+            <h1 className="text-center" style={{color:'#0cc0df', paddingBottom:'0.4em'}}>Iniciar Sesión</h1>
             <Form onSubmit={handleSubmit}>
                 <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
                     <Col md={6}>
@@ -38,7 +39,7 @@ const Login = () => {
                         <Form.Label>Contraseña</Form.Label>
                         <Form.Control
                             type="password"
-                            placeholder="Ingrese su contraseña"
+                            placeholder="Contraseña"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -53,9 +54,13 @@ const Login = () => {
                 </div>
             </Form>
             <p className="text-center mt-3">
-                ¿No tienes una cuenta? 
-                <Link to="/CrearCuenta">Regístrate aquí</Link>
+                ¿No tienes una cuenta?{' '}
+                <Link to="/CrearCuenta" style={{ color: '#0cc0df', textDecoration: 'none', fontWeight: 'bold' }}>
+                    <span style={{ textDecoration: 'none'}}>Regístrate aquí</span>
+                </Link>
+
             </p>
+            </div>
         </Container>
     );
 };
