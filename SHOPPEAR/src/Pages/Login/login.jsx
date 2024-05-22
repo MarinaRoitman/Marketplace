@@ -3,6 +3,8 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './login.css';
 import Figure from 'react-bootstrap/Figure';
+import InputGroup from 'react-bootstrap/InputGroup';
+import {PersonaLogin,Password} from '../../Components/Iconos/iconos.jsx';
 
 const Login = () => {
     const [usuario, setUsuario] = useState('');
@@ -26,14 +28,16 @@ const Login = () => {
                         />
                     </Figure>
                 </div>
-{/*boxShadow: 'rgb(219 219 219) 0px 0px 10px'*/}
                 <div style={{ border:'0.5px solid rgb(221 221 221)', borderRadius: '1em', padding: '2em', width: '48%' }}>
                     <h1 className="text-center" style={{ color: '#0cc0df', paddingBottom: '0.3em', fontSize: '2.7em', textShadow: '1px 0px 0px #8b8b8b' }}>Iniciar Sesión</h1>
-                    <Form onSubmit={handleSubmit}>
+                    <Form>
                         <Row className="justify-content-center" style={{ paddingBottom: '1.3em' }}>
-                            <Col md={12}>
-                                <Form.Group controlId="formularioEmail">
-                                    <Form.Label>Usuario</Form.Label>
+                        <Col md={12}>
+                                <Form.Label>Usuario</Form.Label>
+                                <InputGroup className="mb-3">
+                                    <InputGroup.Text id="basic-addon1" className='input-group-text-custom'>
+                                        <PersonaLogin />
+                                    </InputGroup.Text>
                                     <Form.Control
                                         type="text"
                                         placeholder="Usuario"
@@ -41,13 +45,16 @@ const Login = () => {
                                         onChange={(e) => setUsuario(e.target.value)}
                                         required
                                     />
-                                </Form.Group>
+                                </InputGroup>
                             </Col>
                         </Row>
                         <Row className="justify-content-center" style={{ paddingBottom: '1.3em' }}>
                             <Col md={12}>
-                                <Form.Group controlId="formBasicPassword">
-                                    <Form.Label>Contraseña</Form.Label>
+                            <Form.Label>Contraseña</Form.Label>
+                                    <InputGroup className="mb-3">
+                                    <InputGroup.Text id="basic-addon1" className='input-group-text-custom'>
+                                        <Password/>
+                                    </InputGroup.Text>
                                     <Form.Control
                                         type="password"
                                         placeholder="Contraseña"
@@ -55,14 +62,14 @@ const Login = () => {
                                         onChange={(e) => setPassword(e.target.value)}
                                         required
                                     />
-                                </Form.Group>
+                                </InputGroup>
                             </Col>
                         </Row>
-                        <div className="text-center">
-                            <Button variant="dark" type="submit" className="w-100 custom-button custom-button:hover" style={{ marginTop: '0.3em', marginBottom: '1em', maxWidth: '120px', bsBtnHoverBg: '#0cc0df', bsBtnBg: '#0cc0df' }}>
-                                Iniciar Sesión
-                            </Button>
-                        </div>
+                    <div className="text-center">
+                        <Button variant="dark" type="submit" className="w-100 custom-button" style={{marginTop: '0.3em',marginBottom: '1em',maxWidth: '120px' }}>
+                            Acceder 
+                        </Button>
+                    </div>
                     </Form>
                     <p className="text-center mt-3">
                         ¿No tienes una cuenta?{' '}

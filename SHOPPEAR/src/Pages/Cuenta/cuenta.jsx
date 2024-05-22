@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Tab from 'react-bootstrap/Tab';
 import './cuenta.css'
-import { Persona } from '../../Components/Iconos/iconos.jsx';
+import { Persona, Descuento, VerProducto, CrearProd} from '../../Components/Iconos/iconos.jsx';
 import Form from 'react-bootstrap/Form';
 import Figure from 'react-bootstrap/Figure';
 import imgTest from '/assets/MUJER/mj1.jpg';
@@ -167,13 +167,19 @@ return (
 
 
         <Tab.Pane eventKey="#link2">
-        <h4>Ver Publicaciones</h4>
-        <CardEditable/>
+            <div style={{ display: 'inline-flex', alignItems: 'center'}}>
+                <VerProducto />
+                <h4 style={{ marginLeft: '0.2em'}}>Ver Publicaciones</h4>
+            </div>
+                <CardEditable />
         </Tab.Pane>
 
 
         <Tab.Pane eventKey="#link3">
-            <h4>Crear Producto</h4>
+        <div style={{ display: 'inline-flex', alignItems: 'center'}}>
+            <CrearProd/>
+            <h4 style={{ marginLeft: '0.2em' }}>Crear Producto</h4>
+        </div>
         <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Nombre</Form.Label>
@@ -241,11 +247,14 @@ return (
                 </Button>
             </div>
         </Form>
-
-
         </Tab.Pane>
+
+
         <Tab.Pane eventKey="#link4">
-        <h4>Crear Descuento</h4>
+        <div style={{ display: 'inline-flex', alignItems: 'center', alignItems: 'baseline', alignItems: 'flex-start'}}>
+            <Descuento/>
+        <h4 style={{marginLeft:'0.2em'}}>Crear Descuento</h4>
+        </div>
         <Form.Group onSubmit={createDiscount}>
             <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
