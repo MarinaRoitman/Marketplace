@@ -19,6 +19,7 @@ const NavbarPrincipal = () => {
 
   const dispatch = useDispatch();
   const filteredProducts = useSelector((state) => state.products.products);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const handleChange = (event) => {
     setSearchValue(event.target.value.toLowerCase());
@@ -76,13 +77,16 @@ const NavbarPrincipal = () => {
               <Col xs={12} md={4} className="d-flex align-items-center justify-content-center padding-top-md" > 
                 <div>
                   <div>
+                  {!isAuthenticated ? (
                   <button className="button1" role="button">
-                      <Link to="/Login" className='styleLinkNone'>Login</Link>
-                    </button>
-                    <button className="button1" role="button">
-                      <Link to="/Cuenta" className='styleLinkNone'>Mi cuenta</Link>
-                    </button>
-                    <SideMenuCarrito/>
+                    <Link to="/Login" className='styleLinkNone'>Login</Link>
+                  </button>
+                ) : (
+                  <button className="button1" role="button">
+                    <Link to="/Cuenta" className='styleLinkNone'>Mi cuenta</Link>
+                  </button>
+                )}
+                <SideMenuCarrito />
                   </div>
                 </div>
               </Col>
