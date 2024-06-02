@@ -24,3 +24,5 @@ const users = [
         "direccion": "Av Corrientes 4491"
     }
 ]
+
+export default users

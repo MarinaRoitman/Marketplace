@@ -5,10 +5,31 @@ import './login.css';
 import Figure from 'react-bootstrap/Figure';
 import InputGroup from 'react-bootstrap/InputGroup';
 import {PersonaLogin,Password} from '../../Components/Iconos/iconos.jsx';
+import { useSelector, useDispatch } from "react-redux";
+import { loginSuccess } from '../../redux/actions/auth.actions';
 
 const Login = () => {
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
+    const users = useSelector((state) => state.users.users);
+
+    const verificarUsuario = () => {
+        let user = null;
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].mail === usuario && users[i].contrasena === password) {
+            user = users[i];
+            break;
+        }
+        }
+
+        if (user != null) {
+            dispatch(loginSuccess(user));
+            window.location.href = '/';
+        } else{
+            // aca poner q esta mal la info
+        }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -66,7 +87,7 @@ const Login = () => {
                             </Col>
                         </Row>
                     <div className="text-center">
-                        <Button variant="dark" type="submit" className="w-100 custom-button" style={{marginTop: '0.3em',marginBottom: '1em',maxWidth: '120px' }}>
+                        <Button variant="dark" className="w-100 custom-button" style={{marginTop: '0.3em',marginBottom: '1em',maxWidth: '120px' }} onClick={verificarUsuario}>
                             Acceder 
                         </Button>
                     </div>

@@ -15,6 +15,8 @@ import {startSearch} from "./redux/actions/search.actions.js";
 import ProductosFiltrados from "./Pages/ProductosFiltrados/productosFiltrados.jsx";
 function App() {
   const items = useSelector((state)=> state.products.products)
+  const usuario = useSelector((state)=> state.auth);
+  console.log(usuario, "blabla")
   const dispatch = useDispatch();
 
   useEffect(() => {

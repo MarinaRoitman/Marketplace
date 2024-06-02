@@ -2,8 +2,7 @@ import { LOGIN_SUCCESS, LOGOUT } from "../actions/auth.actions";
 
 const initialState = {
   isAuthenticated: false,
-  user: null,
-  password: null,
+  user: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -12,15 +11,13 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: true,
-        user: action.payload.user,
-        password: action.payload.token,
+        user: action.payload
       };
     case LOGOUT:
       return {
         ...state,
         isAuthenticated: false,
         user: null,
-        password: null,
       };
     default:
       return state;
