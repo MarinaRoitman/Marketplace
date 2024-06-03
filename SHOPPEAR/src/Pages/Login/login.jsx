@@ -25,6 +25,7 @@ const Login = () => {
 
         if (user != null) {
             dispatch(loginSuccess(user));
+            //console.log(useSelector((state) => state));
             window.location.href = '/';
         } else{
             // aca poner q esta mal la info

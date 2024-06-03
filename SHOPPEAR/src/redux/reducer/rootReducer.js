@@ -6,11 +6,11 @@ import authReducer from './auth.reducer';
 import userReducer from './user.reducer';
 
 const rootReducer = combineReducers({
-  auth: authReducer,
   cart: cartReducer,
   products: productsReducer,
   search: searchReducer,
   users: userReducer,
+  auth: authReducer,
 });
 
 export default rootReducer;
