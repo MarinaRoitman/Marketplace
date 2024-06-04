@@ -7,11 +7,12 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import {PersonaLogin,Password} from '../../Components/Iconos/iconos.jsx';
 import { useSelector, useDispatch } from "react-redux";
 import { loginSuccess } from '../../redux/actions/auth.actions';
-
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const users = useSelector((state) => state.users.users);
 
     const verificarUsuario = () => {
@@ -27,7 +28,7 @@ const Login = () => {
             dispatch(loginSuccess(user));
             //console.log(useSelector((state) => state));
             //window.location.href = '/';
-            //navigate.algo, para que no refresque la pagina
+            navigate('/');
         } else{
             // aca poner q esta mal la info
         }
