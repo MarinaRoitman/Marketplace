@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Button } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Tab from 'react-bootstrap/Tab';
 import './cuenta.css'
@@ -12,6 +12,88 @@ import Figure from 'react-bootstrap/Figure';
 import imgTest from '/assets/MUJER/mj1.jpg';
 import BotonCantidad from '../../Components/BotonCantidad/botonCantidad.jsx';
 import CardEditable from '../../Components/cardEditable/cardEditable.jsx';
+
+function MyVerticallyCenteredModal(props) {
+    
+return (
+    <Modal
+    {...props}
+    size="lg"
+    aria-labelledby="contained-modal-title-vcenter"
+    centered
+    >
+    <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+        Cambiar mis Datos
+        </Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+        <Form>
+                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
+                        <Form.Group controlId="email">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="martis@gmail.com"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
+                        <Form.Group controlId="username">
+                            <Form.Label>Usuario</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="mfede"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
+                        <Form.Group controlId="nombre">
+                            <Form.Label>Nombre</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Martis"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
+                        <Form.Group controlId="apellido">
+                            <Form.Label>Apellido</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Fede"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
+                        <Form.Group controlId="direccion">
+                            <Form.Label>Dirección</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Av.UADE 729"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+        </Form>
+    </Modal.Body>
+    <Modal.Footer>
+        <Button onClick={props.onHide} variant='dark'>
+            Guardar cambios
+        </Button>
+    </Modal.Footer>
+    </Modal>
+);
+}
 
 function Cuenta() {
     const dispatch = useDispatch();
@@ -36,9 +118,9 @@ function Cuenta() {
 
     const products = useSelector((state) => state.products.products);
 
-    const [productName, setProductName] = useState(''); // Estado para el nombre del producto
-    const [discountPercentage, setDiscountPercentage] = useState(''); // Estado para el porcentaje de descuento
-    
+    const [productName, setProductName] = useState(''); 
+    const [discountPercentage, setDiscountPercentage] = useState(''); 
+    const [modalShow, setModalShow] = useState(false); 
     
     function createDiscount(){
         const itemsUpdate = products.map((item) => {
@@ -111,7 +193,7 @@ return (
             <Form>
                 <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
                     <Col md={6}>
-                        <Form.Group controlId="formularioEmail">
+                        <Form.Group controlId="email">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="text"
@@ -124,7 +206,20 @@ return (
                 </Row>
                 <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
                     <Col md={6}>
-                        <Form.Group controlId="formularioNombre">
+                        <Form.Group controlId="username">
+                            <Form.Label>Usuario</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="mfede"
+                                aria-label="Disabled input example"
+                                readOnly
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
+                        <Form.Group controlId="nombre">
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
@@ -137,7 +232,20 @@ return (
                 </Row>
                 <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
                     <Col md={6}>
-                        <Form.Group controlId="formularioNombre">
+                        <Form.Group controlId="apellido">
+                            <Form.Label>Apellido</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Fede"
+                                aria-label="Disabled input example"
+                                readOnly
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
+                        <Form.Group controlId="direccion">
                             <Form.Label>Dirección</Form.Label>
                             <Form.Control
                                 type="text"
@@ -148,21 +256,16 @@ return (
                         </Form.Group>
                     </Col>
                 </Row>
-                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
-                    <Col md={6}>
-                        <Form.Group controlId="formularioContraseña">
-                            <Form.Label>Contraseña</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Martis123"
-                                aria-label="Disabled input example"
-                                readOnly
-                            />
-                        </Form.Group>
-                    </Col>
-                </Row>
+                <div style={{display: 'flex', justifyContent: 'flex-end', marginTop:'1em'}}>
+                        <Button variant="dark" onClick={() => setModalShow(true)}>
+                            Cambiar mis datos
+                        </Button>
+                </div>
             </Form>
-        
+            <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
         </Tab.Pane>
 
 
@@ -262,8 +365,8 @@ return (
                 <Form.Control
                     type="text" 
                     placeholder="Nombre del Producto"
-                    value={productName} // Valor del estado
-                    onChange={(e) => setProductName(e.target.value)} // Actualiza el estado
+                    value={productName} 
+                    onChange={(e) => setProductName(e.target.value)}
                     autoFocus
                 />
             </Form.Group>
@@ -272,8 +375,8 @@ return (
                 <Form.Control
                     type="number"
                     placeholder="Descuento"
-                    value={discountPercentage} // Valor del estado
-                    onChange={(e) => setDiscountPercentage(e.target.value)} // Actualiza el estado
+                    value={discountPercentage}
+                    onChange={(e) => setDiscountPercentage(e.target.value)} 
             />
             <div style={{display: 'flex', justifyContent: 'flex-end', marginTop:'1em'}}>
                 <Button variant="dark" type='submit'>

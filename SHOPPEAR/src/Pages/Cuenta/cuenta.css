@@ -11,3 +11,12 @@
     content: 'HOLA';
     color: #0cc0df;
 }
+
+
+.me-modal-img {
+    margin-right: 0rem;
+}
+
+.img-fluid {
+    max-width: 70%;
+}

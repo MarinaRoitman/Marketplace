@@ -6,13 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import logo from '/assets/logo.png';
 import search from '/assets/search.png';
-import carritoVacio from '/assets/carrito vacio.png';
 import {Link} from 'react-router-dom';
 import SideMenuCarrito from '../SideMenuCarrito/sidemenucarrito.jsx';
 import {useDispatch, useSelector } from 'react-redux'
-import {
-  startSearch
-} from "../../redux/actions/search.actions.js";
+import {startSearch} from "../../redux/actions/search.actions.js";
 const NavbarPrincipal = () => {
 
   const [searchValue, setSearchValue] = useState("");
@@ -55,7 +52,7 @@ const NavbarPrincipal = () => {
         <Row>
           <Col xs={12} md={4} className="align-items-center justify-content-center d-flex">
             <div>
-              <Navbar.Brand href="/">
+              <Navbar.Brand>
                 <img 
                     src={logo} 
                     id='lg' 
