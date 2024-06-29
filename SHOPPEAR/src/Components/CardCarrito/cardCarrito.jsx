@@ -16,7 +16,6 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
   const currentProducts = useSelector((state) => state.cart.cartItems);
   const products = useSelector((state) => state.products.products);
   useEffect(() => {
-  console.log("pp", currentProducts)
   }, [currentProducts]);
 
   const deleteProduct = (id) => {
@@ -29,7 +28,6 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
     const isProductInCart = currentProducts.find((item) => item.id === id);
     const product = products.find((item) => item.id === id)
     const cartProduct = currentProducts.find((item) => item.id === id)
-    console.log("prueba:", cartProduct)
 
     if (product.stock > 0){
         if(value <= product.stock){ //cant toma el valor del botonCantidad, ya tiene el valor nuevo
@@ -45,7 +43,6 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
         dispatch(editExistingProduct(newProducts));
       } else {
         setCant(mount) //devuelvo a cant al valor de mount, que no puede pasar del stock maximo
-        console.log("after set: ", cant)
       }
     }
   }

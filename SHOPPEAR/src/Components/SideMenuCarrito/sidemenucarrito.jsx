@@ -40,7 +40,6 @@ const deleteProduct = (id) => {
   const newProducts = cartItems.filter((product) => product.id !== id);
   dispatch(removeFromCart(newProducts));
 }
-console.log(cartItems)
   return (
     <>
       <button className="cart-button me-2" onClick={toggleShow}>

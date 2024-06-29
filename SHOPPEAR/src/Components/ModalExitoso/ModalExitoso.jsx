@@ -26,7 +26,6 @@ const ModalExitoso = () => {
     }
 
     function confirmarCompra(){
-        console.log(products)
         const itemsUpdate = products.map((item) => {
             const itemCart = cartItems.find((i) => i.id === item.id);
             if(itemCart){

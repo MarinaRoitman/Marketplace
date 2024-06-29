@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './login.css';
@@ -6,38 +6,34 @@ import Figure from 'react-bootstrap/Figure';
 import InputGroup from 'react-bootstrap/InputGroup';
 import {PersonaLogin,Password} from '../../Components/Iconos/iconos.jsx';
 import { useSelector, useDispatch } from "react-redux";
-import { loginSuccess } from '../../redux/actions/auth.actions';
+import { loginSuccess, fetchUsers, checkLogin } from '../../redux/actions/auth.actions';
 import { useNavigate } from 'react-router-dom';
+import CryptoJS from 'crypto-js';
+
 const Login = () => {
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const users = useSelector((state) => state.users.users);
+    const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
+    
+    useEffect(() => {
+        dispatch(fetchUsers());
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (user) {
+            dispatch(loginSuccess(user));
+            navigate('/');
+        }
+    }, [user])
 
     const verificarUsuario = () => {
-        let user = null;
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].mail === usuario && users[i].contrasena === password) {
-            user = users[i];
-            break;
-        }
-        }
-
-        if (user != null) {
-            dispatch(loginSuccess(user));
-            //console.log(useSelector((state) => state));
-            //window.location.href = '/';
-            navigate('/');
-        } else{
-            // aca poner q esta mal la info
-        }
+        dispatch(checkLogin(usuario, password))
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Usuario:', usuario);
-        console.log('Password:', password);
     };
 
     return (

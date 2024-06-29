@@ -16,8 +16,6 @@ const [discountPercentage, setDiscountPercentage] = useState(''); // Estado para
 
 
 function createDiscount(){
-    console.log(productName)
-    console.log(products)
 
     const itemsUpdate = products.map((item) => {
         if(item.nombre.toLowercase() == productName.toLowercase()){
@@ -28,12 +26,10 @@ function createDiscount(){
         return item
     });
     dispatch(editExistingProduct(itemsUpdate));
-    console.log(itemsUpdate);
     setShow(false);
 }
 
 function createDiscount(){
-        console.log(products)
         const itemsUpdate = products.map((item) => {
             const itemCart = cartItems.find((i) => i.id === item.id);
             if(itemCart){

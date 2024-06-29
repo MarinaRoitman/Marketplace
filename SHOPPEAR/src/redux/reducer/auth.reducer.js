@@ -1,24 +1,38 @@
-import { LOGIN_SUCCESS, LOGOUT } from "../actions/auth.actions";
-
 const initialState = {
   isAuthenticated: false,
-  user: null
+  user: null,
+  users: [],
+  datosUsuario: null
 };
 
 const authReducer = (state = initialState, action) => {
-  
   switch (action.type) {
-    case LOGIN_SUCCESS:
+    case "LOGIN_SUCCESS":
       return {
         ...state,
         isAuthenticated: true,
         user: action.payload
       };
-    case LOGOUT:
+    case "LOGOUT":
       return {
         ...state,
         isAuthenticated: false,
         user: null,
+      };
+    case "FETCH_USERS":
+      return {
+        ...state,
+        users: action.payload
+      };
+    case "CHECK_LOGIN":
+      return {
+        ...state,
+        user: action.payload
+      };
+    case "FETCH_USER_BY_ID":
+      return {
+        ...state,
+        datosUsuario: action.payload
       };
     default:
       return state;

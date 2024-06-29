@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './crearCuenta.css'
-
+import { useSelector, useDispatch } from "react-redux";
+import React, { useState, useEffect } from 'react';
 
 const Registro = () => {
-
+    const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [nombre, setNombre] = useState('');
     const [direccion, setDireccion] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
+
+    const crearCuenta = () => {
+        
+    };
 
     return (
         <Container style={{ boxShadow: 'rgb(219 219 219) 0px 0px 10px',borderRadius: '1em', padding: '2em',width: '35%'}}>
@@ -98,7 +103,7 @@ const Registro = () => {
                     style={{display: 'flex',justifyContent: 'center'}}
                     /> 
                 </Form.Group>
-                    <Button variant="dark" type="submit" className="w-100 custom-button" style={{marginTop: '0.3em',marginBottom: '1em',maxWidth: '120px' }}>
+                    <Button onClick={crearCuenta} variant="dark" type="submit" className="w-100 custom-button" style={{marginTop: '0.3em',marginBottom: '1em',maxWidth: '120px' }}>
                         Registrarse 
                     </Button>
                     

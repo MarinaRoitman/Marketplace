@@ -13,15 +13,30 @@ import Login from "./Pages/Login/login.jsx";
 import CrearCuenta from "./Pages/CrearCuenta/crearCuenta.jsx";
 import {startSearch} from "./redux/actions/search.actions.js";
 import ProductosFiltrados from "./Pages/ProductosFiltrados/productosFiltrados.jsx";
+
+import { fetchCategorias, fetchProducts } from './redux/actions/products.actions.js';
+
 function App() {
-  const items = useSelector((state)=> state.products.products)
-  const usuario = useSelector((state)=> state);
-  console.log(usuario, "blabla")
   const dispatch = useDispatch();
+  const { loading, products, error } = useSelector(state => state.products);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(fetchCategorias());
+      await dispatch(fetchProducts());
+    };
+    
+    fetchData();
+  }, [dispatch]);
 
   useEffect(() => {
-    dispatch(startSearch(items))
-  }, []);
+    if (products.length > 0) {
+      dispatch(startSearch(products));
+    }
+  }, [products])
+
+  if (loading) return <p>Cargando productos...</p>;
+  if (error) return <p>Error al cargar productos: {error}</p>;
 
   return (
     <div>

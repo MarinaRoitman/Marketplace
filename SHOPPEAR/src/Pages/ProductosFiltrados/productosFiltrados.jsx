@@ -14,9 +14,17 @@ const ProductosFiltrados = ({}) => {
   const [productos, setProductos] = useState([]);
   const { category } = useParams();
   const products = useSelector((state) => state.search.productosFiltrados);
+  const categorias = useSelector((state) => state.products.categories);
   const [imgSrc, setImgSrc] = useState("");
+
+  const categoria = categorias.filter((cat) => cat.nombre == category)
+  console.log(categoria, "categoriaaa")
+  
   useEffect(() => {
-    setProductos(products.filter((item) => item.categoria == category));
+    if (categoria){
+      setProductos(products.filter((item) => item.idCategoria == categoria[0].id));
+    }
+    
     switch (category){
         case "hombres":
             setImgSrc(bannerH);
@@ -33,9 +41,8 @@ const ProductosFiltrados = ({}) => {
         case "tecnologia":
             setImgSrc(bannerE);
             break;
-        
     }
-  }, [category]);
+  }, [category, products]);
   
   
   //console.log(products);

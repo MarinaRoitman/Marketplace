@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Button } from 'react-bootstrap';
@@ -14,18 +14,24 @@ import BotonCantidad from '../../Components/BotonCantidad/botonCantidad.jsx';
 import CardEditable from '../../Components/cardEditable/cardEditable.jsx';
 
 function Cuenta() {
-const [nombre, setNombre] = useState('');
-const [precio, setPrecio] = useState('');
-const [descripcion, setDescripcion] = useState('');
-const [cantProd, setCantProd] = useState(0);
-const [category, setCategory] = useState('');
+    const dispatch = useDispatch();
+    const [nombre, setNombre] = useState('');
+    const [precio, setPrecio] = useState('');
+    const [descripcion, setDescripcion] = useState('');
+    const [cantProd, setCantProd] = useState(0);
+    const [category, setCategory] = useState('');
 
+    const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
 
-const handleClickMount = (value) => {
-    if(value > 0)
-    {
-        setCantProd(value)
-    }
+    const [mail, setMail] = useState('');
+    const [nombreUsuario, setNombreUsuario] = useState('');
+    const [direccion, setDireccion] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleClickMount = (value) => {
+        if(value > 0){
+            setCantProd(value)
+        }
     }
 
     const products = useSelector((state) => state.products.products);
@@ -35,9 +41,6 @@ const handleClickMount = (value) => {
     
     
     function createDiscount(){
-        console.log(productName)
-        console.log(products)
-    
         const itemsUpdate = products.map((item) => {
             if(item.nombre.toLowercase() == productName.toLowercase()){
                 
@@ -47,28 +50,25 @@ const handleClickMount = (value) => {
             return item
         });
         dispatch(editExistingProduct(itemsUpdate));
-        console.log(itemsUpdate);
         setShow(false);
     }
     
     function createDiscount(){
-            console.log(products)
-            const itemsUpdate = products.map((item) => {
-                const itemCart = cartItems.find((i) => i.id === item.id);
-                if(itemCart){
-                    
-                    //item.stock = item.stock - itemCart.mount;
-    
-                    return {...item, stock: item.stock - itemCart.mount}
-                }
-                return item
-            });
-            setShow(true);
-            //dispatch(editExistingProduct(itemsUpdate));
-            //console.log("patito",itemsUpdate);
-            dispatch(discountStock(itemsUpdate));
-    
-        }
+        const itemsUpdate = products.map((item) => {
+            const itemCart = cartItems.find((i) => i.id === item.id);
+            if(itemCart){
+                
+                //item.stock = item.stock - itemCart.mount;
+
+                return {...item, stock: item.stock - itemCart.mount}
+            }
+            return item
+        });
+        setShow(true);
+        //dispatch(editExistingProduct(itemsUpdate));
+        //console.log("patito",itemsUpdate);
+        dispatch(discountStock(itemsUpdate));
+    }
 
 return (
     <div style={{paddingBottom:'2em'}}>
