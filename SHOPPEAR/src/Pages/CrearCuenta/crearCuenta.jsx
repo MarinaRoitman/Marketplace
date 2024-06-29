@@ -12,7 +12,6 @@ const Registro = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-
     const crearCuenta = () => {
         
     };
@@ -103,7 +102,7 @@ const Registro = () => {
                     style={{display: 'flex',justifyContent: 'center'}}
                     /> 
                 </Form.Group>
-                    <Button onClick={crearCuenta} variant="dark" type="submit" className="w-100 custom-button" style={{marginTop: '0.3em',marginBottom: '1em',maxWidth: '120px' }}>
+                    <Button onClick={crearCuenta} variant="dark" className="w-100 custom-button" style={{marginTop: '0.3em',marginBottom: '1em',maxWidth: '120px' }}>
                         Registrarse 
                     </Button>
                     
