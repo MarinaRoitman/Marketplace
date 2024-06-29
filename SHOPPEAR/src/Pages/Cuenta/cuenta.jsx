@@ -75,6 +75,17 @@ return (
                 </Row>
                 <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
                     <Col md={6}>
+                        <Form.Group controlId="password">
+                            <Form.Label>Contraseña</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Contraseña"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
                         <Form.Group controlId="direccion">
                             <Form.Label>Dirección</Form.Label>
                             <Form.Control
