@@ -8,13 +8,15 @@ import {
   } from "../../redux/actions/carrito.actions";
   import {
     discountStock,
+    fetchProducts,
   } from "../../redux/actions/products.actions";
-
+import { fetchHacerCompra } from '../../redux/actions/products.actions';
 
   
-const ModalExitoso = () => {
+const ModalExitoso = (tipoPago, numTarjeta, direccionFactura) => {
     const products = useSelector((state)=> state.products.products)
     const cartItems = useSelector((state)=> state.cart.cartItems)
+    const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const [show, setShow] = useState(false);
 
@@ -26,20 +28,17 @@ const ModalExitoso = () => {
     }
 
     function confirmarCompra(){
-        const itemsUpdate = products.map((item) => {
-            const itemCart = cartItems.find((i) => i.id === item.id);
-            if(itemCart){
-                
-                //item.stock = item.stock - itemCart.mount;
-
-                return {...item, stock: item.stock - itemCart.mount}
-            }
-            return item
-        });
+        var detalleProds = [];
+        for (const item of cartItems) {
+            detalleProds.push({
+                idProd: item.id,
+                cantidad: item.mount
+            });
+        }
+        console.log(detalleProds, "detalle productos")
+        dispatch(fetchHacerCompra(user, detalleProds, direccionFactura, tipoPago, numTarjeta))
         setShow(true);
-        //dispatch(editExistingProduct(itemsUpdate));
-        dispatch(discountStock(itemsUpdate));
-
+        dispatch(fetchProducts())
     }
 
 return (

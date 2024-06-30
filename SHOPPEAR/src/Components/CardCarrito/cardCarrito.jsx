@@ -11,7 +11,7 @@ import {
   removeFromCart,
 } from "../../redux/actions/carrito.actions";
 
-const cardCarrito = ({id, name, price, img, mount}) => {
+const cardCarrito = ({id, name, price, img, mount, deleteProduct}) => {
   const dispatch = useDispatch();
   const currentProducts = useSelector((state) => state.cart.cartItems);
   const products = useSelector((state) => state.products.products);
@@ -32,12 +32,9 @@ const cardCarrito = ({id, name, price, img, mount}) => {
   }, [img]);
 
   useEffect(() => {
+    setCant(mount)
   }, [currentProducts]);
 
-  const deleteProduct = (id) => {
-    const newProducts = currentProducts.filter((product) => product.id !== id);
-    dispatch(removeFromCart(newProducts));
-  }
   const [cant, setCant] = useState(mount);
 
   const handleClickMount = (value) => {

@@ -10,11 +10,15 @@ import { Link } from 'react-router-dom';
 import {
   removeFromCart,
 } from "../../redux/actions/carrito.actions";
+
+import { useNavigate } from 'react-router-dom';
+
+
 function OffCanvasExample({ name, ...props }) {
   const cartItems = useSelector((state)=> state.cart.cartItems)
   const dispatch = useDispatch();
-  
-
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+  const navigate = useNavigate();
   const options = [
   {
     name: 'Disable backdrop',
@@ -36,10 +40,19 @@ function OffCanvasExample({ name, ...props }) {
   setSumaTotal(cartItems.reduce((total,item) => total+=item.price*item.mount, 0))
   }, [cartItems]);
 
-const deleteProduct = (id) => {
-  const newProducts = cartItems.filter((product) => product.id !== id);
-  dispatch(removeFromCart(newProducts));
-}
+  const deleteProduct = (id) => {
+    const newProducts = cartItems.filter((product) => product.id !== id);
+    dispatch(removeFromCart(newProducts));
+  }
+
+  const checkAuth = () => {
+    if (isAuthenticated) {
+      navigate('/Pago')
+    } else {
+      navigate('/Login')
+    }
+  }
+
   return (
     <>
       <button className="cart-button me-2" onClick={toggleShow}>
@@ -51,16 +64,14 @@ const deleteProduct = (id) => {
           <h2>Mi Carrito</h2>
         </Offcanvas.Header>
         <Offcanvas.Body style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-          {cartItems.map((item)=> <CardCarrito {...item} deleteProduct={deleteProduct}/>)}
+          {cartItems.map((item)=> <CardCarrito id={item.id} name={item.name} price={item.price} img={item.img} mount={item.mount} deleteProduct={deleteProduct}/>)}
           <div style={{ textAlign: 'center', marginTop: 'auto' }}>
             <div>
               <hr />
               <h2 style={{ textAlign: 'left' }}>Total: ${sumaTotal}</h2>
-              <Link to="/Pago" className='styleLinkNone'>
-                <Button variant="dark">
-                  Comprar
+              <Button variant="dark" onClick={checkAuth}>
+                Comprar
               </Button>
-              </Link>
 
             </div>
           </div>

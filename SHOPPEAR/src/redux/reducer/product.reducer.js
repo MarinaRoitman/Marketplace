@@ -39,6 +39,11 @@ const productsReducer = (state = initialState, action) => {
         ...state,
         productosByIdUsuario: action.payload
       };
+    case 'REALIZAR_COMPRA':
+      return {
+        ...state,
+        //deberia actualizar los productos...
+      };
     default:
       return state;
   }

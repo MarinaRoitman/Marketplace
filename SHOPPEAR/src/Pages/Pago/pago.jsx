@@ -7,15 +7,22 @@ import Row from 'react-bootstrap/Row';
 import ModalExitoso from '../../Components/ModalExitoso/ModalExitoso';
 import {useSelector, useDispatch} from 'react-redux'
 import CardCarrito from '../../Components/CardCarrito/cardCarrito';
+import { removeFromCart } from '../../redux/actions/carrito.actions';
 
 const Pago = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
-    const [direccion, setDireccion] = useState('');
+    const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
+    const [direccion, setDireccion] = useState(datosUsuario.direccion);
     const [tarjeta, setTarjeta] = useState('');
 
     const [selectedPayment, setSelectedPayment] = useState('');
     const dispatch = useDispatch();
     const [sumaTotal, setSumaTotal] = useState(0);
+
+    const deleteProduct = (id) => {
+        const newProducts = cartItems.filter((product) => product.id !== id);
+        dispatch(removeFromCart(newProducts));
+    }
 
     useEffect(() => {
     setSumaTotal(cartItems.reduce((total,item) => total+=item.price*item.mount, 0))
@@ -24,6 +31,10 @@ const Pago = () => {
     const handlePaymentChange = (event) => {
         setSelectedPayment(event.target.value);
     };
+
+    const realizarCompra = () => {
+
+    }
 
     return (
         <div>
@@ -82,7 +93,7 @@ const Pago = () => {
                                         />
                                     </Form.Group>
                                 </div>
-                                <ModalExitoso />
+                                <ModalExitoso tipoPago={selectedPayment} numTarjeta={tarjeta} direccionFactura={direccion}/>
                             </Form>
                         </div>
                     </Col>
@@ -90,7 +101,7 @@ const Pago = () => {
                     <Col xs={12} md={4}>
                         <div>
                             <h2 style={{ textAlign: 'left', marginTop: '1em', marginBottom:'1em'}}>Total: ${sumaTotal}</h2>
-                            {cartItems.map((item)=> <CardCarrito {...item}/>)}
+                            {cartItems.map((item)=> <CardCarrito id={item.id} name={item.name} price={item.price} img={item.img} mount={item.mount} deleteProduct={deleteProduct}/>)}
                         </div>
                     </Col>
                 </Row>
