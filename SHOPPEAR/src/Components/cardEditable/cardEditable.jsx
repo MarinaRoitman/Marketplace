@@ -1,12 +1,33 @@
-import React from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Foto from '/assets/MUJER/mj8.jpg'
 import { Button } from 'react-bootstrap';
 import Modal from '../../Components/ModalEditar/ModalEditar.jsx'
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-const cardEditable = () => {
+const cardEditable = (props) => {
+    const { id, name, price, img } = props;
+    const dispatch = useDispatch();
+    const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
+
+    const [imageSrc, setImageSrc] = useState('');
+  
+    useEffect(() => {
+      if (img) {
+        const byteCharacters = atob(img);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], { type: 'image/jpeg' }); // Cambia 'image/jpeg' al tipo correcto
+        const imageUrl = URL.createObjectURL(blob);
+        setImageSrc(imageUrl);
+      }
+    }, [img]);
+
     return (
         <div className="centrar">
             <div className="card-container">
@@ -15,15 +36,15 @@ const cardEditable = () => {
                                 <CardMedia
                                     component="img"
                                     height="400"
-                                    src={Foto}
+                                    src={imageSrc}
                                     className="card-image"
                                 />
                                 <CardContent>
-                                    <div className="card-text">
-                                        <p>nombre</p>
-                                        <p>precio</p>
+                                    <div className="card-text" >
+                                        <p style={{ textAlign: 'center',fontWeight: 'bold'}}>{name}</p>
+                                        <p style={{ textAlign: 'center' }}>${price}</p>
                                     </div>
-                                </CardContent>
+                                    </CardContent>
                                 <div>
                                     <Button className="moreButton" size="small" variant="dark">
                                         <Modal/>

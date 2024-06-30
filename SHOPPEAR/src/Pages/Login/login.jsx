@@ -6,8 +6,9 @@ import Figure from 'react-bootstrap/Figure';
 import InputGroup from 'react-bootstrap/InputGroup';
 import {PersonaLogin,Password} from '../../Components/Iconos/iconos.jsx';
 import { useSelector, useDispatch } from "react-redux";
-import { loginSuccess, fetchUsers, checkLogin } from '../../redux/actions/auth.actions';
+import { loginSuccess, fetchUsers, checkLogin, getUsuarioById } from '../../redux/actions/auth.actions';
 import { useNavigate } from 'react-router-dom';
+import { fetchProductosByIdUsuario } from '../../redux/actions/products.actions.js';
 
 const Login = () => {
     const [usuario, setUsuario] = useState('');
@@ -23,6 +24,8 @@ const Login = () => {
     useEffect(() => {
         if (user) {
             dispatch(loginSuccess(user));
+            dispatch(fetchProductosByIdUsuario(user));
+            dispatch(getUsuarioById(user))
             navigate('/');
         }
     }, [user])

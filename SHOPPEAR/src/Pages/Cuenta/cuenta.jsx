@@ -14,11 +14,6 @@ import { useSelector, useDispatch } from "react-redux";
 import React, { useState, useEffect } from 'react';
 
 function MyVerticallyCenteredModal(props) {
-
-    const crearProducto = () => {
-        
-    };
-
 return (
     <Modal
     {...props}
@@ -119,6 +114,7 @@ function Cuenta() {
     const [category, setCategory] = useState('');
 
     const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
+    console.log(datosUsuario)
 
     const [mail, setMail] = useState('');
     const [nombreUsuario, setNombreUsuario] = useState('');
@@ -130,6 +126,11 @@ function Cuenta() {
             setCantProd(value)
         }
     }
+
+    const productos = useSelector(state => state.products.productosByIdUsuario);
+    const crearProducto = () => {
+        //desp vemos
+    };
 
     const products = useSelector((state) => state.products.products);
 
@@ -150,6 +151,7 @@ function Cuenta() {
         setShow(false);
     }
     
+
     function createDiscount(){
         const itemsUpdate = products.map((item) => {
             const itemCart = cartItems.find((i) => i.id === item.id);
@@ -173,7 +175,7 @@ return (
             <div style={{ padding: '2em', marginBottom: '2em', textAlign: 'center' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center' }}>
                 <h1 style={{ margin: 0 }}>
-                ¡Hola<span style={{ color: '#0cc0df' }}> Martina</span>!
+                ¡Hola<span style={{ color: '#0cc0df' }}> {datosUsuario.nombre} </span>!
                     </h1>
                 </div>
             </div>
@@ -212,7 +214,7 @@ return (
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="martis@gmail.com"
+                                placeholder={datosUsuario.mail}
                                 aria-label="Disabled input example"
                                 readOnly
                             />
@@ -225,7 +227,7 @@ return (
                             <Form.Label>Usuario</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="mfede"
+                                placeholder={datosUsuario.username}
                                 aria-label="Disabled input example"
                                 readOnly
                             />
@@ -238,7 +240,7 @@ return (
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Martis"
+                                placeholder={datosUsuario.nombre}
                                 aria-label="Disabled input example"
                                 readOnly
                             />
@@ -251,7 +253,7 @@ return (
                             <Form.Label>Apellido</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Fede"
+                                placeholder={datosUsuario.apellido}
                                 aria-label="Disabled input example"
                                 readOnly
                             />
@@ -264,7 +266,7 @@ return (
                             <Form.Label>Dirección</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Av.UADE 729"
+                                placeholder={datosUsuario.direccion}
                                 aria-label="Disabled input example"
                                 readOnly
                             />
@@ -289,7 +291,11 @@ return (
                 <VerProducto />
                 <h4 style={{ marginLeft: '0.2em'}}>Ver Publicaciones</h4>
             </div>
-                <CardEditable />
+                {productos.map(prod => <CardEditable key={prod.id}
+                                                    id={prod.id}
+                                                    name={prod.nombre}
+                                                    price={prod.precio}
+                                                    img={prod.img}/>)}
         </Tab.Pane>
 
 

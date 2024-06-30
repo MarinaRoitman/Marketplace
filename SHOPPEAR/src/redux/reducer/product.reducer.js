@@ -2,7 +2,8 @@ const initialState = {
   products: [],
   loading: false,
   error: null,
-  categories: []
+  categories: [],
+  productosByIdUsuario: []
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -32,7 +33,12 @@ const productsReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         categories: action.payload
-      }
+      };
+    case 'CATEGORIES_FETCH_PRODUCTOS_BY_ID_USUARIO':
+      return {
+        ...state,
+        productosByIdUsuario: action.payload
+      };
     default:
       return state;
   }

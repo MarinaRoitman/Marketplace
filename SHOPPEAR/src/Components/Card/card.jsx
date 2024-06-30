@@ -13,7 +13,7 @@ import ModalError from "../ModalError/modalError.jsx";
 import { Link } from "react-router-dom";
 
 export const CardComponent = (props) => {
-  const { id, name, price, rate, img } = props;
+  const { id, name, price, img } = props;
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products)
   const currentProducts = useSelector((state) => state.cart.cartItems);
@@ -40,7 +40,7 @@ export const CardComponent = (props) => {
     const cartProduct = currentProducts.find((item) => item.id === id)
     if (product.stock > 0){
       if (!isProductInCart)
-        dispatch(addToCart({ id, name, price, rate, img, mount: 1 }));
+        dispatch(addToCart({ id, name, price, img, mount: 1 }));
       else {
         if(cartProduct.mount < product.stock){
         const newProducts = currentProducts.map((product) => {
@@ -75,7 +75,6 @@ export const CardComponent = (props) => {
               <div className="card-text" >
                 <p style={{ textAlign: 'center',fontWeight: 'bold'}}>{name}</p>
                 <p style={{ textAlign: 'center' }}>${price}</p>
-                <p style={{ textAlign: 'center' }}>{rate}</p>
               </div>
             </CardContent>
           </Link>

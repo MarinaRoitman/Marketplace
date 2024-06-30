@@ -11,7 +11,7 @@ import {
   removeFromCart,
 } from "../../redux/actions/carrito.actions";
 
-const cardCarrito = ({id, name, price, rate, img, mount}) => {
+const cardCarrito = ({id, name, price, img, mount}) => {
   const dispatch = useDispatch();
   const currentProducts = useSelector((state) => state.cart.cartItems);
   const products = useSelector((state) => state.products.products);
