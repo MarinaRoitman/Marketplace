@@ -13,7 +13,7 @@ import {
 import { fetchHacerCompra } from '../../redux/actions/products.actions';
 
   
-const ModalExitoso = (tipoPago, numTarjeta, direccionFactura) => {
+const ModalExitoso = ({tipoPago, numTarjeta, direccionFactura}) => {
     const products = useSelector((state)=> state.products.products)
     const cartItems = useSelector((state)=> state.cart.cartItems)
     const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
@@ -21,7 +21,9 @@ const ModalExitoso = (tipoPago, numTarjeta, direccionFactura) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    
+        console.log(direccionFactura, "direccion factura")
+        console.log(tipoPago, "tipo de pago")
+        console.log(numTarjeta, "numero de tarjeta")
     function erraseCart(){
         dispatch(emptyCart());
         setShow(false);
@@ -35,7 +37,6 @@ const ModalExitoso = (tipoPago, numTarjeta, direccionFactura) => {
                 cantidad: item.mount
             });
         }
-        console.log(detalleProds, "detalle productos")
         dispatch(fetchHacerCompra(user, detalleProds, direccionFactura, tipoPago, numTarjeta))
         setShow(true);
         dispatch(fetchProducts())

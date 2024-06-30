@@ -96,7 +96,9 @@ export const fetchHacerCompra = (idUsuario, detalleProds, direccionFactura, tipo
       "tipoPago": tipoPago,
       "numeroTarjeta": numeroTarjeta
     });
+
     console.log(raw, "este es el rawrr")
+    
     const requestOptions = {
       method: "POST",
       headers: myHeaders,

@@ -8,13 +8,13 @@ import ModalExitoso from '../../Components/ModalExitoso/ModalExitoso';
 import {useSelector, useDispatch} from 'react-redux'
 import CardCarrito from '../../Components/CardCarrito/cardCarrito';
 import { removeFromCart } from '../../redux/actions/carrito.actions';
+import { fetchHacerCompra } from '../../redux/actions/products.actions';
 
 const Pago = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
     const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
     const [direccion, setDireccion] = useState(datosUsuario.direccion);
     const [tarjeta, setTarjeta] = useState('');
-
     const [selectedPayment, setSelectedPayment] = useState('');
     const dispatch = useDispatch();
     const [sumaTotal, setSumaTotal] = useState(0);
@@ -31,10 +31,6 @@ const Pago = () => {
     const handlePaymentChange = (event) => {
         setSelectedPayment(event.target.value);
     };
-
-    const realizarCompra = () => {
-
-    }
 
     return (
         <div>
@@ -93,7 +89,7 @@ const Pago = () => {
                                         />
                                     </Form.Group>
                                 </div>
-                                <ModalExitoso tipoPago={selectedPayment} numTarjeta={tarjeta} direccionFactura={direccion}/>
+                                <ModalExitoso tipoPago={selectedPayment} direccionFactura={direccion} numTarjeta={tarjeta}/>
                             </Form>
                         </div>
                     </Col>
