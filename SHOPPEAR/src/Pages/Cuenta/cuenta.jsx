@@ -420,14 +420,11 @@ return (
         <Form.Group onSubmit={createDiscount}>
             <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Nombre del producto:</Form.Label>
-                <Form.Control
-                    type="text" 
-                    placeholder="Nombre del Producto"
-                    value={productName} 
-                    onChange={(e) => setProductName(e.target.value)}
-                    autoFocus
-                />
+                <Form.Label>Seleccionar Producto:</Form.Label>
+                <Form.Select aria-label="Seleccionar Categoría" onChange={(e) => setCategory(e.target.value)}>
+                <option>Seleccionar</option>
+                <option value="Hogar">hola :3</option>
+            </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                 <Form.Label>Descuento (%):</Form.Label>
@@ -435,7 +432,12 @@ return (
                     type="number"
                     placeholder="Descuento"
                     value={discountPercentage}
-                    onChange={(e) => setDiscountPercentage(e.target.value)} 
+                    onChange={(e) => {
+                        const value = e.target.value;
+                        if (value >= 0 && value <= 100) {
+                            setDiscountPercentage(value);
+                        }
+                    }} 
             />
             <div style={{display: 'flex', justifyContent: 'flex-end', marginTop:'1em'}}>
                 <Button variant="dark" type='submit'>
