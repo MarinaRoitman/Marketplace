@@ -10,11 +10,10 @@ export const fetchProducts = () => {
 
       const response = (await fetch("http://localhost:4002/auth/productos", requestOptions))
       const data = await response.json()
-      console.log(data)
       dispatch({ type: 'PRODUCTS_FETCH_SUCCESS', payload: data });
       return data
     } catch (error) {
-      console.error(error);// Manejar errores aquí, por ejemplo, dispatch({ type: 'PRODUCTS_FETCH_FAILURE', payload: error.message });
+      console.error(error);
     }
     return null
   };
@@ -35,7 +34,7 @@ export const fetchCategorias = () => {
       dispatch({ type: 'CATEGORIES_FETCH_SUCCESS', payload: data });
       return data
     } catch (error) {
-      console.error(error);// Manejar errores aquí, por ejemplo, dispatch({ type: 'PRODUCTS_FETCH_FAILURE', payload: error.message });
+      console.error(error);
     }
     return null
   };
@@ -54,7 +53,33 @@ export const fetchProductosByIdUsuario = (id) => {
       dispatch({ type: 'CATEGORIES_FETCH_PRODUCTOS_BY_ID_USUARIO', payload: data });
       return data
     } catch (error) {
-      console.error(error);// Manejar errores aquí, por ejemplo, dispatch({ type: 'PRODUCTS_FETCH_FAILURE', payload: error.message });
+      console.error(error);
+    }
+    return null
+  };
+};
+
+export const fetchEliminarProducto = (id) => {
+  return async (dispatch) => {
+    const requestOptions = {
+      method: "DELETE",
+      redirect: "follow"
+    };
+
+    try {
+      const response = (await fetch("http://localhost:4002/auth/productos?idProducto=" + id, requestOptions))
+
+      const requestOptions2 = {
+        method: "GET",
+        redirect: "follow",
+        //mode: "no-cors"
+      };
+      const response2 = (await fetch("http://localhost:4002/auth/productos", requestOptions2))
+      const data2 = await response2.json()
+      dispatch({ type: 'PRODUCTS_FETCH_SUCCESS', payload: data2 });
+      return data2
+    } catch (error) {
+      console.error(error, "error en algun fetch");
     }
     return null
   };
@@ -64,3 +89,4 @@ export const discountStock = (products) => ({
   type: "DISCOUNT_STOCK",
   payload: products,
 });
+

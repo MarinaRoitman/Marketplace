@@ -69,7 +69,6 @@ export const getUsuarioById = (id) => {
               
             const response = await fetch("http://localhost:4002/auth/usuarios/" + id, requestOptions)
             const data = await response.json()
-            console.log(data, "info del ususario")
             dispatch({ type: 'FETCH_USER_BY_ID', payload: data });
         } catch (error){
             console.log(error, "error de fetch")
@@ -78,3 +77,37 @@ export const getUsuarioById = (id) => {
     };
 
 };
+
+export const modificarUsuario = (id, nombre, apellido, mail, contrasena, direccion, username) => {
+  return async (dispatch) => {
+    try{
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      
+      const raw = JSON.stringify({
+        "id": id,
+        "nombre": nombre,
+        "apellido": apellido,
+        "mail": mail,
+        "contrasena": contrasena,
+        "direccion": direccion,
+        "username": username
+      });
+      
+      const requestOptions = {
+        method: "PUT",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+      };
+      
+      const response = await fetch("http://localhost:4002/auth/usuarios", requestOptions)
+      const data = await response.json()
+      dispatch({ type: 'CAMBIAR_DATOS_USUARIO', payload: data });
+
+    } catch (error){
+        console.log(error, "error de fetch")
+    }
+    return response
+  };
+}

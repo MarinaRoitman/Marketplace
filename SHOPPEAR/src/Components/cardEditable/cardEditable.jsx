@@ -8,12 +8,12 @@ import { useSelector, useDispatch } from "react-redux";
 import './cardEditable.css';
 
 const cardEditable = (props) => {
-    const { id, name, price, img } = props;
+    const { id, name, price, img, description } = props;
     const dispatch = useDispatch();
     const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
 
     const [imageSrc, setImageSrc] = useState('');
-  
+    
     useEffect(() => {
       if (img) {
         const byteCharacters = atob(img);
@@ -47,7 +47,7 @@ const cardEditable = (props) => {
                                     </CardContent>
                                 <div>
                                     <Button className="moreButton" size="small" variant="dark">
-                                        <Modal/>
+                                        <Modal id={id} name={name} price={price} img={img} description={description} />
                                     </Button>
                                 </div>
                             </Card>

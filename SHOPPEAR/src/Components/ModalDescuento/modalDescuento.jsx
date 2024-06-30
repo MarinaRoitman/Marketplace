@@ -42,7 +42,6 @@ function createDiscount(){
         });
         setShow(true);
         //dispatch(editExistingProduct(itemsUpdate));
-        //console.log("patito",itemsUpdate);
         dispatch(discountStock(itemsUpdate));
 
     }

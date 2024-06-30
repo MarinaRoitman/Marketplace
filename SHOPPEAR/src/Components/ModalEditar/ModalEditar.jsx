@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
@@ -9,12 +10,40 @@ import { Edit } from '../Iconos/iconos.jsx';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { fetchEliminarProducto } from '../../redux/actions/products.actions.js';
+import { fetchProducts } from '../../redux/actions/products.actions.js';
 
-function Example() {
-const [show, setShow] = useState(false);
+const Example = ({ id, name, price, img, description }) => {
+//////////////////////////////////////////////////
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+//////////////////////////////////////////////////
+    const dispatch = useDispatch();
 
-const handleClose = () => setShow(false);
-const handleShow = () => setShow(true);
+    const [imageSrc, setImageSrc] = useState('');
+
+    useEffect(() => {
+        if (img) {
+          const byteCharacters = atob(img);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: 'image/jpeg' }); // Cambia 'image/jpeg' al tipo correcto
+          const imageUrl = URL.createObjectURL(blob);
+          setImageSrc(imageUrl);
+        }
+      }, [img]);
+
+    
+    
+    const eliminarProducto = () => {
+        dispatch(fetchEliminarProducto(id))
+        dispatch(fetchProducts())
+        handleClose()
+    };
 
 return (
     <>
@@ -34,7 +63,7 @@ return (
             <Figure>
             <Figure.Image
                 alt="171x180"
-                src={imgTest}
+                src={imageSrc}
                 />
             </Figure>
         </div>
@@ -44,7 +73,7 @@ return (
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
                 type="email"
-                placeholder="Nombre del Producto"
+                defaultValue={name}
                 autoFocus
                 />
             </Form.Group>
@@ -55,7 +84,7 @@ return (
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
                 type="Numero"
-                placeholder="Precio"
+                defaultValue={price}
                 autoFocus
                 />
                 </Form>
@@ -69,10 +98,15 @@ return (
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Descripción</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control
+                    as="textarea"
+                    rows={3}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
             </Form.Group>
-            <Form.Select aria-label="Seleccionar Categoría">
-                <option>Seleccionar Categoría</option>
+            <Form.Select aria-label="Seleccionar Categoría"> 
+                <option>Seleccionar Categoría MAPPEAR LAS CATEGORIAS!!!</option>
                 <option value="1">Hogar</option>
                 <option value="2">Mujer</option>
                 <option value="3">Hombre</option>
@@ -88,11 +122,11 @@ return (
 
         </Modal.Body>
         <Modal.Footer>
-        <Button variant="danger" onClick={handleClose}>
+        <Button variant="danger" onClick={eliminarProducto}>
             Eliminar
         </Button>
         <Button variant="dark" onClick={handleClose}>
-            Agregar
+            Confirmar
         </Button>
         </Modal.Footer>
     </Modal>

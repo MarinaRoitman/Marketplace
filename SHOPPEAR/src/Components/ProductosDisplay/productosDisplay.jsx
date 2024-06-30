@@ -45,7 +45,6 @@ const productosDisplay = () => {
     }
     const { nombre, descripcion, id, precio, stock, img } = detailedProduct;
     
-    //console.log("detailed product", detailedProduct)
 
   function addProductInCart() {
     const isProductInCart = currentProducts.find((item) => item.id === id);

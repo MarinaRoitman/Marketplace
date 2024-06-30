@@ -34,6 +34,11 @@ const authReducer = (state = initialState, action) => {
         ...state,
         datosUsuario: action.payload
       };
+    case "CAMBIAR_DATOS_USUARIO":
+      return {
+        ...state,
+        datosUsuario: action.payload
+      };
     default:
       return state;
   }

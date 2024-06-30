@@ -18,7 +18,6 @@ const ProductosFiltrados = ({}) => {
   const [imgSrc, setImgSrc] = useState("");
 
   const categoria = categorias.filter((cat) => cat.nombre == category)
-  console.log(categoria, "categoriaaa")
   
   useEffect(() => {
     if (categoria){
@@ -45,7 +44,6 @@ const ProductosFiltrados = ({}) => {
   }, [category, products]);
   
   
-  //console.log(products);
   return (
     <div>
       <Banner imgSrc={imgSrc} style={{marginTop:'4em'}}/>

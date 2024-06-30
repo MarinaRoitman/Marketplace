@@ -5,7 +5,7 @@ import "./SectionProductDisplay.css"
 const SectionProductDisplay = ({}) => {
 
   const filteredProducts = useSelector((state) => state.search.productosFiltrados);
-  //console.log(products);
+
 
   return (
     <div className="productos">

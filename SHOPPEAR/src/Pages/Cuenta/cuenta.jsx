@@ -11,9 +11,32 @@ import imgTest from '/assets/MUJER/mj1.jpg';
 import BotonCantidad from '../../Components/BotonCantidad/botonCantidad.jsx';
 import CardEditable from '../../Components/cardEditable/cardEditable.jsx';
 import { useSelector, useDispatch } from "react-redux";
+import { modificarUsuario } from '../../redux/actions/auth.actions.js';
 import React, { useState, useEffect } from 'react';
+import { fetchProductosByIdUsuario } from '../../redux/actions/products.actions.js';
 
 function MyVerticallyCenteredModal(props) {
+    const dispatch = useDispatch();
+    const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
+
+    const [mail, setMail] = useState(datosUsuario.mail);
+    const [nombreUsuario, setNombreUsuario] = useState(datosUsuario.username);
+    const [nombre, setNombre] = useState(datosUsuario.nombre);
+    const [apellido, setApellido] = useState(datosUsuario.apellido);
+    const [password, setPassword] = useState(datosUsuario.password);
+    const [direccion, setDireccion] = useState(datosUsuario.direccion);
+
+    const modificarDatos = () => {
+        dispatch(modificarUsuario(user, nombre, apellido, mail, password, direccion, nombreUsuario));
+    };
+
+    
+
+    const handleButtonClick = () => {
+        modificarDatos();
+        props.onHide();
+    };
+
 return (
     <Modal
     {...props}
@@ -34,7 +57,8 @@ return (
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="martis@gmail.com"
+                                defaultValue={datosUsuario.mail}
+                                onChange={(e) => setMail(e.target.value)}
                             />
                         </Form.Group>
                     </Col>
@@ -45,7 +69,8 @@ return (
                             <Form.Label>Usuario</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="mfede"
+                                defaultValue={datosUsuario.username}
+                                onChange={(e) => setNombreUsuario(e.target.value)}
                             />
                         </Form.Group>
                     </Col>
@@ -56,7 +81,8 @@ return (
                             <Form.Label>Nombre</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Martis"
+                                defaultValue={datosUsuario.nombre}
+                                onChange={(e) => setNombre(e.target.value)}
                             />
                         </Form.Group>
                     </Col>
@@ -67,7 +93,8 @@ return (
                             <Form.Label>Apellido</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Fede"
+                                defaultValue={datosUsuario.apellido}
+                                onChange={(e) => setApellido(e.target.value)}
                             />
                         </Form.Group>
                     </Col>
@@ -79,6 +106,7 @@ return (
                             <Form.Control
                                 type="password"
                                 placeholder="Contraseña"
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </Form.Group>
                     </Col>
@@ -89,7 +117,8 @@ return (
                             <Form.Label>Dirección</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Av.UADE 729"
+                                defaultValue={datosUsuario.direccion}
+                                onChange={(e) => setDireccion(e.target.value)}
                             />
                         </Form.Group>
                     </Col>
@@ -97,8 +126,8 @@ return (
         </Form>
     </Modal.Body>
     <Modal.Footer>
-        <Button onClick={props.onHide} variant='dark'>
-            Guardar cambios
+        <Button onClick={handleButtonClick} variant='dark'>
+        Guardar cambios
         </Button>
     </Modal.Footer>
     </Modal>
@@ -114,12 +143,8 @@ function Cuenta() {
     const [category, setCategory] = useState('');
 
     const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
-    console.log(datosUsuario)
-
-    const [mail, setMail] = useState('');
-    const [nombreUsuario, setNombreUsuario] = useState('');
-    const [direccion, setDireccion] = useState('');
-    const [password, setPassword] = useState('');
+    
+    
 
     const handleClickMount = (value) => {
         if(value > 0){
@@ -128,11 +153,18 @@ function Cuenta() {
     }
 
     const productos = useSelector(state => state.products.productosByIdUsuario);
+    const products = useSelector((state) => state.products.products);
+    useEffect(() => {
+        dispatch(fetchProductosByIdUsuario(user))
+    }, [products]);
+    
     const crearProducto = () => {
         //desp vemos
     };
 
-    const products = useSelector((state) => state.products.products);
+    
+
+    
 
     const [productName, setProductName] = useState(''); 
     const [discountPercentage, setDiscountPercentage] = useState(''); 
@@ -150,7 +182,6 @@ function Cuenta() {
         dispatch(editExistingProduct(itemsUpdate));
         setShow(false);
     }
-    
 
     function createDiscount(){
         const itemsUpdate = products.map((item) => {
@@ -165,7 +196,6 @@ function Cuenta() {
         });
         setShow(true);
         //dispatch(editExistingProduct(itemsUpdate));
-        //console.log("patito",itemsUpdate);
         dispatch(discountStock(itemsUpdate));
     }
 
@@ -299,6 +329,7 @@ return (
                                             name={prod.nombre}
                                             price={prod.precio}
                                             img={prod.img}
+                                            description={prod.descripcion}
                                         />
                                     )}
                                 </div>
