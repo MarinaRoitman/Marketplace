@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./card.css";
 import Button from "react-bootstrap/Button";
 import Card from "@mui/material/Card";
@@ -17,6 +17,22 @@ export const CardComponent = (props) => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products)
   const currentProducts = useSelector((state) => state.cart.cartItems);
+
+  const [imageSrc, setImageSrc] = useState('');
+
+  useEffect(() => {
+    if (img) {
+      const byteCharacters = atob(img);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: 'image/jpeg' }); // Cambia 'image/jpeg' al tipo correcto
+      const imageUrl = URL.createObjectURL(blob);
+      setImageSrc(imageUrl);
+    }
+  }, [img]);
 
   function addProductInCart() {
     const isProductInCart = currentProducts.find((item) => item.id === id);
@@ -52,7 +68,7 @@ export const CardComponent = (props) => {
             <CardMedia
               component="img"
               height="400"
-              src={img}
+              src={imageSrc}
               className="card-image"
             />
             <CardContent>

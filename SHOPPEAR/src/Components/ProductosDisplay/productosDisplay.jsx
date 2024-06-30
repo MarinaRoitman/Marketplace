@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from "react-redux";
@@ -10,11 +10,13 @@ import {
 } from "../../redux/actions/carrito.actions";
 
 
+
 const productosDisplay = () => {
     const { searchID } = useParams(); // Obtener el ID del producto de la URL
     const products = useSelector((state) => state.products.products);
     const currentProducts = useSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
+    const [imageSrc, setImageSrc] = useState('');
 
     let detailedProduct = null;
     for (let i = 0; i < products.length; i++) {
@@ -23,10 +25,25 @@ const productosDisplay = () => {
             break;
         }
     }
+
+    useEffect(() => {
+      if (detailedProduct && detailedProduct.img) {
+          const byteCharacters = atob(detailedProduct.img);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+              byteNumbers[i] = byteCharacters.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: 'image/jpeg' }); // Cambia 'image/jpeg' al tipo correcto
+          const imageUrl = URL.createObjectURL(blob);
+          setImageSrc(imageUrl);
+      }
+  }, [detailedProduct]);
+
     if (!detailedProduct) {
         return <div>No se encontró el producto.</div>;
     }
-    const { nombre, descripcion, id, precio, stock, img, rating } = detailedProduct;
+    const { nombre, descripcion, id, precio, stock, img } = detailedProduct;
     
     //console.log("detailed product", detailedProduct)
 
@@ -36,7 +53,7 @@ const productosDisplay = () => {
     const cartProduct = currentProducts.find((item) => item.id === id)
     if (product.stock > 0){
       if (!isProductInCart)
-        dispatch(addToCart({ id, name: nombre, price: precio, rate: rating, img, mount: 1 }));
+        dispatch(addToCart({ id, name: nombre, price: precio, img, mount: 1 }));
       else {
         if(cartProduct.mount < product.stock){
         const newProducts = currentProducts.map((product) => {
@@ -71,13 +88,12 @@ const productosDisplay = () => {
                 margin: '3em' 
             }}>
                 <div>
-                    <img src={img} alt='img' style={{Width: '40em', height:'40em'}}/>
+                    <img src={imageSrc} alt='img' style={{Width: '40em', height:'40em'}}/>
                 </div>
                 <div className="productosAcomodados" style={{ marginLeft: '20px', margin: '9em'}}>
                     <h2>{nombre}</h2>
                     <p className="product-descripcion">{descripcion}</p>
                     <p className="product-precio">Precio: ${precio}</p>
-                    <p className="product-precio">{rating}</p>
                     <p className="product-precio">Quedan {stock} unidades</p>
                     <Button variant='dark' onClick={addProductInCart}>Agregar al carrito</Button>
                 </div>

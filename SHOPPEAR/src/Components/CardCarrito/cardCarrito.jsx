@@ -15,6 +15,22 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
   const dispatch = useDispatch();
   const currentProducts = useSelector((state) => state.cart.cartItems);
   const products = useSelector((state) => state.products.products);
+  const [imageSrc, setImageSrc] = useState('');
+
+  useEffect(() => {
+    if (img) {
+      const byteCharacters = atob(img);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: 'image/jpeg' }); // Cambia 'image/jpeg' al tipo correcto
+      const imageUrl = URL.createObjectURL(blob);
+      setImageSrc(imageUrl);
+    }
+  }, [img]);
+
   useEffect(() => {
   }, [currentProducts]);
 
@@ -51,7 +67,7 @@ const cardCarrito = ({id, name, price, rate, img, mount}) => {
     <Card className="horizontal-card">
       <div className="card-horizontal">
         <div className="img-square-wrapper">
-          <Card.Img src={img} alt="Product" />
+          <Card.Img src={imageSrc} alt="Product" />
         </div>
         <Card.Body>
           <div className="product-info">

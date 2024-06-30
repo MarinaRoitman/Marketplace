@@ -61,7 +61,6 @@ const ProductosFiltrados = ({}) => {
               id={product.id}
               name={product.nombre}
               price={product.precio}
-              rate={product.rating}
               img={product.img}
             />
           ))}

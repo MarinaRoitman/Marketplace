@@ -1,5 +1,3 @@
-import React,{useState} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Button, Modal } from 'react-bootstrap';
@@ -12,9 +10,15 @@ import Figure from 'react-bootstrap/Figure';
 import imgTest from '/assets/MUJER/mj1.jpg';
 import BotonCantidad from '../../Components/BotonCantidad/botonCantidad.jsx';
 import CardEditable from '../../Components/cardEditable/cardEditable.jsx';
+import { useSelector, useDispatch } from "react-redux";
+import React, { useState, useEffect } from 'react';
 
 function MyVerticallyCenteredModal(props) {
-    
+
+    const crearProducto = () => {
+        
+    };
+
 return (
     <Modal
     {...props}

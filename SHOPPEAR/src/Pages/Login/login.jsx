@@ -8,7 +8,6 @@ import {PersonaLogin,Password} from '../../Components/Iconos/iconos.jsx';
 import { useSelector, useDispatch } from "react-redux";
 import { loginSuccess, fetchUsers, checkLogin } from '../../redux/actions/auth.actions';
 import { useNavigate } from 'react-router-dom';
-import CryptoJS from 'crypto-js';
 
 const Login = () => {
     const [usuario, setUsuario] = useState('');
