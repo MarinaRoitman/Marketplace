@@ -30,8 +30,6 @@ function MyVerticallyCenteredModal(props) {
         dispatch(modificarUsuario(user, nombre, apellido, mail, password, direccion, nombreUsuario));
     };
 
-    
-
     const handleButtonClick = () => {
         modificarDatos();
         props.onHide();
@@ -205,7 +203,7 @@ return (
             <div style={{ padding: '2em', marginBottom: '2em', textAlign: 'center' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center' }}>
                 <h1 style={{ margin: 0 }}>
-                ¡Hola<span style={{ color: '#0cc0df' }}> {datosUsuario.nombre} </span>!
+                ¡Hola<span style={{ color: '#0cc0df' }}> {datosUsuario.nombre}</span>!
                     </h1>
                 </div>
             </div>

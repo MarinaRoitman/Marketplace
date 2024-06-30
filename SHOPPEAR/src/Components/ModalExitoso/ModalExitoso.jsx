@@ -21,9 +21,6 @@ const ModalExitoso = ({tipoPago, numTarjeta, direccionFactura}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-        console.log(direccionFactura, "direccion factura")
-        console.log(tipoPago, "tipo de pago")
-        console.log(numTarjeta, "numero de tarjeta")
     function erraseCart(){
         dispatch(emptyCart());
         setShow(false);

@@ -104,10 +104,11 @@ export const modificarUsuario = (id, nombre, apellido, mail, contrasena, direcci
       const response = await fetch("http://localhost:4002/auth/usuarios", requestOptions)
       const data = await response.json()
       dispatch({ type: 'CAMBIAR_DATOS_USUARIO', payload: data });
+      return response
 
     } catch (error){
         console.log(error, "error de fetch")
     }
-    return response
+    
   };
 }
