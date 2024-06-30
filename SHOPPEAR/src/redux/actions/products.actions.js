@@ -127,6 +127,8 @@ export const fetchHacerCompra = (idUsuario, detalleProds, direccionFactura, tipo
   };
 };
 
+
+
 export const discountStock = (products) => ({
   type: "DISCOUNT_STOCK",
   payload: products,

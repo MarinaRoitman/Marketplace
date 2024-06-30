@@ -160,14 +160,17 @@ function Cuenta() {
         //desp vemos
     };
 
-    
-
-    
-
     const [productName, setProductName] = useState(''); 
     const [discountPercentage, setDiscountPercentage] = useState(''); 
     const [modalShow, setModalShow] = useState(false); 
     
+    const agregarDescuento = () => {
+        //tengo que checkear que solo pueda ponerle descuento a los productos, no los products
+        
+    }
+
+    
+
     function createDiscount(){
         const itemsUpdate = products.map((item) => {
             if(item.nombre.toLowercase() == productName.toLowercase()){
