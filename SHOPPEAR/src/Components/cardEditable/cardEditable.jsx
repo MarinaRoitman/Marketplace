@@ -1,11 +1,11 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Foto from '/assets/MUJER/mj8.jpg'
 import { Button } from 'react-bootstrap';
 import Modal from '../../Components/ModalEditar/ModalEditar.jsx'
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import './cardEditable.css';
 
 const cardEditable = (props) => {
     const { id, name, price, img } = props;

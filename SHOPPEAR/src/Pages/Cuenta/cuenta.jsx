@@ -181,7 +181,7 @@ return (
             </div>
 <Tab.Container id="list-group-item.active" defaultActiveKey="#link1">
     <Row>
-    <Col sm={4}>
+    <Col sm={3}>
         <ListGroup>
         <ListGroup.Item action href="#link1" style={{ width: '80%', marginLeft: '4em', height: '4em',textAlign: 'center',alignItems: 'center',display: 'flex',justifyContent: 'space-around'}}>
             Mis Datos
@@ -198,7 +198,7 @@ return (
 
         </ListGroup>
     </Col>
-    <Col sm={8}>
+    <Col sm={6} style={{display: 'contents'}}>
         <Tab.Content style={{width: '60%'}}>
         <Tab.Pane eventKey="#link1">
         <div style={{ display: 'inline-flex', alignItems: 'center', alignItems: 'baseline'}}>
@@ -287,16 +287,22 @@ return (
 
 
         <Tab.Pane eventKey="#link2">
-            <div style={{ display: 'inline-flex', alignItems: 'center'}}>
-                <VerProducto />
-                <h4 style={{ marginLeft: '0.2em'}}>Ver Publicaciones</h4>
-            </div>
-                {productos.map(prod => <CardEditable key={prod.id}
-                                                    id={prod.id}
-                                                    name={prod.nombre}
-                                                    price={prod.precio}
-                                                    img={prod.img}/>)}
-        </Tab.Pane>
+                                <div style={{ display: 'inline-flex', alignItems: 'center' }}>
+                                    <VerProducto />
+                                    <h4 style={{ marginLeft: '0.2em' }}>Ver Publicaciones</h4>
+                                </div>
+                                <div className='products'>
+                                    {productos.map(prod =>
+                                        <CardEditable
+                                            key={prod.id}
+                                            id={prod.id}
+                                            name={prod.nombre}
+                                            price={prod.precio}
+                                            img={prod.img}
+                                        />
+                                    )}
+                                </div>
+                            </Tab.Pane>
 
 
         <Tab.Pane eventKey="#link3">
