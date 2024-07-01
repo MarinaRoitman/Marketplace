@@ -8,3 +8,21 @@
 .producto-precio-tachado{
     text-decoration: line-through;
 }
+
+.row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-precio {
+    margin: 0;
+  }
+  
+  .product-precio-tachado {
+    margin: 0;
+    text-decoration: line-through;
+  }
+  
+  .ms-2 {
+    margin-left: 0.5rem;
+  }

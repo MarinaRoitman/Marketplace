@@ -49,16 +49,16 @@ const productosDisplay = () => {
     }
     
   function addProductInCart() {
-    const isProductInCart = currentProducts.find((item) => item.id === id);
-    const product = products.find((item) => item.id === id)
-    const cartProduct = currentProducts.find((item) => item.id === id)
+    const isProductInCart = currentProducts.find((item) => item.id === detailedProduct.id);
+    const product = products.find((item) => item.id === detailedProduct.id)
+    const cartProduct = currentProducts.find((item) => item.id === detailedProduct.id)
     if (product.stock > 0){
       if (!isProductInCart)
-        dispatch(addToCart({ id: detailedProduct.id, name: detailedProduct.nombre, price: detailedProduct.precio, img: detailedProduct.img, mount: 1 }));
+        dispatch(addToCart({ id: detailedProduct.id, name: detailedProduct.nombre, price: detailedProduct.precio, img: detailedProduct.img, mount: 1, descuento : product.descuento }));
       else {
         if(cartProduct.mount < product.stock){
         const newProducts = currentProducts.map((product) => {
-          if (product.id === id) {
+          if (product.id === detailedProduct.id) {
             return {
               ...product,
               mount: product.mount + 1,
@@ -94,7 +94,14 @@ const productosDisplay = () => {
                 <div className="productosAcomodados" style={{ marginLeft: '20px', margin: '9em'}}>
                     <h2>{detailedProduct.nombre}</h2>
                     <p className="product-descripcion">{detailedProduct.descripcion}</p>
-                    {detailedProduct.descuento === 0 ? <p className="product-precio">Precio: ${detailedProduct.precio}</p> : <div className = 'row'><p className="product-precio"> Precio: ${detailedProduct.precio*(1-detailedProduct.descuento/100)} </p> <p className="product-precio-tachado">${detailedProduct.precio}</p></div>}
+                    {detailedProduct.descuento === 0 ? <p className="product-precio">Precio: ${detailedProduct.precio}</p> : <div className="row align-items-center">
+                                                                                                                                <p className="product-precio">
+                                                                                                                                  Precio: ${detailedProduct.precio * (1 - detailedProduct.descuento / 100)}
+                                                                                                                                </p>
+                                                                                                                                <p className="product-precio-tachado ms-2">
+                                                                                                                                  ${detailedProduct.precio}
+                                                                                                                                </p>
+                                                                                                                              </div>}
                     <p className="product-precio">Quedan {detailedProduct.stock} unidades</p>
                     <Button variant='dark' onClick={addProductInCart}>Agregar al carrito</Button>
                 </div>

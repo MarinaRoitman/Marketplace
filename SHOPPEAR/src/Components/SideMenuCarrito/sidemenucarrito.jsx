@@ -36,8 +36,10 @@ function OffCanvasExample({ name, ...props }) {
 
   const [sumaTotal, setSumaTotal] = useState(0);
 
+
+
   useEffect(() => {
-  setSumaTotal(cartItems.reduce((total,item) => total+=item.price*item.mount, 0))
+    setSumaTotal(cartItems.reduce((total,item) => total+=item.price*item.mount*(1-item.descuento/100), 0))
   }, [cartItems]);
 
   const deleteProduct = (id) => {
@@ -52,7 +54,7 @@ function OffCanvasExample({ name, ...props }) {
       navigate('/Login')
     }
   }
-
+  
   return (
     <>
       <button className="cart-button me-2" onClick={toggleShow}>
@@ -64,7 +66,7 @@ function OffCanvasExample({ name, ...props }) {
           <h2>Mi Carrito</h2>
         </Offcanvas.Header>
         <Offcanvas.Body style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-          {cartItems.map((item)=> <CardCarrito id={item.id} name={item.name} price={item.price} img={item.img} mount={item.mount} deleteProduct={deleteProduct}/>)}
+          {cartItems.map((item)=> <CardCarrito id={item.id} name={item.name} price={item.price} img={item.img} mount={item.mount} deleteProduct={deleteProduct} descuento={item.descuento}/>)}
           <div style={{ textAlign: 'center', marginTop: 'auto' }}>
             <div>
               <hr />

@@ -12,7 +12,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { fetchEliminarProducto } from '../../redux/actions/products.actions.js';
 import { fetchProducts } from '../../redux/actions/products.actions.js';
-
+import { fetchModificarProducto } from '../../redux/actions/products.actions.js';
 const Example = ({ id, name, price, img, description }) => {
 //////////////////////////////////////////////////
     const [show, setShow] = useState(false);
@@ -27,7 +27,10 @@ const Example = ({ id, name, price, img, description }) => {
     const [productDescription, setDescription] = useState(description);
     const [precio, setPrecio] = useState(price);
     const [idCategoria, setIdCategoria] = useState()
-    
+    const [nombre, setNombre] = useState(name)
+
+    const [imagenSubida, setImagenSubida] = useState(null)
+
     useEffect(() => {
         if (img) {
           const byteCharacters = atob(img);
@@ -47,13 +50,31 @@ const Example = ({ id, name, price, img, description }) => {
     }
 
     const modificarProducto = () => {
-        dispatch(fetchModificarProducto(id, name, productDescription, precio, imageSrc, mount, idCategoria))
+        console.log(id, nombre, productDescription, precio, imagenSubida, mount, idCategoria)
+        dispatch(fetchModificarProducto(id, nombre, productDescription, precio, imagenSubida, mount, idCategoria))
+        handleClose()
     };
 
     const eliminarProducto = () => {
         dispatch(fetchEliminarProducto(id))
         dispatch(fetchProducts())
         handleClose()
+    };
+
+    useEffect(() => {
+        console.log(imagenSubida)
+    }, [imagenSubida]);
+
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                const base64String = reader.result.replace(/^data:.+;base64,/, '');
+                setImagenSubida(base64String);
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
 return (
@@ -84,8 +105,9 @@ return (
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
                 type="email"
-                defaultValue={name}
+                defaultValue={nombre}
                 autoFocus
+                onChange={(e) => setNombre(e.target.value)}
                 />
             </Form.Group>
 
@@ -117,7 +139,7 @@ return (
                     onChange={(e) => setDescription(e.target.value)}
                 />
             </Form.Group>
-            <Form.Select aria-label="Seleccionar Categoría"> 
+            <Form.Select aria-label="Seleccionar Categoría" onChange={(e) => setIdCategoria(e.target.value)}> 
                 <option>Seleccionar Categoría</option>
                 {categorias.map(categoria => (
                     <option key={categoria.id} value={categoria.id}>
@@ -128,7 +150,7 @@ return (
             <br />
             <Form.Label>Agregar Foto</Form.Label>
             <Form.Group controlId="formFile">
-            <Form.Control type="file" />
+                <Form.Control type="file" onChange={handleImageUpload} />
             </Form.Group>
         </Form>
 
@@ -137,7 +159,7 @@ return (
         <Button variant="danger" onClick={eliminarProducto}>
             Eliminar
         </Button>
-        <Button variant="dark" onClick={handleClose}>
+        <Button variant="dark" onClick={modificarProducto}>
             Confirmar
         </Button>
         </Modal.Footer>

@@ -13,11 +13,10 @@ import ModalError from "../ModalError/modalError.jsx";
 import { Link } from "react-router-dom";
 
 export const CardComponent = (props) => {
-  const { id, name, price, img } = props;
+  const { id, name, price, img, descuento } = props;
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products)
   const currentProducts = useSelector((state) => state.cart.cartItems);
-
   const [imageSrc, setImageSrc] = useState('');
 
   useEffect(() => {
@@ -39,9 +38,9 @@ export const CardComponent = (props) => {
     const product = products.find((item) => item.id === id)
     const cartProduct = currentProducts.find((item) => item.id === id)
     if (product.stock > 0){
-      if (!isProductInCart)
-        dispatch(addToCart({ id, name, price, img, mount: 1 }));
-      else {
+      if (!isProductInCart){
+        dispatch(addToCart({ id, name, price, img, mount: 1, descuento : product.descuento}));
+      } else {
         if(cartProduct.mount < product.stock){
         const newProducts = currentProducts.map((product) => {
           if (product.id === id) {
@@ -74,7 +73,14 @@ export const CardComponent = (props) => {
             <CardContent>
               <div className="card-text" >
                 <p style={{ textAlign: 'center',fontWeight: 'bold'}}>{name}</p>
-                <p style={{ textAlign: 'center' }}>${price}</p>
+                {descuento > 0 ? (
+                  <div style={{ textAlign: 'center' }}>
+                    <p className="product-precio-tachado">${price}</p>
+                    <p className="product-precio">${price*(1-descuento/100).toFixed(2)}</p>
+                  </div>
+                ) : (
+                  <p style={{ textAlign: 'center' }}>${price}</p>
+                )}
               </div>
             </CardContent>
           </Link>

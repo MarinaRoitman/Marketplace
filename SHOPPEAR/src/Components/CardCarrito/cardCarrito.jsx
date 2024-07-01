@@ -11,7 +11,7 @@ import {
   removeFromCart,
 } from "../../redux/actions/carrito.actions";
 
-const cardCarrito = ({id, name, price, img, mount, deleteProduct}) => {
+const cardCarrito = ({id, name, price, img, mount, deleteProduct, descuento}) => {
   const dispatch = useDispatch();
   const currentProducts = useSelector((state) => state.cart.cartItems);
   const products = useSelector((state) => state.products.products);
@@ -31,6 +31,7 @@ const cardCarrito = ({id, name, price, img, mount, deleteProduct}) => {
       setImageSrc(imageUrl);
     }
   }, [img]);
+
 
   useEffect(() => {
     setCant(mount)
@@ -73,7 +74,14 @@ const cardCarrito = ({id, name, price, img, mount, deleteProduct}) => {
             <button className='trashButtonStyle' onClick={() => deleteProduct(id)}><BasuraIcon className="trashStyle"  width="24" height="24"/></button>
           </div>
           <div>
-            <p>${price}</p>
+            {descuento > 0 ? (
+              <div style={{ textAlign: 'center' }}>
+                <p className="product-precio-tachado">${price}</p>
+                <p className="product-precio">${price*(1-descuento/100).toFixed(2)}</p>
+              </div>
+            ) : (
+              <p style={{ textAlign: 'center' }}>${price}</p>
+            )}
           </div>
           <BotonCantidad mount={cant} setMount={setCant} onClick={handleClickMount}/>
 

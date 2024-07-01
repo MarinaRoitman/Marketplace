@@ -6,7 +6,6 @@ const SectionProductDisplay = ({}) => {
 
   const filteredProducts = useSelector((state) => state.search.productosFiltrados);
 
-
   return (
     <div className="productos">
       {filteredProducts.length &&
@@ -17,6 +16,7 @@ const SectionProductDisplay = ({}) => {
             name={product.nombre}
             price={product.precio}
             img={product.img}
+            descuento={product.descuento}
           />
         ))}
     </div>

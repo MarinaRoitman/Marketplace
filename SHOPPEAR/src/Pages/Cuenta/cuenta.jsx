@@ -13,7 +13,7 @@ import CardEditable from '../../Components/cardEditable/cardEditable.jsx';
 import { useSelector, useDispatch } from "react-redux";
 import { modificarUsuario } from '../../redux/actions/auth.actions.js';
 import React, { useState, useEffect } from 'react';
-import { fetchModificarDescuento, fetchProductosByIdUsuario } from '../../redux/actions/products.actions.js';
+import { fetchModificarDescuento, fetchProductosByIdUsuario, fetchProducts } from '../../redux/actions/products.actions.js';
 
 function MyVerticallyCenteredModal(props) {
     const dispatch = useDispatch();
@@ -176,6 +176,7 @@ function Cuenta() {
     }
 
     useEffect(() => {
+        dispatch(fetchProducts())
     }, [productos]);
 
     const [selectedProduct, setSelectedProduct] = useState('');

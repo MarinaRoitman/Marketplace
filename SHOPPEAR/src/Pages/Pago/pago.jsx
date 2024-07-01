@@ -25,7 +25,7 @@ const Pago = () => {
     }
 
     useEffect(() => {
-    setSumaTotal(cartItems.reduce((total,item) => total+=item.price*item.mount, 0))
+    setSumaTotal(cartItems.reduce((total,item) => total+=item.price*item.mount*(1-item.descuento/100), 0))
     }, [cartItems]);
 
     const handlePaymentChange = (event) => {
@@ -97,7 +97,7 @@ const Pago = () => {
                     <Col xs={12} md={4}>
                         <div>
                             <h2 style={{ textAlign: 'left', marginTop: '1em', marginBottom:'1em'}}>Total: ${sumaTotal}</h2>
-                            {cartItems.map((item)=> <CardCarrito id={item.id} name={item.name} price={item.price} img={item.img} mount={item.mount} deleteProduct={deleteProduct}/>)}
+                            {cartItems.map((item)=> <CardCarrito id={item.id} name={item.name} price={item.price} img={item.img} mount={item.mount} deleteProduct={deleteProduct} descuento={item.descuento}/>)}
                         </div>
                     </Col>
                 </Row>
