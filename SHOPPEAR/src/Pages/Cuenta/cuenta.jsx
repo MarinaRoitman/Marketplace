@@ -6,14 +6,13 @@ import Tab from 'react-bootstrap/Tab';
 import './cuenta.css'
 import { Persona, Descuento, VerProducto, CrearProd} from '../../Components/Iconos/iconos.jsx';
 import Form from 'react-bootstrap/Form';
-import Figure from 'react-bootstrap/Figure';
-import imgTest from '/assets/MUJER/mj1.jpg';
 import BotonCantidad from '../../Components/BotonCantidad/botonCantidad.jsx';
 import CardEditable from '../../Components/cardEditable/cardEditable.jsx';
 import { useSelector, useDispatch } from "react-redux";
 import { modificarUsuario } from '../../redux/actions/auth.actions.js';
 import React, { useState, useEffect } from 'react';
 import { fetchCrearProducto, fetchModificarDescuento, fetchProductosByIdUsuario, fetchProducts } from '../../redux/actions/products.actions.js';
+import ModalPublicarProd from '../../Components/ModalPublicarProd/ModalPublicarProd.jsx';
 
 function MyVerticallyCenteredModal(props) {
     const dispatch = useDispatch();
@@ -204,7 +203,7 @@ return (
                 </div>
             </div>
 <Tab.Container id="list-group-item.active" defaultActiveKey="#link1">
-    <Row>
+    <Row style={{ display: 'flex', alignItems: 'initial' }}>
     <Col sm={3}>
         <ListGroup>
         <ListGroup.Item action href="#link1" style={{ width: '80%', marginLeft: '4em', height: '4em',textAlign: 'center',alignItems: 'center',display: 'flex',justifyContent: 'space-around'}}>
@@ -232,13 +231,13 @@ return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         </div>
             <Form>
-                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+            <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
                     <Col md={6}>
-                        <Form.Group controlId="email">
-                            <Form.Label>Email</Form.Label>
+                        <Form.Group controlId="username">
+                            <Form.Label>Usuario</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder={datosUsuario.mail}
+                                placeholder={datosUsuario.username}
                                 aria-label="Disabled input example"
                                 readOnly
                             />
@@ -247,11 +246,11 @@ return (
                 </Row>
                 <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
                     <Col md={6}>
-                        <Form.Group controlId="username">
-                            <Form.Label>Usuario</Form.Label>
+                        <Form.Group controlId="email">
+                            <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder={datosUsuario.username}
+                                placeholder={datosUsuario.mail}
                                 aria-label="Disabled input example"
                                 readOnly
                             />
@@ -386,23 +385,12 @@ return (
                     ))}
                 </Form.Select>
             </Form.Group>
-            <br />
-            <div className="img-div">
-            <Figure>
-            <Figure.Image
-                alt="171x180"
-                src={imgTest}
-                />
-            </Figure>
-        </div>
             <Form.Label>Agregar Foto</Form.Label>
             <Form.Group controlId="formFile">
             <Form.Control type="file" style={{width:'65%'}}/>
             </Form.Group>
             <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                <Button variant="dark" onClick={crearProducto}>
-                    Publicar Producto
-                </Button>
+                <ModalPublicarProd></ModalPublicarProd>
             </div>
         </Form>
         </Tab.Pane>

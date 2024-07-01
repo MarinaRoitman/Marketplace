@@ -6,8 +6,10 @@ import React, { useState, useEffect } from 'react';
 
 const Registro = () => {
     const dispatch = useDispatch();
+    const [usuario, setUsuario] = useState('');
     const [email, setEmail] = useState('');
     const [nombre, setNombre] = useState('');
+    const [apellido, setApellido] = useState('');
     const [direccion, setDireccion] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -20,13 +22,27 @@ const Registro = () => {
         <Container style={{ boxShadow: 'rgb(219 219 219) 0px 0px 10px',borderRadius: '1em', padding: '2em',width: '35%'}}>
                     <h1 className="text-center" style={{ color: '#0cc0df', paddingBottom: '0.3em', fontSize: '2.7em', textShadow: '1px 0px 0px #8b8b8b' }}>Crea tu cuenta</h1>
             <Form>
+            <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
+                        <Form.Group controlId="formularioEmail">
+                            <Form.Label>Usuario</Form.Label>
+                            <Form.Control
+                                type="name"
+                                placeholder="Usuario"
+                                value={usuario}
+                                onChange={(e) => setUsuario(e.target.value)}
+                                required
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
                 <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
                     <Col md={6}>
                         <Form.Group controlId="formularioEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
                                 type="email"
-                                placeholder="Ingrese su email"
+                                placeholder="Email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -43,6 +59,20 @@ const Registro = () => {
                                 placeholder="Nombre"
                                 value={nombre}
                                 onChange={(e) => setNombre(e.target.value)}
+                                required
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="justify-content-center" style={{paddingBottom: '1.3em'}}>
+                    <Col md={6}>
+                        <Form.Group controlId="formularioApellido">
+                            <Form.Label>Apellido</Form.Label>
+                            <Form.Control
+                                type="name"
+                                placeholder="Apellido"
+                                value={apellido}
+                                onChange={(e) => setApellido(e.target.value)}
                                 required
                             />
                         </Form.Group>
