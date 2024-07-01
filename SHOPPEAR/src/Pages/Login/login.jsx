@@ -15,23 +15,22 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
+    const { isAuthenticated, user, users, datosUsuario, token } = useSelector(state => state.auth);
     
     useEffect(() => {
         dispatch(fetchUsers());
     }, [dispatch]);
 
     useEffect(() => {
-        if (user) {
-            dispatch(loginSuccess(user));
-            dispatch(fetchProductosByIdUsuario(user));
-            dispatch(getUsuarioById(user))
+        if (token) {
+            dispatch(fetchProductosByIdUsuario(datosUsuario.id));
+            dispatch(getUsuarioById(datosUsuario.id))
             navigate('/');
         }
-    }, [user])
+    }, [token])
 
     const verificarUsuario = () => {
-        dispatch(checkLogin(usuario, password))
+        dispatch(checkLogin(usuario, password)) //ACA ES DONDE NO ESTOY CONSIGUIENDO LOS DATOS DEL USUARIO
     };
 
     const handleSubmit = (e) => {

@@ -2,7 +2,8 @@ const initialState = {
   isAuthenticated: false,
   user: null,
   users: [],
-  datosUsuario: null
+  datosUsuario: null,
+  token: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -11,13 +12,13 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: true,
-        user: action.payload
+        token: action.payload
       };
     case "LOGOUT":
       return {
         ...state,
         isAuthenticated: false,
-        user: null,
+        token: null,
       };
     case "FETCH_USERS":
       return {
@@ -27,7 +28,7 @@ const authReducer = (state = initialState, action) => {
     case "CHECK_LOGIN":
       return {
         ...state,
-        user: action.payload
+        token: action.payload
       };
     case "FETCH_USER_BY_ID":
       return {
@@ -42,7 +43,7 @@ const authReducer = (state = initialState, action) => {
     case "CREAR_CUENTA":
       return {
         ...state,
-        //ver que me trae el endpoint...
+        token: action.payload
       };
     default:
       return state;

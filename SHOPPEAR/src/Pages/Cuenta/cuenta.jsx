@@ -26,7 +26,7 @@ function MyVerticallyCenteredModal(props) {
     const [direccion, setDireccion] = useState(datosUsuario.direccion);
 
     const modificarDatos = () => {
-        dispatch(modificarUsuario(user, nombre, apellido, mail, password, direccion, nombreUsuario));
+        dispatch(modificarUsuario(datosUsuario.id, nombre, apellido, mail, password, direccion, nombreUsuario));
     };
 
     const handleButtonClick = () => {
@@ -146,7 +146,7 @@ function Cuenta() {
     const productos = useSelector(state => state.products.productosByIdUsuario);
     const products = useSelector((state) => state.products.products);
     useEffect(() => {
-        dispatch(fetchProductosByIdUsuario(user))
+        dispatch(fetchProductosByIdUsuario(datosUsuario.id))
     }, [products]);
     
     const [selectedProduct, setSelectedProduct] = useState('');
@@ -183,7 +183,7 @@ function Cuenta() {
     const [selectedCategory, setSelectedCategory] = useState('')
 
     const crearProducto = () => {
-        dispatch(fetchCrearProducto(nuevoNombre, nuevaDescripcion, nuevoPrecio, nuevaImg, nuevoStock, selectedCategory, user))
+        dispatch(fetchCrearProducto(nuevoNombre, nuevaDescripcion, nuevoPrecio, nuevaImg, nuevoStock, selectedCategory, datosUsuario.id))
         dispatch(fetchProducts())
         setNuevoNombre('')
         setNuevaDescripcion('')

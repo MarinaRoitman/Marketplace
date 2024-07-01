@@ -11,7 +11,7 @@ function ModalPublicarProd() {
 
     return (
         <>
-            <Button variant="dark" onClick={handleShow} style={{ margin: '1em' }}> {/*onClick={crearProducto}*/}
+            <Button variant="dark" onClick={handleShow} style={{ margin: '1em' }}>
                 Publicar Producto
             </Button>
             <Modal show={show} onHide={handleClose}>

@@ -50,7 +50,6 @@ const Example = ({ id, name, price, img, description }) => {
     }
 
     const modificarProducto = () => {
-        console.log(id, nombre, productDescription, precio, imagenSubida, mount, idCategoria)
         dispatch(fetchModificarProducto(id, nombre, productDescription, precio, imagenSubida, mount, idCategoria))
         handleClose()
     };

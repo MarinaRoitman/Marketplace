@@ -1,8 +1,9 @@
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './crearCuenta.css'
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState, useEffect } from 'react';
+import { checkLogin, crearUsuario, getUsuarioById } from '../../redux/actions/auth.actions';
 
 const Registro = () => {
     const dispatch = useDispatch();
@@ -13,9 +14,20 @@ const Registro = () => {
     const [direccion, setDireccion] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate()
+    //const user = useSelector(state => state.auth.user)
+    const datosUsuario = useSelector(state => state.auth.datosUsuario)
 
     const crearCuenta = () => {
-        
+        if (password == confirmPassword){
+            dispatch(crearUsuario(nombre, apellido, email, password, direccion, usuario))
+            dispatch(checkLogin(email, password))
+            dispatch(getUsuarioById(datosUsuario.id))
+            navigate('/')
+            console.log(datosUsuario)
+        } else {
+            console.log("Las contraseñas no coinciden")
+        }
     };
 
     return (
