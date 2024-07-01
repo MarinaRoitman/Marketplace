@@ -50,6 +50,11 @@ const productsReducer = (state = initialState, action) => {
         ...state,
         productoSeleccionado: action.data
       };
+    case 'CREAR_PRODUCTO':
+      return {
+        ...state,
+        products: [...state.products, action.payload] //agrego el nuevo producto a products
+      };
     default:
       return state;
   }

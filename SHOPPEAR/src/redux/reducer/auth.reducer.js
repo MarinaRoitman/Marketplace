@@ -39,6 +39,11 @@ const authReducer = (state = initialState, action) => {
         ...state,
         datosUsuario: action.payload
       };
+    case "CREAR_CUENTA":
+      return {
+        ...state,
+        //ver que me trae el endpoint...
+      };
     default:
       return state;
   }

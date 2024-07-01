@@ -218,6 +218,41 @@ export const fetchModificarProducto = (id, nombre, descripcion, precio, img, sto
   };
 };
 
+export const fetchCrearProducto = (nombre, descripcion, precio, img, stock, idCategoria, idUsuario) => {
+  return async (dispatch) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      "nombre": nombre,
+      "descripcion": descripcion,
+      "precio": precio,
+      "img": img,
+      "stock": stock,
+      "idCategoria": idCategoria,
+      "descuento": 0, // el descuento empieza en 0, despues lo puede cambiar el usuario
+      "idUsuario": idUsuario
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    };
+
+    try {
+      const response = (await fetch("http://localhost:4002/auth/productos", requestOptions))
+      const data = await response.json()
+      dispatch({ type: 'CREAR_PRODUCTO', payload: data });
+      return data
+    } catch (error) {
+      console.error(error, "error en algun fetch");
+    }
+    return null
+  };
+};
+
 export const discountStock = (products) => ({
   type: "DISCOUNT_STOCK",
   payload: products,

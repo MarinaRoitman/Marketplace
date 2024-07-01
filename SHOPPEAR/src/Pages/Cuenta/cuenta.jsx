@@ -13,7 +13,7 @@ import CardEditable from '../../Components/cardEditable/cardEditable.jsx';
 import { useSelector, useDispatch } from "react-redux";
 import { modificarUsuario } from '../../redux/actions/auth.actions.js';
 import React, { useState, useEffect } from 'react';
-import { fetchModificarDescuento, fetchProductosByIdUsuario, fetchProducts } from '../../redux/actions/products.actions.js';
+import { fetchCrearProducto, fetchModificarDescuento, fetchProductosByIdUsuario, fetchProducts } from '../../redux/actions/products.actions.js';
 
 function MyVerticallyCenteredModal(props) {
     const dispatch = useDispatch();
@@ -134,21 +134,15 @@ return (
 
 function Cuenta() {
     const dispatch = useDispatch();
-    const [nombre, setNombre] = useState('');
-    const [precio, setPrecio] = useState('');
-    const [descripcion, setDescripcion] = useState('');
-    const [cantProd, setCantProd] = useState(0);
-    const [category, setCategory] = useState('');
 
     const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
     
-    
-
     const handleClickMount = (value) => {
         if(value > 0){
-            setCantProd(value)
+            setNuevoStock(value)
         }
     }
+
     const categorias = useSelector(state => state.products.categories)
     const productos = useSelector(state => state.products.productosByIdUsuario);
     const products = useSelector((state) => state.products.products);
@@ -156,21 +150,10 @@ function Cuenta() {
         dispatch(fetchProductosByIdUsuario(user))
     }, [products]);
     
-    const crearProducto = () => {
-        //desp vemos
-    };
-
-    const [productName, setProductName] = useState(''); 
+    const [selectedProduct, setSelectedProduct] = useState('');
     const [discountPercentage, setDiscountPercentage] = useState(''); 
     const [modalShow, setModalShow] = useState(false); 
     
-    const agregarDescuento = () => {
-        //tengo que checkear que solo pueda ponerle descuento a los productos, no los products
-        
-    }
-
-    
-
     function createDiscount(){
         dispatch(fetchModificarDescuento(selectedProduct, discountPercentage))
     }
@@ -179,9 +162,7 @@ function Cuenta() {
         dispatch(fetchProducts())
     }, [productos]);
 
-    const [selectedProduct, setSelectedProduct] = useState('');
     
-    const [selectedCategory, setSelectedCategory] = useState('');
 
     const handleCategoryChange = (e) => {
         const catSelec = e.target.value;
@@ -192,6 +173,25 @@ function Cuenta() {
         const prodSelec =  e.target.value;
         setSelectedProduct(prodSelec) //para ver este valor, usar un useEffect, porque react tarda un instante en realizar el set
     };
+
+    
+
+    const [nuevoNombre, setNuevoNombre] = useState('')
+    const [nuevaDescripcion, setNuevaDescripcion] = useState('')
+    const [nuevoPrecio, setNuevoPrecio] = useState(0)
+    const [nuevaImg, setNuevaImg] = useState(null)
+    const [nuevoStock, setNuevoStock] = useState(0)
+    const [selectedCategory, setSelectedCategory] = useState('')
+
+    const crearProducto = () => {
+        dispatch(fetchCrearProducto(nuevoNombre, nuevaDescripcion, nuevoPrecio, nuevaImg, nuevoStock, selectedCategory, user))
+        dispatch(fetchProducts())
+        setNuevoNombre('')
+        setNuevaDescripcion('')
+        setNuevoPrecio(0)
+        setNuevaImg('')
+        setNuevoStock(0)
+    }
 
 return (
     <div style={{paddingBottom:'2em'}}>
@@ -341,8 +341,8 @@ return (
                 <Form.Control
                 type="name"
                 placeholder="Nombre del Producto"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
+                value={nuevoNombre}
+                onChange={(e) => setNuevoNombre(e.target.value)}
                 required
                 autoFocus
                 />
@@ -354,8 +354,8 @@ return (
                 <Form.Control
                 type="number"
                 placeholder="Precio"
-                value={precio}
-                onChange={(e) => setPrecio(e.target.value)}
+                value={nuevoPrecio}
+                onChange={(e) => setNuevoPrecio(e.target.value)}
                 required
                 autoFocus
                 />
@@ -363,15 +363,15 @@ return (
                 </Col>
                 <Col>
                     <Form.Label>Cantidad</Form.Label>
-                    <BotonCantidad mount={cantProd} onClick={handleClickMount}/>
+                    <BotonCantidad mount={nuevoStock} setMount={setNuevoStock} onClick={handleClickMount}/>
                 </Col>
             </Row>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Descripción</Form.Label>
                 <Form.Control as="textarea" rows={3} 
                 placeholder="Descripción"
-                value={descripcion}
-                onChange={(e) => setDescripcion(e.target.value)}
+                value={nuevaDescripcion}
+                onChange={(e) => setNuevaDescripcion(e.target.value)}
                 required
             />
             </Form.Group>
@@ -400,14 +400,12 @@ return (
             <Form.Control type="file" style={{width:'65%'}}/>
             </Form.Group>
             <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                <Button variant="dark" type='submit'>
+                <Button variant="dark" onClick={crearProducto}>
                     Publicar Producto
                 </Button>
             </div>
         </Form>
         </Tab.Pane>
-
-
         <Tab.Pane eventKey="#link4">
         <div style={{ display: 'inline-flex', alignItems: 'center', alignItems: 'baseline', alignItems: 'flex-start'}}>
             <Descuento/>

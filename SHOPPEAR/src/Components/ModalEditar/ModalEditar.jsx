@@ -62,7 +62,7 @@ const Example = ({ id, name, price, img, description }) => {
     };
 
     useEffect(() => {
-        console.log(imagenSubida)
+        //console.log(imagenSubida)
     }, [imagenSubida]);
 
     const handleImageUpload = (event) => {
