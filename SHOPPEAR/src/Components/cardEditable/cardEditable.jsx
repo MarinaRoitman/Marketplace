@@ -11,7 +11,7 @@ const cardEditable = (props) => {
     const { id, name, price, img, description } = props;
     const dispatch = useDispatch();
     const { isAuthenticated, user, users, datosUsuario } = useSelector(state => state.auth);
-
+    
     const [imageSrc, setImageSrc] = useState('');
     
     useEffect(() => {

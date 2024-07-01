@@ -4,3 +4,7 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.producto-precio-tachado{
+    text-decoration: line-through;
+}

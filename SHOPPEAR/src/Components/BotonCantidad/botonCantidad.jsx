@@ -5,12 +5,14 @@ import { Button } from "react-bootstrap";
 const BotonCantidad = ({ mount, setMount, onClick }) => {
 
     const handleIncrementCounter = () => {
-        onClick(mount+1)
+        setMount(mount + 1);
+        onClick(mount + 1);
     };
 
     const handleDecrementCounter = () => {
         if (mount > 1) {
-            onClick(mount-1)
+            setMount(mount - 1);
+            onClick(mount - 1);
         }
     };
 

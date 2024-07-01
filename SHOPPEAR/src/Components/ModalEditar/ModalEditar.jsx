@@ -22,7 +22,12 @@ const Example = ({ id, name, price, img, description }) => {
     const dispatch = useDispatch();
 
     const [imageSrc, setImageSrc] = useState('');
-
+    const categorias = useSelector(state => state.products.categories);
+    const [mount, setMount] = useState(0);
+    const [productDescription, setDescription] = useState(description);
+    const [precio, setPrecio] = useState(price);
+    const [idCategoria, setIdCategoria] = useState()
+    
     useEffect(() => {
         if (img) {
           const byteCharacters = atob(img);
@@ -37,8 +42,14 @@ const Example = ({ id, name, price, img, description }) => {
         }
       }, [img]);
 
-    
-    
+      const handleClickMount = (value) => {
+        setMount(value);
+    }
+
+    const modificarProducto = () => {
+        dispatch(fetchModificarProducto(id, name, productDescription, precio, imageSrc, mount, idCategoria))
+    };
+
     const eliminarProducto = () => {
         dispatch(fetchEliminarProducto(id))
         dispatch(fetchProducts())
@@ -84,15 +95,16 @@ return (
                 <Form.Label>Precio</Form.Label>
                 <Form.Control
                 type="Numero"
-                defaultValue={price}
+                defaultValue={precio}
                 autoFocus
+                onChange={(e) => setPrecio(e.target.value)}
                 />
                 </Form>
                 </Col>
                 
                 <Col>
                     <Form.Label>Cantidad</Form.Label>
-                    <BotonCantidad minValue={0} maxValue={20}/>
+                    <BotonCantidad mount={mount} setMount={setMount} onClick={handleClickMount}/>
                 </Col>
             </Row>
 
@@ -101,17 +113,17 @@ return (
                 <Form.Control
                     as="textarea"
                     rows={3}
-                    value={description}
+                    value={productDescription}
                     onChange={(e) => setDescription(e.target.value)}
                 />
             </Form.Group>
             <Form.Select aria-label="Seleccionar Categoría"> 
-                <option>Seleccionar Categoría MAPPEAR LAS CATEGORIAS!!!</option>
-                <option value="1">Hogar</option>
-                <option value="2">Mujer</option>
-                <option value="3">Hombre</option>
-                <option value="4">Mascotas</option>
-                <option value="5">Electrónica</option>
+                <option>Seleccionar Categoría</option>
+                {categorias.map(categoria => (
+                    <option key={categoria.id} value={categoria.id}>
+                    {categoria.nombre}
+                    </option>
+                ))}
             </Form.Select>
             <br />
             <Form.Label>Agregar Foto</Form.Label>

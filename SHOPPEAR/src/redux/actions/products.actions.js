@@ -96,8 +96,6 @@ export const fetchHacerCompra = (idUsuario, detalleProds, direccionFactura, tipo
       "tipoPago": tipoPago,
       "numeroTarjeta": numeroTarjeta
     });
-
-    console.log(raw, "este es el rawrr")
     
     const requestOptions = {
       method: "POST",
@@ -128,6 +126,97 @@ export const fetchHacerCompra = (idUsuario, detalleProds, direccionFactura, tipo
 };
 
 
+
+export const fetchModificarDescuento = (id, descuento) => {
+  return async (dispatch) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      "id": id,
+      "descuento": descuento
+    });
+
+    const requestOptions = {
+      method: "PUT",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    };
+
+    try {
+      const response = (await fetch("http://localhost:4002/auth/productos/descuento/" + id, requestOptions))
+      const data = await response.json()
+
+      //a partir de aca intento actualizar los productos 
+      const requestOptions2 = {
+        method: "GET",
+        redirect: "follow",
+      };
+      const response2 = (await fetch("http://localhost:4002/auth/productos", requestOptions2))
+      const data2 = await response2.json()
+      dispatch({ type: 'PRODUCTS_FETCH_SUCCESS', payload: data2 });
+
+      return data
+    } catch (error) {
+      console.error(error, "error en algun fetch");
+    }
+    return null
+  };
+};
+
+export const fetchProductoById = async (id, dispatch) => {
+  const requestOptions = {
+    method: "GET",
+    redirect: "follow"
+  };
+  try {
+    const response = await fetch("http://localhost:4002/auth/productos/" + id, requestOptions)
+    const data = await response.json()
+    
+    dispatch({  type : 'GET_PRODUCTO_BY_ID', data  })
+
+    return data
+  } catch (error) {
+    console.error(error);
+  }
+  return null
+};
+
+
+export const fetchModificarProducto = (id, nombre, descripcion, precio, img, stock, idCategoria) => {
+  return async (dispatch) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+      "id": id,
+      "nombre": nombre,
+      "descripcion": descripcion,
+      "precio": precio,
+      "img": img,
+      "stock": stock,
+      "idCategoria": idCategoria
+    });
+
+    const requestOptions = {
+      method: "PUT",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    };
+
+    try {
+      const response = (await fetch("http://localhost:4002/auth/productos/" + id, requestOptions))
+      const data = await response.json()
+      dispatch({ type: 'PRODUCTS_FETCH_SUCCESS', payload: data });
+      return data
+    } catch (error) {
+      console.error(error, "error en algun fetch");
+    }
+    return null
+  };
+};
 
 export const discountStock = (products) => ({
   type: "DISCOUNT_STOCK",

@@ -3,7 +3,8 @@ const initialState = {
   loading: false,
   error: null,
   categories: [],
-  productosByIdUsuario: []
+  productosByIdUsuario: [],
+  productoSeleccionado: null
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -43,6 +44,11 @@ const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         //deberia actualizar los productos...
+      };
+    case 'GET_PRODUCTO_BY_ID':
+      return {
+        ...state,
+        productoSeleccionado: action.data
       };
     default:
       return state;

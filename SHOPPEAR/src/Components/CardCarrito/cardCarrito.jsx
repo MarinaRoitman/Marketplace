@@ -15,6 +15,7 @@ const cardCarrito = ({id, name, price, img, mount, deleteProduct}) => {
   const dispatch = useDispatch();
   const currentProducts = useSelector((state) => state.cart.cartItems);
   const products = useSelector((state) => state.products.products);
+  
   const [imageSrc, setImageSrc] = useState('');
 
   useEffect(() => {

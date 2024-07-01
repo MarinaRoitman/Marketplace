@@ -19,7 +19,6 @@ import { fetchCategorias, fetchProducts } from './redux/actions/products.actions
 function App() {
   const dispatch = useDispatch();
   const { loading, products, error } = useSelector(state => state.products);
-  
   useEffect(() => {
     const fetchData = async () => {
       await dispatch(fetchCategorias());

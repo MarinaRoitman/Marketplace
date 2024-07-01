@@ -8,7 +8,9 @@ import {
     addToCart,
     editExistingProduct,
 } from "../../redux/actions/carrito.actions";
-
+import { Row } from "react-bootstrap";
+import { accordionDetailsClasses } from "@mui/material";
+import { fetchProductoById } from "../../redux/actions/products.actions";
 
 
 const productosDisplay = () => {
@@ -18,13 +20,15 @@ const productosDisplay = () => {
     const dispatch = useDispatch();
     const [imageSrc, setImageSrc] = useState('');
 
-    let detailedProduct = null;
-    for (let i = 0; i < products.length; i++) {
-        if (products[i].id === parseInt(searchID)) {
-            detailedProduct = products[i];
-            break;
-        }
-    }
+    useEffect(() => {
+      fetch("http://localhost:4002/auth/productos/" + parseInt(searchID))
+      .then(response => response.json())
+      .then(data => {
+        setDetailedProduct(data)
+      });
+    },[searchID]);
+    
+    const [detailedProduct, setDetailedProduct] = useState()
 
     useEffect(() => {
       if (detailedProduct && detailedProduct.img) {
@@ -43,16 +47,14 @@ const productosDisplay = () => {
     if (!detailedProduct) {
         return <div>No se encontró el producto.</div>;
     }
-    const { nombre, descripcion, id, precio, stock, img } = detailedProduct;
     
-
   function addProductInCart() {
     const isProductInCart = currentProducts.find((item) => item.id === id);
     const product = products.find((item) => item.id === id)
     const cartProduct = currentProducts.find((item) => item.id === id)
     if (product.stock > 0){
       if (!isProductInCart)
-        dispatch(addToCart({ id, name: nombre, price: precio, img, mount: 1 }));
+        dispatch(addToCart({ id: detailedProduct.id, name: detailedProduct.nombre, price: detailedProduct.precio, img: detailedProduct.img, mount: 1 }));
       else {
         if(cartProduct.mount < product.stock){
         const newProducts = currentProducts.map((product) => {
@@ -90,10 +92,10 @@ const productosDisplay = () => {
                     <img src={imageSrc} alt='img' style={{Width: '40em', height:'40em'}}/>
                 </div>
                 <div className="productosAcomodados" style={{ marginLeft: '20px', margin: '9em'}}>
-                    <h2>{nombre}</h2>
-                    <p className="product-descripcion">{descripcion}</p>
-                    <p className="product-precio">Precio: ${precio}</p>
-                    <p className="product-precio">Quedan {stock} unidades</p>
+                    <h2>{detailedProduct.nombre}</h2>
+                    <p className="product-descripcion">{detailedProduct.descripcion}</p>
+                    {detailedProduct.descuento === 0 ? <p className="product-precio">Precio: ${detailedProduct.precio}</p> : <div className = 'row'><p className="product-precio"> Precio: ${detailedProduct.precio*(1-detailedProduct.descuento/100)} </p> <p className="product-precio-tachado">${detailedProduct.precio}</p></div>}
+                    <p className="product-precio">Quedan {detailedProduct.stock} unidades</p>
                     <Button variant='dark' onClick={addProductInCart}>Agregar al carrito</Button>
                 </div>
             </div>

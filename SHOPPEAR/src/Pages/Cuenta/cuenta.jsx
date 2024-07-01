@@ -13,7 +13,7 @@ import CardEditable from '../../Components/cardEditable/cardEditable.jsx';
 import { useSelector, useDispatch } from "react-redux";
 import { modificarUsuario } from '../../redux/actions/auth.actions.js';
 import React, { useState, useEffect } from 'react';
-import { fetchProductosByIdUsuario } from '../../redux/actions/products.actions.js';
+import { fetchModificarDescuento, fetchProductosByIdUsuario } from '../../redux/actions/products.actions.js';
 
 function MyVerticallyCenteredModal(props) {
     const dispatch = useDispatch();
@@ -149,7 +149,7 @@ function Cuenta() {
             setCantProd(value)
         }
     }
-
+    const categorias = useSelector(state => state.products.categories)
     const productos = useSelector(state => state.products.productosByIdUsuario);
     const products = useSelector((state) => state.products.products);
     useEffect(() => {
@@ -172,33 +172,25 @@ function Cuenta() {
     
 
     function createDiscount(){
-        const itemsUpdate = products.map((item) => {
-            if(item.nombre.toLowercase() == productName.toLowercase()){
-                
+        dispatch(fetchModificarDescuento(selectedProduct, discountPercentage))
+    }
+
+    useEffect(() => {
+    }, [productos]);
+
+    const [selectedProduct, setSelectedProduct] = useState('');
     
-                return {...item, descuento: discountPercentage}
-            }
-            return item
-        });
-        dispatch(editExistingProduct(itemsUpdate));
-        setShow(false);
-    }
+    const [selectedCategory, setSelectedCategory] = useState('');
 
-    function createDiscount(){
-        const itemsUpdate = products.map((item) => {
-            const itemCart = cartItems.find((i) => i.id === item.id);
-            if(itemCart){
-                
-                //item.stock = item.stock - itemCart.mount;
+    const handleCategoryChange = (e) => {
+        const catSelec = e.target.value;
+        setSelectedCategory(catSelec) //para ver este valor, usar un useEffect, porque react tarda un instante en realizar el set
+    };
 
-                return {...item, stock: item.stock - itemCart.mount}
-            }
-            return item
-        });
-        setShow(true);
-        //dispatch(editExistingProduct(itemsUpdate));
-        dispatch(discountStock(itemsUpdate));
-    }
+    const handleProductChange = (e) => {
+        const prodSelec =  e.target.value;
+        setSelectedProduct(prodSelec) //para ver este valor, usar un useEffect, porque react tarda un instante en realizar el set
+    };
 
 return (
     <div style={{paddingBottom:'2em'}}>
@@ -382,14 +374,17 @@ return (
                 required
             />
             </Form.Group>
-            <Form.Select aria-label="Seleccionar Categoría" onChange={(e) => setCategory(e.target.value)}>
-                <option>Seleccionar Categoría</option>
-                <option value="Hogar">Hogar</option>
-                <option value="Mujer">Mujer</option>
-                <option value="Hombre">Hombre</option>
-                <option value="Mascotas">Mascotas</option>
-                <option value="Electrónica">Electrónica</option>
-            </Form.Select>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Seleccionar Categoria:</Form.Label>
+                <Form.Select aria-label="Seleccionar Categoria" onChange={handleCategoryChange}>
+                    <option value="">Seleccionar</option>
+                    {categorias.map((cat) => (
+                        <option key={cat.id} value={cat.id}>
+                            {cat.nombre}
+                        </option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
             <br />
             <div className="img-div">
             <Figure>
@@ -417,14 +412,18 @@ return (
             <Descuento/>
         <h4 style={{marginLeft:'0.2em'}}>Crear Descuento</h4>
         </div>
-        <Form.Group onSubmit={createDiscount}>
+        <Form.Group>
             <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Seleccionar Producto:</Form.Label>
-                <Form.Select aria-label="Seleccionar Categoría" onChange={(e) => setCategory(e.target.value)}>
-                <option>Seleccionar</option>
-                <option value="Hogar">hola :3</option>
-            </Form.Select>
+            <Form.Label>Seleccionar Producto:</Form.Label>
+                <Form.Select aria-label="Seleccionar Producto" onChange={handleProductChange}>
+                    <option value="">Seleccionar</option>
+                    {productos.map((producto) => (
+                        <option key={producto.id} value={producto.id}>
+                            {producto.nombre}
+                        </option>
+                    ))}
+                </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                 <Form.Label>Descuento (%):</Form.Label>
@@ -440,7 +439,7 @@ return (
                     }} 
             />
             <div style={{display: 'flex', justifyContent: 'flex-end', marginTop:'1em'}}>
-                <Button variant="dark" type='submit'>
+                <Button variant="dark" onClick={createDiscount}>
                     Aplicar
                 </Button>
             </div>
