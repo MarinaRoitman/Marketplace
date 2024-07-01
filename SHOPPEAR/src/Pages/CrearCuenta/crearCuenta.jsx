@@ -22,13 +22,16 @@ const Registro = () => {
         if (password == confirmPassword){
             dispatch(crearUsuario(nombre, apellido, email, password, direccion, usuario))
             dispatch(checkLogin(email, password))
-            dispatch(getUsuarioById(datosUsuario.id))
+            dispatch(getUsuarioById(email))
             navigate('/')
-            console.log(datosUsuario)
+            
         } else {
             console.log("Las contraseñas no coinciden")
         }
     };
+
+    useEffect(() => {
+    }, [datosUsuario]);
 
     return (
         <Container style={{ boxShadow: 'rgb(219 219 219) 0px 0px 10px',borderRadius: '1em', padding: '2em',width: '35%'}}>

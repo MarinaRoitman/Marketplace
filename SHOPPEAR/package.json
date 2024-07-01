@@ -46,7 +46,7 @@
   "jest": {
     "transform": {
       "^.+\\.[jt]sx?$": "babel-jest",
-        "preset": "react-native"
+      "preset": "react-native"
     },
     "preset": "@babel/preset-env"
   }

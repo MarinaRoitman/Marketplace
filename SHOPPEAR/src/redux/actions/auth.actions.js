@@ -56,7 +56,7 @@ export const checkLogin = (mail, password) => {
     };
   };
 
-export const getUsuarioById = (id) => {
+export const getUsuarioById = (mail) => {
     return async (dispatch) => {
         try{
             const requestOptions = {
@@ -64,7 +64,7 @@ export const getUsuarioById = (id) => {
                 redirect: "follow"
               };
               
-            const response = await fetch("http://localhost:4002/auth/usuarios/mail/" + id, requestOptions)
+            const response = await fetch("http://localhost:4002/auth/usuarios/mail/" + mail, requestOptions)
             const data = await response.json()
             dispatch({ type: 'FETCH_USER_BY_ID', payload: data });
         } catch (error){
@@ -142,3 +142,8 @@ export const crearUsuario = (nombre, apellido, mail, password, direccion, userna
     
   };
 }
+
+export const iniciarSesionAlCrear = () => ({
+  type: INICIAR_AL_CREAR,
+  payload: token
+});

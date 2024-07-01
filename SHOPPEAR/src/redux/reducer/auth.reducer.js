@@ -45,6 +45,12 @@ const authReducer = (state = initialState, action) => {
         ...state,
         token: action.payload
       };
+    case "INICIAR_AL_CREAR":
+      return {
+        ...state,
+        isAuthenticated: true,
+        datosUsuario: action.payload
+      }
     default:
       return state;
   }
