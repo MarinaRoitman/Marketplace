@@ -34,7 +34,6 @@ const ModalExitoso = ({tipoPago, numTarjeta, direccionFactura}) => {
                 cantidad: item.mount
             });
         }
-        console.log(datosUsuario.id)
         dispatch(fetchHacerCompra(datosUsuario.id, detalleProds, direccionFactura, tipoPago, numTarjeta))
         setShow(true);
         dispatch(fetchProducts())

@@ -64,15 +64,14 @@ export const getUsuarioById = (id) => {
                 redirect: "follow"
               };
               
-            const response = await fetch("http://localhost:4002/auth/usuarios/" + id, requestOptions)
+            const response = await fetch("http://localhost:4002/auth/usuarios/mail/" + id, requestOptions)
             const data = await response.json()
             dispatch({ type: 'FETCH_USER_BY_ID', payload: data });
         } catch (error){
             console.log(error, "error de fetch")
         }
-        return response
+        return null
     };
-
 };
 
 export const modificarUsuario = (id, nombre, apellido, mail, contrasena, direccion, username) => {

@@ -23,14 +23,19 @@ const Login = () => {
 
     useEffect(() => {
         if (token) {
-            dispatch(fetchProductosByIdUsuario(datosUsuario.id));
-            dispatch(getUsuarioById(datosUsuario.id))
+            dispatch(getUsuarioById(usuario))
             navigate('/');
         }
     }, [token])
 
+    useEffect(() => {
+        if (datosUsuario != null) {
+            dispatch(fetchProductosByIdUsuario(datosUsuario.id));
+        }
+    }, [datosUsuario]);
+
     const verificarUsuario = () => {
-        dispatch(checkLogin(usuario, password)) //ACA ES DONDE NO ESTOY CONSIGUIENDO LOS DATOS DEL USUARIO
+        dispatch(checkLogin(usuario, password))
     };
 
     const handleSubmit = (e) => {

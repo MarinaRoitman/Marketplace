@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 function OffCanvasExample({ name, ...props }) {
   const cartItems = useSelector((state)=> state.cart.cartItems)
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+  const token = useSelector(state => state.auth.token)
   const navigate = useNavigate();
   const options = [
   {
@@ -48,7 +48,7 @@ function OffCanvasExample({ name, ...props }) {
   }
 
   const checkAuth = () => {
-    if (isAuthenticated) {
+    if (token) {
       navigate('/Pago')
     } else {
       navigate('/Login')

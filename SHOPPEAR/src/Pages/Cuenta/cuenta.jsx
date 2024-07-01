@@ -184,7 +184,6 @@ function Cuenta() {
 
     const crearProducto = () => {
         dispatch(fetchCrearProducto(nuevoNombre, nuevaDescripcion, nuevoPrecio, nuevaImg, nuevoStock, selectedCategory, datosUsuario.id))
-        dispatch(fetchProducts())
         setNuevoNombre('')
         setNuevaDescripcion('')
         setNuevoPrecio(0)
@@ -390,7 +389,7 @@ return (
             <Form.Control type="file" style={{width:'65%'}}/>
             </Form.Group>
             <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-                <ModalPublicarProd></ModalPublicarProd>
+                <ModalPublicarProd crearProducto={crearProducto}></ModalPublicarProd>
             </div>
         </Form>
         </Tab.Pane>

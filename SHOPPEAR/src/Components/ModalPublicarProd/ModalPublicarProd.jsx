@@ -3,11 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
 
-function ModalPublicarProd() {
+function ModalPublicarProd({crearProducto}) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleCrearProducto = () => {
+        crearProducto();
+        handleClose();
+    };
 
     return (
         <>
@@ -23,7 +28,7 @@ function ModalPublicarProd() {
                 </Modal.Body>
                 <Modal.Footer>
                     <Link to="/" className='styleLinkNone'>
-                        <Button variant="dark" onClick={handleClose}>
+                        <Button variant="dark" onClick={handleCrearProducto}>
                             Cerrar
                         </Button>
                     </Link>
