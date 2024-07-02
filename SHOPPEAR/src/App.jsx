@@ -29,6 +29,7 @@ function App() {
     fetchData();
   }, [dispatch]);
 
+  
   useEffect(() => {
     if (products.length > 0) {
       dispatch(startSearch(products));
